@@ -22,6 +22,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    gameTutorialVC = [[GameTutorialViewController alloc]initWithNibName:@"GameTutorialViewController" bundle:nil];
+    findAnswerVC = [[FindAnswerViewController alloc]initWithNibName:@"FindAnswerViewController" bundle:nil];
+    friendsVC = [[FriendsViewController alloc]initWithNibName:@"FriendsViewController" bundle:nil];
+    fateVC = [[FateViewController alloc]initWithNibName:@"FateViewController" bundle:nil];
 }
 
 - (void)viewDidUnload
@@ -55,6 +59,23 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+
+-(IBAction)onClickGameTutorial:(id)sender
+{
+}
+
+-(IBAction)onClickFindAnswer:(id)sender
+{
+}
+
+-(IBAction)onClickFriends:(id)sender
+{
+}
+
+-(IBAction)onClickFate:(id)sender
+{
 }
 
 @end
