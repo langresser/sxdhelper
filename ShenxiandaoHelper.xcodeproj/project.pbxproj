@@ -15,6 +15,14 @@
 		3B3AAA4614F69D15003BA5B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */; };
 		3B3AAA4914F69D15003BA5B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4814F69D15003BA5B8 /* ViewController.m */; };
 		3B3AAA4C14F69D15003BA5B8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */; };
+		3B73DF6814F7398D009E34CE /* GameTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF6614F7398D009E34CE /* GameTutorialViewController.m */; };
+		3B73DF6914F7398D009E34CE /* GameTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B73DF6714F7398D009E34CE /* GameTutorialViewController.xib */; };
+		3B73DF6E14F739BA009E34CE /* FindAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */; };
+		3B73DF6F14F739BA009E34CE /* FindAnswerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */; };
+		3B73DF7314F739D0009E34CE /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF7114F739D0009E34CE /* FriendsViewController.m */; };
+		3B73DF7414F739D0009E34CE /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B73DF7214F739D0009E34CE /* FriendsViewController.xib */; };
+		3B73DF7814F73A39009E34CE /* FateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF7614F73A39009E34CE /* FateViewController.m */; };
+		3B73DF7914F73A39009E34CE /* FateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B73DF7714F73A39009E34CE /* FateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +30,27 @@
 		3B3AAA3514F69D15003BA5B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B3AAA3714F69D15003BA5B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B3AAA3914F69D15003BA5B8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3B3AAA3D14F69D15003BA5B8 /* ShenxiandaoHelper-Info.plist */ = {isa = PBXFileReference; path = "ShenxiandaoHelper-Info.plist"; sourceTree = "<group>"; };
+		3B3AAA3D14F69D15003BA5B8 /* ShenxiandaoHelper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShenxiandaoHelper-Info.plist"; sourceTree = "<group>"; };
 		3B3AAA3F14F69D15003BA5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B3AAA4114F69D15003BA5B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3B3AAA4314F69D15003BA5B8 /* ShenxiandaoHelper-Prefix.pch */ = {isa = PBXFileReference; path = "ShenxiandaoHelper-Prefix.pch"; sourceTree = "<group>"; };
-		3B3AAA4414F69D15003BA5B8 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3B3AAA4314F69D15003BA5B8 /* ShenxiandaoHelper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShenxiandaoHelper-Prefix.pch"; sourceTree = "<group>"; };
+		3B3AAA4414F69D15003BA5B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3B3AAA4714F69D15003BA5B8 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		3B3AAA4714F69D15003BA5B8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B3AAA4814F69D15003BA5B8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3B3AAA4B14F69D15003BA5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		3B73DF6514F7398D009E34CE /* GameTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorialViewController.h; sourceTree = "<group>"; };
+		3B73DF6614F7398D009E34CE /* GameTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialViewController.m; sourceTree = "<group>"; };
+		3B73DF6714F7398D009E34CE /* GameTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTutorialViewController.xib; sourceTree = "<group>"; };
+		3B73DF6B14F739BA009E34CE /* FindAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindAnswerViewController.h; sourceTree = "<group>"; };
+		3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindAnswerViewController.m; sourceTree = "<group>"; };
+		3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindAnswerViewController.xib; sourceTree = "<group>"; };
+		3B73DF7014F739D0009E34CE /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		3B73DF7114F739D0009E34CE /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		3B73DF7214F739D0009E34CE /* FriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
+		3B73DF7514F73A39009E34CE /* FateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FateViewController.h; sourceTree = "<group>"; };
+		3B73DF7614F73A39009E34CE /* FateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FateViewController.m; sourceTree = "<group>"; };
+		3B73DF7714F73A39009E34CE /* FateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +103,18 @@
 				3B3AAA4814F69D15003BA5B8 /* ViewController.m */,
 				3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */,
 				3B3AAA3C14F69D15003BA5B8 /* Supporting Files */,
+				3B73DF6514F7398D009E34CE /* GameTutorialViewController.h */,
+				3B73DF6614F7398D009E34CE /* GameTutorialViewController.m */,
+				3B73DF6714F7398D009E34CE /* GameTutorialViewController.xib */,
+				3B73DF6B14F739BA009E34CE /* FindAnswerViewController.h */,
+				3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */,
+				3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */,
+				3B73DF7014F739D0009E34CE /* FriendsViewController.h */,
+				3B73DF7114F739D0009E34CE /* FriendsViewController.m */,
+				3B73DF7214F739D0009E34CE /* FriendsViewController.xib */,
+				3B73DF7514F73A39009E34CE /* FateViewController.h */,
+				3B73DF7614F73A39009E34CE /* FateViewController.m */,
+				3B73DF7714F73A39009E34CE /* FateViewController.xib */,
 			);
 			path = ShenxiandaoHelper;
 			sourceTree = "<group>";
@@ -150,6 +182,10 @@
 			files = (
 				3B3AAA4014F69D15003BA5B8 /* InfoPlist.strings in Resources */,
 				3B3AAA4C14F69D15003BA5B8 /* ViewController.xib in Resources */,
+				3B73DF6914F7398D009E34CE /* GameTutorialViewController.xib in Resources */,
+				3B73DF6F14F739BA009E34CE /* FindAnswerViewController.xib in Resources */,
+				3B73DF7414F739D0009E34CE /* FriendsViewController.xib in Resources */,
+				3B73DF7914F73A39009E34CE /* FateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +199,10 @@
 				3B3AAA4214F69D15003BA5B8 /* main.m in Sources */,
 				3B3AAA4614F69D15003BA5B8 /* AppDelegate.m in Sources */,
 				3B3AAA4914F69D15003BA5B8 /* ViewController.m in Sources */,
+				3B73DF6814F7398D009E34CE /* GameTutorialViewController.m in Sources */,
+				3B73DF6E14F739BA009E34CE /* FindAnswerViewController.m in Sources */,
+				3B73DF7314F739D0009E34CE /* FriendsViewController.m in Sources */,
+				3B73DF7814F73A39009E34CE /* FateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +314,7 @@
 				3B3AAA5114F69D15003BA5B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
