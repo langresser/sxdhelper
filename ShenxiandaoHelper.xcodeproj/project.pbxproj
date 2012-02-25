@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B13D08E14F8A4EC0066F001 /* EquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D08C14F8A4EC0066F001 /* EquipmentViewController.m */; };
+		3B13D08F14F8A4EC0066F001 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */; };
+		3B13D09414F8A5230066F001 /* ToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D09214F8A5220066F001 /* ToolsViewController.m */; };
+		3B13D09514F8A5230066F001 /* ToolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D09314F8A5230066F001 /* ToolsViewController.xib */; };
 		3B3AAA3614F69D15003BA5B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3514F69D15003BA5B8 /* UIKit.framework */; };
 		3B3AAA3814F69D15003BA5B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3714F69D15003BA5B8 /* Foundation.framework */; };
 		3B3AAA3A14F69D15003BA5B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3914F69D15003BA5B8 /* CoreGraphics.framework */; };
@@ -26,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B13D08B14F8A4EC0066F001 /* EquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentViewController.h; sourceTree = "<group>"; };
+		3B13D08C14F8A4EC0066F001 /* EquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentViewController.m; sourceTree = "<group>"; };
+		3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewController.xib; sourceTree = "<group>"; };
+		3B13D09114F8A5220066F001 /* ToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsViewController.h; sourceTree = "<group>"; };
+		3B13D09214F8A5220066F001 /* ToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsViewController.m; sourceTree = "<group>"; };
+		3B13D09314F8A5230066F001 /* ToolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolsViewController.xib; sourceTree = "<group>"; };
 		3B3AAA3114F69D15003BA5B8 /* ShenxiandaoHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShenxiandaoHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3AAA3514F69D15003BA5B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B3AAA3714F69D15003BA5B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +125,12 @@
 				3B73DF7514F73A39009E34CE /* FateViewController.h */,
 				3B73DF7614F73A39009E34CE /* FateViewController.m */,
 				3B73DF7714F73A39009E34CE /* FateViewController.xib */,
+				3B13D08B14F8A4EC0066F001 /* EquipmentViewController.h */,
+				3B13D08C14F8A4EC0066F001 /* EquipmentViewController.m */,
+				3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */,
+				3B13D09114F8A5220066F001 /* ToolsViewController.h */,
+				3B13D09214F8A5220066F001 /* ToolsViewController.m */,
+				3B13D09314F8A5230066F001 /* ToolsViewController.xib */,
 			);
 			path = ShenxiandaoHelper;
 			sourceTree = "<group>";
@@ -186,6 +202,8 @@
 				3B73DF6F14F739BA009E34CE /* FindAnswerViewController.xib in Resources */,
 				3B73DF7414F739D0009E34CE /* FriendsViewController.xib in Resources */,
 				3B73DF7914F73A39009E34CE /* FateViewController.xib in Resources */,
+				3B13D08F14F8A4EC0066F001 /* EquipmentViewController.xib in Resources */,
+				3B13D09514F8A5230066F001 /* ToolsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +221,8 @@
 				3B73DF6E14F739BA009E34CE /* FindAnswerViewController.m in Sources */,
 				3B73DF7314F739D0009E34CE /* FriendsViewController.m in Sources */,
 				3B73DF7814F73A39009E34CE /* FateViewController.m in Sources */,
+				3B13D08E14F8A4EC0066F001 /* EquipmentViewController.m in Sources */,
+				3B13D09414F8A5230066F001 /* ToolsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
