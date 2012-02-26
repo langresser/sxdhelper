@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FateViewController : UIViewController
+@interface FateViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{  
+    IBOutlet UITableView* tableView_;
+}
 
+-(IBAction)onClickBtn:(id)sender;
 @end

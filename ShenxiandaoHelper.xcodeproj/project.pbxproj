@@ -11,6 +11,16 @@
 		3B13D08F14F8A4EC0066F001 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */; };
 		3B13D09414F8A5230066F001 /* ToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D09214F8A5220066F001 /* ToolsViewController.m */; };
 		3B13D09514F8A5230066F001 /* ToolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D09314F8A5230066F001 /* ToolsViewController.xib */; };
+		3B1C498814FA958500D45F17 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C497414FA958500D45F17 /* AQGridView.m */; };
+		3B1C498914FA958500D45F17 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C497614FA958500D45F17 /* AQGridViewAnimatorItem.m */; };
+		3B1C498A14FA958500D45F17 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C497914FA958500D45F17 /* AQGridViewCell.m */; };
+		3B1C498B14FA958500D45F17 /* AQGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C497B14FA958500D45F17 /* AQGridViewController.m */; };
+		3B1C498C14FA958500D45F17 /* AQGridViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C497D14FA958500D45F17 /* AQGridViewData.m */; };
+		3B1C498D14FA958500D45F17 /* AQGridViewUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C497F14FA958500D45F17 /* AQGridViewUpdateInfo.m */; };
+		3B1C498E14FA958500D45F17 /* AQGridViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498114FA958500D45F17 /* AQGridViewUpdateItem.m */; };
+		3B1C498F14FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498314FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m */; };
+		3B1C499014FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498514FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m */; };
+		3B1C499114FA958500D45F17 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498714FA958500D45F17 /* UIColor+AQGridView.m */; };
 		3B3AAA3614F69D15003BA5B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3514F69D15003BA5B8 /* UIKit.framework */; };
 		3B3AAA3814F69D15003BA5B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3714F69D15003BA5B8 /* Foundation.framework */; };
 		3B3AAA3A14F69D15003BA5B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3914F69D15003BA5B8 /* CoreGraphics.framework */; };
@@ -19,8 +29,21 @@
 		3B3AAA4614F69D15003BA5B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */; };
 		3B3AAA4914F69D15003BA5B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4814F69D15003BA5B8 /* ViewController.m */; };
 		3B3AAA4C14F69D15003BA5B8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */; };
-		3B73DF6814F7398D009E34CE /* GameTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF6614F7398D009E34CE /* GameTutorialViewController.m */; };
-		3B73DF6914F7398D009E34CE /* GameTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B73DF6714F7398D009E34CE /* GameTutorialViewController.xib */; };
+		3B43EC7914FA0FC100FA5DB2 /* GameTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43EC7714FA0FC100FA5DB2 /* GameTutorialViewController.m */; };
+		3B43EC7A14FA0FC100FA5DB2 /* GameTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */; };
+		3B43EC8414FA4B6F00FA5DB2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43EC8314FA4B6F00FA5DB2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3B43EC8714FA55A800FA5DB2 /* tutorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B43EC8614FA55A800FA5DB2 /* tutorial.json */; };
+		3B43EC8A14FA5AD900FA5DB2 /* TutorialData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43EC8914FA5AD900FA5DB2 /* TutorialData.m */; };
+		3B43EC8E14FA6EDB00FA5DB2 /* GameTutorialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43EC8C14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.m */; };
+		3B43EC8F14FA6EDB00FA5DB2 /* GameTutorialDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B43EC8D14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.xib */; };
+		3B43ECC614FA782200FA5DB2 /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43ECBF14FA782200FA5DB2 /* UIColor+Tools.m */; };
+		3B43ECC714FA782200FA5DB2 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43ECC114FA782200FA5DB2 /* UIView+Layout.m */; };
+		3B43ECC814FA782200FA5DB2 /* FTCoreTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43ECC314FA782200FA5DB2 /* FTCoreTextStyle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3B43ECC914FA782200FA5DB2 /* FTCoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43ECC514FA782200FA5DB2 /* FTCoreTextView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3B43ECCC14FA786000FA5DB2 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B43ECCB14FA786000FA5DB2 /* CoreText.framework */; };
+		3B43ECCE14FA787600FA5DB2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B43ECCD14FA787600FA5DB2 /* QuartzCore.framework */; };
+		3B43ECD514FA7A0C00FA5DB2 /* giraffe.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B43ECD314FA7A0C00FA5DB2 /* giraffe.png */; };
+		3B43ECD614FA7A0C00FA5DB2 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3B43ECD414FA7A0C00FA5DB2 /* text.txt */; };
 		3B73DF6E14F739BA009E34CE /* FindAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */; };
 		3B73DF6F14F739BA009E34CE /* FindAnswerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */; };
 		3B73DF7314F739D0009E34CE /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF7114F739D0009E34CE /* FriendsViewController.m */; };
@@ -36,6 +59,29 @@
 		3B13D09114F8A5220066F001 /* ToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsViewController.h; sourceTree = "<group>"; };
 		3B13D09214F8A5220066F001 /* ToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsViewController.m; sourceTree = "<group>"; };
 		3B13D09314F8A5230066F001 /* ToolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolsViewController.xib; sourceTree = "<group>"; };
+		3B1C497114FA958500D45F17 /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
+		3B1C497214FA958500D45F17 /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
+		3B1C497314FA958500D45F17 /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
+		3B1C497414FA958500D45F17 /* AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridView.m; sourceTree = "<group>"; };
+		3B1C497514FA958500D45F17 /* AQGridViewAnimatorItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewAnimatorItem.h; sourceTree = "<group>"; };
+		3B1C497614FA958500D45F17 /* AQGridViewAnimatorItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewAnimatorItem.m; sourceTree = "<group>"; };
+		3B1C497714FA958500D45F17 /* AQGridViewCell+AQGridViewCellPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridViewCell+AQGridViewCellPrivate.h"; sourceTree = "<group>"; };
+		3B1C497814FA958500D45F17 /* AQGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewCell.h; sourceTree = "<group>"; };
+		3B1C497914FA958500D45F17 /* AQGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewCell.m; sourceTree = "<group>"; };
+		3B1C497A14FA958500D45F17 /* AQGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewController.h; sourceTree = "<group>"; };
+		3B1C497B14FA958500D45F17 /* AQGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewController.m; sourceTree = "<group>"; };
+		3B1C497C14FA958500D45F17 /* AQGridViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewData.h; sourceTree = "<group>"; };
+		3B1C497D14FA958500D45F17 /* AQGridViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewData.m; sourceTree = "<group>"; };
+		3B1C497E14FA958500D45F17 /* AQGridViewUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateInfo.h; sourceTree = "<group>"; };
+		3B1C497F14FA958500D45F17 /* AQGridViewUpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateInfo.m; sourceTree = "<group>"; };
+		3B1C498014FA958500D45F17 /* AQGridViewUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateItem.h; sourceTree = "<group>"; };
+		3B1C498114FA958500D45F17 /* AQGridViewUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateItem.m; sourceTree = "<group>"; };
+		3B1C498214FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIndexesOutsideSet.h"; sourceTree = "<group>"; };
+		3B1C498314FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIndexesOutsideSet.m"; sourceTree = "<group>"; };
+		3B1C498414FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIsSetContiguous.h"; sourceTree = "<group>"; };
+		3B1C498514FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIsSetContiguous.m"; sourceTree = "<group>"; };
+		3B1C498614FA958500D45F17 /* UIColor+AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AQGridView.h"; sourceTree = "<group>"; };
+		3B1C498714FA958500D45F17 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
 		3B3AAA3114F69D15003BA5B8 /* ShenxiandaoHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShenxiandaoHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3AAA3514F69D15003BA5B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B3AAA3714F69D15003BA5B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,9 +95,29 @@
 		3B3AAA4714F69D15003BA5B8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B3AAA4814F69D15003BA5B8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3B3AAA4B14F69D15003BA5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		3B73DF6514F7398D009E34CE /* GameTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorialViewController.h; sourceTree = "<group>"; };
-		3B73DF6614F7398D009E34CE /* GameTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialViewController.m; sourceTree = "<group>"; };
-		3B73DF6714F7398D009E34CE /* GameTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTutorialViewController.xib; sourceTree = "<group>"; };
+		3B43EC7614FA0FC100FA5DB2 /* GameTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorialViewController.h; sourceTree = "<group>"; };
+		3B43EC7714FA0FC100FA5DB2 /* GameTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialViewController.m; sourceTree = "<group>"; };
+		3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTutorialViewController.xib; sourceTree = "<group>"; };
+		3B43EC8214FA4B6F00FA5DB2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		3B43EC8314FA4B6F00FA5DB2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		3B43EC8614FA55A800FA5DB2 /* tutorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tutorial.json; sourceTree = "<group>"; };
+		3B43EC8814FA5AD900FA5DB2 /* TutorialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialData.h; sourceTree = "<group>"; };
+		3B43EC8914FA5AD900FA5DB2 /* TutorialData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialData.m; sourceTree = "<group>"; };
+		3B43EC8B14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorialDetailViewController.h; sourceTree = "<group>"; };
+		3B43EC8C14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialDetailViewController.m; sourceTree = "<group>"; };
+		3B43EC8D14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTutorialDetailViewController.xib; sourceTree = "<group>"; };
+		3B43ECBE14FA782200FA5DB2 /* UIColor+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tools.h"; sourceTree = "<group>"; };
+		3B43ECBF14FA782200FA5DB2 /* UIColor+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tools.m"; sourceTree = "<group>"; };
+		3B43ECC014FA782200FA5DB2 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		3B43ECC114FA782200FA5DB2 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		3B43ECC214FA782200FA5DB2 /* FTCoreTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextStyle.h; sourceTree = "<group>"; };
+		3B43ECC314FA782200FA5DB2 /* FTCoreTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextStyle.m; sourceTree = "<group>"; };
+		3B43ECC414FA782200FA5DB2 /* FTCoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextView.h; sourceTree = "<group>"; };
+		3B43ECC514FA782200FA5DB2 /* FTCoreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextView.m; sourceTree = "<group>"; };
+		3B43ECCB14FA786000FA5DB2 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		3B43ECCD14FA787600FA5DB2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3B43ECD314FA7A0C00FA5DB2 /* giraffe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giraffe.png; sourceTree = "<group>"; };
+		3B43ECD414FA7A0C00FA5DB2 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
 		3B73DF6B14F739BA009E34CE /* FindAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindAnswerViewController.h; sourceTree = "<group>"; };
 		3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindAnswerViewController.m; sourceTree = "<group>"; };
 		3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindAnswerViewController.xib; sourceTree = "<group>"; };
@@ -68,6 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B43ECCE14FA787600FA5DB2 /* QuartzCore.framework in Frameworks */,
+				3B43ECCC14FA786000FA5DB2 /* CoreText.framework in Frameworks */,
 				3B3AAA3614F69D15003BA5B8 /* UIKit.framework in Frameworks */,
 				3B3AAA3814F69D15003BA5B8 /* Foundation.framework in Frameworks */,
 				3B3AAA3A14F69D15003BA5B8 /* CoreGraphics.framework in Frameworks */,
@@ -77,6 +145,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1C497014FA958500D45F17 /* AQGridView */ = {
+			isa = PBXGroup;
+			children = (
+				3B1C497114FA958500D45F17 /* AQGridView+CellLayout.h */,
+				3B1C497214FA958500D45F17 /* AQGridView+CellLocationDelegation.h */,
+				3B1C497314FA958500D45F17 /* AQGridView.h */,
+				3B1C497414FA958500D45F17 /* AQGridView.m */,
+				3B1C497514FA958500D45F17 /* AQGridViewAnimatorItem.h */,
+				3B1C497614FA958500D45F17 /* AQGridViewAnimatorItem.m */,
+				3B1C497714FA958500D45F17 /* AQGridViewCell+AQGridViewCellPrivate.h */,
+				3B1C497814FA958500D45F17 /* AQGridViewCell.h */,
+				3B1C497914FA958500D45F17 /* AQGridViewCell.m */,
+				3B1C497A14FA958500D45F17 /* AQGridViewController.h */,
+				3B1C497B14FA958500D45F17 /* AQGridViewController.m */,
+				3B1C497C14FA958500D45F17 /* AQGridViewData.h */,
+				3B1C497D14FA958500D45F17 /* AQGridViewData.m */,
+				3B1C497E14FA958500D45F17 /* AQGridViewUpdateInfo.h */,
+				3B1C497F14FA958500D45F17 /* AQGridViewUpdateInfo.m */,
+				3B1C498014FA958500D45F17 /* AQGridViewUpdateItem.h */,
+				3B1C498114FA958500D45F17 /* AQGridViewUpdateItem.m */,
+				3B1C498214FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.h */,
+				3B1C498314FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m */,
+				3B1C498414FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.h */,
+				3B1C498514FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m */,
+				3B1C498614FA958500D45F17 /* UIColor+AQGridView.h */,
+				3B1C498714FA958500D45F17 /* UIColor+AQGridView.m */,
+			);
+			path = AQGridView;
+			sourceTree = "<group>";
+		};
 		3B3AAA2614F69D14003BA5B8 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +195,8 @@
 		3B3AAA3414F69D15003BA5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B43ECCD14FA787600FA5DB2 /* QuartzCore.framework */,
+				3B43ECCB14FA786000FA5DB2 /* CoreText.framework */,
 				3B3AAA3514F69D15003BA5B8 /* UIKit.framework */,
 				3B3AAA3714F69D15003BA5B8 /* Foundation.framework */,
 				3B3AAA3914F69D15003BA5B8 /* CoreGraphics.framework */,
@@ -107,15 +207,20 @@
 		3B3AAA3B14F69D15003BA5B8 /* ShenxiandaoHelper */ = {
 			isa = PBXGroup;
 			children = (
+				3B1C497014FA958500D45F17 /* AQGridView */,
+				3B43ECBD14FA782200FA5DB2 /* categories */,
+				3B43ECC214FA782200FA5DB2 /* FTCoreTextStyle.h */,
+				3B43ECC314FA782200FA5DB2 /* FTCoreTextStyle.m */,
+				3B43ECC414FA782200FA5DB2 /* FTCoreTextView.h */,
+				3B43ECC514FA782200FA5DB2 /* FTCoreTextView.m */,
+				3B43EC8214FA4B6F00FA5DB2 /* JSONKit.h */,
+				3B43EC8314FA4B6F00FA5DB2 /* JSONKit.m */,
 				3B3AAA4414F69D15003BA5B8 /* AppDelegate.h */,
 				3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */,
 				3B3AAA4714F69D15003BA5B8 /* ViewController.h */,
 				3B3AAA4814F69D15003BA5B8 /* ViewController.m */,
 				3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */,
 				3B3AAA3C14F69D15003BA5B8 /* Supporting Files */,
-				3B73DF6514F7398D009E34CE /* GameTutorialViewController.h */,
-				3B73DF6614F7398D009E34CE /* GameTutorialViewController.m */,
-				3B73DF6714F7398D009E34CE /* GameTutorialViewController.xib */,
 				3B73DF6B14F739BA009E34CE /* FindAnswerViewController.h */,
 				3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */,
 				3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */,
@@ -131,6 +236,14 @@
 				3B13D09114F8A5220066F001 /* ToolsViewController.h */,
 				3B13D09214F8A5220066F001 /* ToolsViewController.m */,
 				3B13D09314F8A5230066F001 /* ToolsViewController.xib */,
+				3B43EC7614FA0FC100FA5DB2 /* GameTutorialViewController.h */,
+				3B43EC7714FA0FC100FA5DB2 /* GameTutorialViewController.m */,
+				3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */,
+				3B43EC8814FA5AD900FA5DB2 /* TutorialData.h */,
+				3B43EC8914FA5AD900FA5DB2 /* TutorialData.m */,
+				3B43EC8B14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.h */,
+				3B43EC8C14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.m */,
+				3B43EC8D14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.xib */,
 			);
 			path = ShenxiandaoHelper;
 			sourceTree = "<group>";
@@ -138,12 +251,34 @@
 		3B3AAA3C14F69D15003BA5B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B43EC8514FA55A800FA5DB2 /* data */,
 				3B3AAA3D14F69D15003BA5B8 /* ShenxiandaoHelper-Info.plist */,
 				3B3AAA3E14F69D15003BA5B8 /* InfoPlist.strings */,
 				3B3AAA4114F69D15003BA5B8 /* main.m */,
 				3B3AAA4314F69D15003BA5B8 /* ShenxiandaoHelper-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B43EC8514FA55A800FA5DB2 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3B43ECD314FA7A0C00FA5DB2 /* giraffe.png */,
+				3B43ECD414FA7A0C00FA5DB2 /* text.txt */,
+				3B43EC8614FA55A800FA5DB2 /* tutorial.json */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		3B43ECBD14FA782200FA5DB2 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				3B43ECBE14FA782200FA5DB2 /* UIColor+Tools.h */,
+				3B43ECBF14FA782200FA5DB2 /* UIColor+Tools.m */,
+				3B43ECC014FA782200FA5DB2 /* UIView+Layout.h */,
+				3B43ECC114FA782200FA5DB2 /* UIView+Layout.m */,
+			);
+			path = categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,12 +333,16 @@
 			files = (
 				3B3AAA4014F69D15003BA5B8 /* InfoPlist.strings in Resources */,
 				3B3AAA4C14F69D15003BA5B8 /* ViewController.xib in Resources */,
-				3B73DF6914F7398D009E34CE /* GameTutorialViewController.xib in Resources */,
 				3B73DF6F14F739BA009E34CE /* FindAnswerViewController.xib in Resources */,
 				3B73DF7414F739D0009E34CE /* FriendsViewController.xib in Resources */,
 				3B73DF7914F73A39009E34CE /* FateViewController.xib in Resources */,
 				3B13D08F14F8A4EC0066F001 /* EquipmentViewController.xib in Resources */,
 				3B13D09514F8A5230066F001 /* ToolsViewController.xib in Resources */,
+				3B43EC7A14FA0FC100FA5DB2 /* GameTutorialViewController.xib in Resources */,
+				3B43EC8714FA55A800FA5DB2 /* tutorial.json in Resources */,
+				3B43EC8F14FA6EDB00FA5DB2 /* GameTutorialDetailViewController.xib in Resources */,
+				3B43ECD514FA7A0C00FA5DB2 /* giraffe.png in Resources */,
+				3B43ECD614FA7A0C00FA5DB2 /* text.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,12 +356,29 @@
 				3B3AAA4214F69D15003BA5B8 /* main.m in Sources */,
 				3B3AAA4614F69D15003BA5B8 /* AppDelegate.m in Sources */,
 				3B3AAA4914F69D15003BA5B8 /* ViewController.m in Sources */,
-				3B73DF6814F7398D009E34CE /* GameTutorialViewController.m in Sources */,
 				3B73DF6E14F739BA009E34CE /* FindAnswerViewController.m in Sources */,
 				3B73DF7314F739D0009E34CE /* FriendsViewController.m in Sources */,
 				3B73DF7814F73A39009E34CE /* FateViewController.m in Sources */,
 				3B13D08E14F8A4EC0066F001 /* EquipmentViewController.m in Sources */,
 				3B13D09414F8A5230066F001 /* ToolsViewController.m in Sources */,
+				3B43EC7914FA0FC100FA5DB2 /* GameTutorialViewController.m in Sources */,
+				3B43EC8414FA4B6F00FA5DB2 /* JSONKit.m in Sources */,
+				3B43EC8A14FA5AD900FA5DB2 /* TutorialData.m in Sources */,
+				3B43EC8E14FA6EDB00FA5DB2 /* GameTutorialDetailViewController.m in Sources */,
+				3B43ECC614FA782200FA5DB2 /* UIColor+Tools.m in Sources */,
+				3B43ECC714FA782200FA5DB2 /* UIView+Layout.m in Sources */,
+				3B43ECC814FA782200FA5DB2 /* FTCoreTextStyle.m in Sources */,
+				3B43ECC914FA782200FA5DB2 /* FTCoreTextView.m in Sources */,
+				3B1C498814FA958500D45F17 /* AQGridView.m in Sources */,
+				3B1C498914FA958500D45F17 /* AQGridViewAnimatorItem.m in Sources */,
+				3B1C498A14FA958500D45F17 /* AQGridViewCell.m in Sources */,
+				3B1C498B14FA958500D45F17 /* AQGridViewController.m in Sources */,
+				3B1C498C14FA958500D45F17 /* AQGridViewData.m in Sources */,
+				3B1C498D14FA958500D45F17 /* AQGridViewUpdateInfo.m in Sources */,
+				3B1C498E14FA958500D45F17 /* AQGridViewUpdateItem.m in Sources */,
+				3B1C498F14FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
+				3B1C499014FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
+				3B1C499114FA958500D45F17 /* UIColor+AQGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
