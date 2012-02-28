@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0B9E8E14FD1F4900B467E6 /* xianlvqiyuan.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9E8D14FD1F4800B467E6 /* xianlvqiyuan.json */; };
+		3B0B9E9214FD2C1E00B467E6 /* FAQTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B9E9114FD2C1E00B467E6 /* FAQTableViewCell.m */; };
+		3B0B9E9414FD4B0500B467E6 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9E9314FD4B0500B467E6 /* bg2.png */; };
 		3B13D08E14F8A4EC0066F001 /* EquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D08C14F8A4EC0066F001 /* EquipmentViewController.m */; };
 		3B13D08F14F8A4EC0066F001 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */; };
 		3B13D09414F8A5230066F001 /* ToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D09214F8A5220066F001 /* ToolsViewController.m */; };
@@ -53,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0B9E8D14FD1F4800B467E6 /* xianlvqiyuan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xianlvqiyuan.json; sourceTree = "<group>"; };
+		3B0B9E9014FD2C1E00B467E6 /* FAQTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQTableViewCell.h; sourceTree = "<group>"; };
+		3B0B9E9114FD2C1E00B467E6 /* FAQTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQTableViewCell.m; sourceTree = "<group>"; };
+		3B0B9E9314FD4B0500B467E6 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2.png; sourceTree = "<group>"; };
 		3B13D08B14F8A4EC0066F001 /* EquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentViewController.h; sourceTree = "<group>"; };
 		3B13D08C14F8A4EC0066F001 /* EquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentViewController.m; sourceTree = "<group>"; };
 		3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewController.xib; sourceTree = "<group>"; };
@@ -244,6 +251,8 @@
 				3B43EC8B14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.h */,
 				3B43EC8C14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.m */,
 				3B43EC8D14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.xib */,
+				3B0B9E9014FD2C1E00B467E6 /* FAQTableViewCell.h */,
+				3B0B9E9114FD2C1E00B467E6 /* FAQTableViewCell.m */,
 			);
 			path = ShenxiandaoHelper;
 			sourceTree = "<group>";
@@ -263,6 +272,8 @@
 		3B43EC8514FA55A800FA5DB2 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				3B0B9E9314FD4B0500B467E6 /* bg2.png */,
+				3B0B9E8D14FD1F4800B467E6 /* xianlvqiyuan.json */,
 				3B43ECD314FA7A0C00FA5DB2 /* giraffe.png */,
 				3B43ECD414FA7A0C00FA5DB2 /* text.txt */,
 				3B43EC8614FA55A800FA5DB2 /* tutorial.json */,
@@ -343,6 +354,8 @@
 				3B43EC8F14FA6EDB00FA5DB2 /* GameTutorialDetailViewController.xib in Resources */,
 				3B43ECD514FA7A0C00FA5DB2 /* giraffe.png in Resources */,
 				3B43ECD614FA7A0C00FA5DB2 /* text.txt in Resources */,
+				3B0B9E8E14FD1F4900B467E6 /* xianlvqiyuan.json in Resources */,
+				3B0B9E9414FD4B0500B467E6 /* bg2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +392,7 @@
 				3B1C498F14FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
 				3B1C499014FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				3B1C499114FA958500D45F17 /* UIColor+AQGridView.m in Sources */,
+				3B0B9E9214FD2C1E00B467E6 /* FAQTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,38 @@
 //
 
 #import "FindAnswerViewController.h"
+#import "JSONKit.h"
+#import "FAQTableViewCell.h"
+
+@interface FAQData : NSObject
+{
+    NSString* question;
+    NSString* answer1;
+    NSString* price1;
+    NSString* answer2;
+    NSString* price2;
+}
+@property(nonatomic, retain) NSString* question;
+@property(nonatomic, retain) NSString* answer1;
+@property(nonatomic, retain) NSString* price1;
+@property(nonatomic, retain) NSString* answer2;
+@property(nonatomic, retain) NSString* price2;
+
+-(FAQData*)initWithQuestion:(NSString*)quest;
+@end
+
+@implementation FAQData
+@synthesize question, answer1, price1, answer2, price2;
+
+-(FAQData*)initWithQuestion:(NSString*)quest
+{
+    self = [super init];
+    if (self) {
+        self.question = quest;
+    }
+    return self;
+}
+@end
 
 @implementation FindAnswerViewController
 
@@ -32,7 +64,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    NSError* error = nil;
+    NSString* filePath = [[NSBundle mainBundle]pathForResource:@"xianlvqiyuan" ofType:@"json"];
+    NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    NSDictionary* faqData = [jsonString objectFromJSONString];
+    
+    allFaqData_ = [[NSMutableArray alloc]init];
+    
+    NSEnumerator* iter = [faqData keyEnumerator];
+    NSString* title = nil;
+    while (title = [iter nextObject]) {
+        FAQData* faqd = [[FAQData alloc]initWithQuestion:title];
+        if (faqd) {
+            NSArray* data = [faqData objectForKey:title];
+            faqd.answer1 = [data objectAtIndex:0];
+            faqd.price1 = [data objectAtIndex:1];
+            faqd.answer2 = [data objectAtIndex:2];
+            faqd.price2 = [data objectAtIndex:3];
+        }
+        
+        [allFaqData_ addObject:faqd];
+    }
+    
+    currentSearchData_ = [[NSMutableArray alloc]initWithArray:allFaqData_];
 }
 
 - (void)viewDidUnload
@@ -46,6 +101,117 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSString* text = textField.text;
+    
+    [currentSearchData_ removeAllObjects];
+
+    if ([text length] <= 0) {
+        [currentSearchData_ addObjectsFromArray:allFaqData_];
+    } else {
+        for (FAQData* each in allFaqData_) {
+            if ([each.question rangeOfString:text].location != NSNotFound) {
+                [currentSearchData_ addObject:each];
+            }
+        }
+    }
+    
+    [tableView_ reloadData];
+    tableView_.alpha = 0;
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.5];
+    tableView_.alpha = 1;
+    [UIView commitAnimations];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [currentSearchData_ count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    FAQTableViewCell *cell = (FAQTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[FAQTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    FAQData* faqd = [currentSearchData_ objectAtIndex:indexPath.row];
+    if (faqd) {
+        cell.question.text = faqd.question;
+        cell.answer1.text = faqd.answer1;
+        cell.price1.text = faqd.price1;
+        cell.answer2.text = faqd.answer2;
+        cell.price2.text = faqd.price2;
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120;
+}
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 }
 
 @end

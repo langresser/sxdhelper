@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindAnswerViewController : UIViewController
-
+@interface FindAnswerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+    NSMutableArray* allFaqData_;
+    NSMutableArray* currentSearchData_;
+    
+    IBOutlet UITableView* tableView_;
+}
 @end
