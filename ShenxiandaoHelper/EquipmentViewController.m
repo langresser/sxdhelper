@@ -17,6 +17,7 @@ enum {
 };
 @interface ItemData : NSObject {
     NSString* itemName;
+    NSString* image;
     NSString* exData;      // 装备物品此处存放的是职业信息，材料物品此处存放的是掉落地点
     int type;
     int level;          // 装备和材料物品有用
@@ -24,6 +25,7 @@ enum {
 }
 
 @property(nonatomic, retain) NSString* itemName;
+@property(nonatomic, retain) NSString* image;
 @property(nonatomic, retain) NSString* exData;
 @property(nonatomic) int type;
 @property(nonatomic) int level;
@@ -34,7 +36,7 @@ enum {
 @end
 
 @implementation ItemData
-@synthesize itemName, exData, type, level, relateItem;
+@synthesize itemName, image, exData, type, level, relateItem;
 
 -(ItemData*)initWithName:(NSString *)name
 {
@@ -99,12 +101,13 @@ enum {
                 idata.type = kItemTypeDrug;
             }
 
+            idata.image = [dict objectForKey:@"image"];
             idata.exData = [dict objectForKey:@"data"];
             NSString* level = [dict objectForKey:@"level"];
             idata.level = [level intValue];
             idata.relateItem = [dict objectForKey:@"items"];
             
-            [idata print];
+//            [idata print];
         }
         
         [allItems_ addObject:idata];
