@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EquipmentViewController : UIViewController
+@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+    IBOutlet UITableView* tableView_;
+    NSMutableArray* allItems_;
+}
 
 @end
