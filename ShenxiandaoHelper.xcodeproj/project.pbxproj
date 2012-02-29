@@ -26,6 +26,7 @@
 		3B1C498F14FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498314FA958500D45F17 /* NSIndexSet+AQIndexesOutsideSet.m */; };
 		3B1C499014FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498514FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m */; };
 		3B1C499114FA958500D45F17 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C498714FA958500D45F17 /* UIColor+AQGridView.m */; };
+		3B28D22314FE875300D6D7E8 /* xiaoyaogong.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B28D22214FE875300D6D7E8 /* xiaoyaogong.png */; };
 		3B3AAA3614F69D15003BA5B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3514F69D15003BA5B8 /* UIKit.framework */; };
 		3B3AAA3814F69D15003BA5B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3714F69D15003BA5B8 /* Foundation.framework */; };
 		3B3AAA3A14F69D15003BA5B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3AAA3914F69D15003BA5B8 /* CoreGraphics.framework */; };
@@ -94,6 +95,7 @@
 		3B1C498514FA958500D45F17 /* NSIndexSet+AQIsSetContiguous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIsSetContiguous.m"; sourceTree = "<group>"; };
 		3B1C498614FA958500D45F17 /* UIColor+AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AQGridView.h"; sourceTree = "<group>"; };
 		3B1C498714FA958500D45F17 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
+		3B28D22214FE875300D6D7E8 /* xiaoyaogong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiaoyaogong.png; sourceTree = "<group>"; };
 		3B3AAA3114F69D15003BA5B8 /* ShenxiandaoHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShenxiandaoHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3AAA3514F69D15003BA5B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B3AAA3714F69D15003BA5B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -279,6 +281,7 @@
 		3B43EC8514FA55A800FA5DB2 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				3B28D22214FE875300D6D7E8 /* xiaoyaogong.png */,
 				3B0B9E9C14FD5D7B00B467E6 /* item.json */,
 				3B0B9E9314FD4B0500B467E6 /* bg2.png */,
 				3B0B9E8D14FD1F4800B467E6 /* xianlvqiyuan.json */,
@@ -365,6 +368,7 @@
 				3B0B9E8E14FD1F4900B467E6 /* xianlvqiyuan.json in Resources */,
 				3B0B9E9414FD4B0500B467E6 /* bg2.png in Resources */,
 				3B0B9E9D14FD5D7B00B467E6 /* item.json in Resources */,
+				3B28D22314FE875300D6D7E8 /* xiaoyaogong.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

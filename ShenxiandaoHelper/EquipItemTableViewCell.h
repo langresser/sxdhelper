@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FTCoreTextView.h"
 
 @interface EquipItemTableViewCell : UITableViewCell
+{
+    UIImageView* image;
+    UILabel* itemName;
+    UILabel* exData;
+    FTCoreTextView* relateItems;
+}
 
+@property(nonatomic, retain) UIImageView* image;
+@property(nonatomic, retain) UILabel* itemName;
+@property(nonatomic, retain) UILabel* exData;
+@property(nonatomic, retain) FTCoreTextView* relateItems;
 @end

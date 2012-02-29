@@ -21,7 +21,8 @@ enum {
     NSString* exData;      // 装备物品此处存放的是职业信息，材料物品此处存放的是掉落地点
     int type;
     int level;          // 装备和材料物品有用
-    NSDictionary* relateItem;    // 对装备和丹药而言存放的是制作所需材料，对材料而言存放的是可制作的装备或丹药
+    UIColor* nameColor;     // 名字的显示颜色
+    NSArray* relateItem;    // 对装备和丹药而言存放的是制作所需材料，对材料而言存放的是可制作的装备或丹药
 }
 
 @property(nonatomic, retain) NSString* itemName;
@@ -29,14 +30,15 @@ enum {
 @property(nonatomic, retain) NSString* exData;
 @property(nonatomic) int type;
 @property(nonatomic) int level;
-@property(nonatomic, retain) NSDictionary* relateItem;
+@property(nonatomic, retain) UIColor* nameColor;
+@property(nonatomic, retain) NSArray* relateItem;
 
 -(ItemData*)initWithName:(NSString*)name;
 -(void)print;
 @end
 
 @implementation ItemData
-@synthesize itemName, image, exData, type, level, relateItem;
+@synthesize itemName, image, exData, type, level, relateItem, nameColor;
 
 -(ItemData*)initWithName:(NSString *)name
 {
@@ -86,6 +88,11 @@ enum {
     NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     NSDictionary* itemData = [jsonString objectFromJSONString];
     
+    allItems_ = [[NSMutableArray alloc]init];
+    equipments_ = [[NSMutableArray alloc]init];
+    drugs_ = [[NSMutableArray alloc]init];
+    materials_ = [[NSMutableArray alloc]init];
+
     NSEnumerator* iter = [itemData keyEnumerator];
     NSString* title = nil;
     while (title = [iter nextObject]) {
@@ -102,16 +109,34 @@ enum {
             }
 
             idata.image = [dict objectForKey:@"image"];
+            NSString* color = [dict objectForKey:@"color"];
+            if ([color isEqualToString:@"purple"]) {
+                idata.nameColor = [UIColor purpleColor];
+            }
             idata.exData = [dict objectForKey:@"data"];
             NSString* level = [dict objectForKey:@"level"];
             idata.level = [level intValue];
             idata.relateItem = [dict objectForKey:@"items"];
-            
-//            [idata print];
         }
         
         [allItems_ addObject:idata];
+        
+        switch (idata.type) {
+            case kItemTypeMaterial:
+                [materials_ addObject:idata];
+                break;
+            case kItemTypeEquipment:
+                [equipments_ addObject:idata];
+                break;
+            case kItemTypeDrug:
+                [drugs_ addObject:idata];
+                break;
+            default:
+                break;
+        }
     }
+    
+    currentType = kItemTypeMaterial;
 }
 
 - (void)viewDidUnload
@@ -127,21 +152,58 @@ enum {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)search:(NSString *)text
+{
+    [materials_ removeAllObjects];
+    [drugs_ removeAllObjects];
+    [equipments_ removeAllObjects];
+    
+    for (ItemData* each in allItems_) {
+        if ([each.itemName rangeOfString:text].location != NSNotFound) {
+            switch (each.type) {
+                case kItemTypeMaterial:
+                    [materials_ addObject:each];
+                    break;
+                case kItemTypeEquipment:
+                    [equipments_ addObject:each];
+                    break;
+                case kItemTypeDrug:
+                    [drugs_ addObject:each];
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     NSString* text = textField.text;
     
-//    [currentSearchData_ removeAllObjects];
-//    
-//    if ([text length] <= 0) {
-//        [currentSearchData_ addObjectsFromArray:allFaqData_];
-//    } else {
-//        for (FAQData* each in allFaqData_) {
-//            if ([each.question rangeOfString:text].location != NSNotFound) {
-//                [currentSearchData_ addObject:each];
-//            }
-//        }
-//    }
+    if ([text length] <= 0) {
+        [materials_ removeAllObjects];
+        [drugs_ removeAllObjects];
+        [equipments_ removeAllObjects];
+        
+        for (ItemData* each in allItems_) {
+            switch (each.type) {
+                case kItemTypeMaterial:
+                    [materials_ addObject:each];
+                    break;
+                case kItemTypeEquipment:
+                    [equipments_ addObject:each];
+                    break;
+                case kItemTypeDrug:
+                    [drugs_ addObject:each];
+                    break;
+                default:
+                    break;
+            }
+        }
+    } else {
+        [self search:text];
+    }
     
     [tableView_ reloadData];
     tableView_.alpha = 0;
@@ -166,7 +228,21 @@ enum {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    switch (currentType) {
+        case kItemTypeDrug:
+            return [drugs_ count];
+            break;
+        case kItemTypeEquipment:
+            return [equipments_ count];
+            break;
+        case kItemTypeMaterial:
+            return [materials_ count];
+            break;
+        default:
+            break;
+    }
+
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,12 +254,75 @@ enum {
         cell = [[EquipItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    ItemData* idata = nil;
+    
+    switch (currentType) {
+        case kItemTypeMaterial:
+            idata = [materials_ objectAtIndex:indexPath.row];
+            break;
+        case kItemTypeEquipment:
+            idata = [equipments_ objectAtIndex:indexPath.row];
+            break;
+        case kItemTypeDrug:
+            idata = [drugs_ objectAtIndex:indexPath.row];
+            break;
+        default:
+            break;
+    }
+    
+    if (idata) {
+        cell.image.image = [UIImage imageNamed:idata.image];
+        cell.itemName.text = idata.itemName;
+        cell.itemName.textColor = idata.nameColor;
+        
+        switch (idata.type) {
+            case kItemTypeEquipment:
+                cell.exData.text = [NSString stringWithFormat:@"职业:%@\t\t\t使用等级:%d", idata.exData, idata.level];
+                break;
+            case kItemTypeMaterial:
+                cell.exData.text = [NSString stringWithFormat:@"掉落地点:", idata.exData];
+                break;
+            case kItemTypeDrug:
+                cell.exData.text = [NSString stringWithFormat:@"等级:%d", idata.level];
+                break;
+            default:
+                break;
+        }
+
+        if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
+            NSString* text = @"所需材料:  ";
+            int amount = [idata.relateItem count];
+            NSString* name;
+            NSString* number;
+            for (int i = 0; i < amount; ++i) {
+                if (i % 2 == 0) {
+                    name = [idata.relateItem objectAtIndex:i];
+                } else {
+                    number = [idata.relateItem objectAtIndex:i];
+                    text = [text stringByAppendingFormat:@"%@x%@   ", name, number];
+                }
+            }
+            
+            cell.relateItems.text = text;
+        } else {
+            NSString* text = @"掉落地点:  ";
+            int amount = [idata.relateItem count];
+            for (int i = 0; i < amount; ++i) {
+                if (i % 2 == 0) {
+                    text = [text stringByAppendingFormat:@"%@   ", [idata.relateItem objectAtIndex:i]];
+                }
+            }
+            
+            cell.relateItems.text = text;
+        }
+    }
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    return 100;
 }
 /*
  // Override to support conditional editing of the table view.
@@ -227,6 +366,36 @@ enum {
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+}
+
+-(IBAction)onClickMaterial:(id)sender
+{
+    currentType = kItemTypeMaterial;
+    btnDrug.selected = NO;
+    btnEquip.selected = NO;
+    btnMaterial.selected = YES;
+    
+    [tableView_ reloadData];
+}
+
+-(IBAction)onClickEquipment:(id)sender
+{
+    currentType = kItemTypeEquipment;
+    btnDrug.selected = NO;
+    btnEquip.selected = YES;
+    btnMaterial.selected = NO;
+    
+    [tableView_ reloadData];
+}
+
+-(IBAction)onClickDrug:(id)sender
+{
+    currentType = kItemTypeDrug;
+    btnDrug.selected = YES;
+    btnEquip.selected = NO;
+    btnMaterial.selected = NO;
+    
+    [tableView_ reloadData];
 }
 
 @end

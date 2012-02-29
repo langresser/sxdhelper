@@ -11,7 +11,21 @@
 @interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
     IBOutlet UITableView* tableView_;
+    IBOutlet UIButton* btnMaterial;
+    IBOutlet UIButton* btnEquip;
+    IBOutlet UIButton* btnDrug;
+
     NSMutableArray* allItems_;
+    NSMutableArray* equipments_;
+    NSMutableArray* drugs_;
+    NSMutableArray* materials_;
+    
+    int currentType;
 }
 
+-(IBAction)onClickMaterial:(id)sender;
+-(IBAction)onClickEquipment:(id)sender;
+-(IBAction)onClickDrug:(id)sender;
+
+-(void)search:(NSString*)text;
 @end

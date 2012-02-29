@@ -16,8 +16,8 @@ def trans_xianlvqiyuan():
         if index == 0:
             if question != "":
                 data.append('"{0}":\n'.format(question));
-                data.append('\t[{{ "{0}"  :  "{1}" }},\n'.format(answer1, price1));
-                data.append('\t {{ "{0}"  :  "{1}" }}],\n'.format(answer2, price2));
+                data.append('\t[ "{0}"  ,  "{1}" ,\n'.format(answer1, price1));
+                data.append('\t  "{0}"  ,  "{1}" ],\n'.format(answer2, price2));
             question = line;
         elif index == 1:
             answer1 = line;
@@ -33,8 +33,8 @@ def trans_xianlvqiyuan():
 
     if question != "":
        data.append('"{0}":\n'.format(question));
-       data.append('\t[{{ "{0}"  :  "{1}" }},\n'.format(answer1, price1));
-       data.append('\t {{ "{0}"  :  "{1}" }}]\n'.format(answer2, price2));
+       data.append('\t[ "{0}"  ,  "{1}" ,\n'.format(answer1, price1));
+       data.append('\t  "{0}"  ,  "{1}" ]\n'.format(answer2, price2));
     data.append('}\n');
 
     fp.close();
