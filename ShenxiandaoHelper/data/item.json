@@ -3,6 +3,7 @@
     {
         "image": "xiaoyaogong.png",
         "type" : "equipment",
+        "color": 0xffff0000,
         "data" : "飞羽",
         "level": 20,
         "items":
