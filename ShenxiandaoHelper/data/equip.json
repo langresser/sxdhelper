@@ -1,0 +1,706 @@
+{
+    "逍遥弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 20,
+        "items" : [ "降魔弓",1,  "玄天石",27,  "不醉石",9,  "念珠",27 ]
+    },
+    "逍遥剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 20,
+        "items" : [ "降魔剑",1,  "玄天石",27,  "不醉石",9,  "念珠",27 ]
+    },
+    "逍遥戟": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 20,
+        "items" : [ "降魔锤",1,  "玄天石",27,  "不醉石",9,  "念珠",27 ]
+    },
+    "逍遥拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 20,
+        "items" : [ "降魔拳套",1,  "玄天石",27,  "不醉石",9,  "念珠",27 ]
+    },
+    "逍遥杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 20,
+        "items" : [ "降魔杖",1,  "玄天石",27,  "不醉石",9,  "念珠",27 ]
+    },
+    "逍遥战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 20,
+        "items" : [ "降魔战魂",1,  "玄天石",27,  "不醉石",36,  "念珠",27 ]
+    },
+    "逍遥元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 20,
+        "items" : [ "降魔元神",1,  "玄天石",27,  "不醉石",36,  "念珠",27 ]
+    },
+    "逍遥法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 20,
+        "items" : [ "降魔法袍",1,  "绿珠",9,  "蓝宝石",18,  "紫幽羽",3 ]
+    },
+    "逍遥护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 20,
+        "items" : [ "降魔护符",1,  "绿珠",9,  "蓝宝石",18,  "紫幽羽",3 ]
+    },
+    "逍遥法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 20,
+        "items" : [ "降魔法冠",1,  "绿珠",9,  "蓝宝石",18,  "紫幽羽",3 ]
+    },
+    "逍遥战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 20,
+        "items" : [ "降魔战靴",1,  "绿珠",9,  "蓝宝石",18,  "紫幽羽",3 ]
+    },
+    "朱雀弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 40,
+        "items" : [ "逍遥弓",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 40,
+        "items" : [ "逍遥剑",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀枪": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 40,
+        "items" : [ "逍遥戟",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 40,
+        "items" : [ "逍遥拳套",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 40,
+        "items" : [ "逍遥杖",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 40,
+        "items" : [ "逍遥战魂",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 40,
+        "items" : [ "逍遥元神",1,  "玄阴石",30,  "魔木鼎",20,  "炎石",60 ]
+    },
+    "朱雀法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 40,
+        "items" : [ "逍遥法袍",1,  "凤凰羽",20,  "血莲花",25,  "魔木鼎",20 ]
+    },
+    "朱雀护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 40,
+        "items" : [ "逍遥护符",1,  "凤凰羽",20,  "血莲花",25,  "魔木鼎",20 ]
+    },
+    "朱雀法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 40,
+        "items" : [ "逍遥法冠",1,  "凤凰羽",20,  "血莲花",25,  "魔木鼎",20 ]
+    },
+    "朱雀战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 40,
+        "items" : [ "逍遥战靴",1,  "凤凰羽",20,  "血莲花",25,  "魔木鼎",20 ]
+    },
+    "玄奇弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 60,
+        "items" : [ "朱雀弓",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 60,
+        "items" : [ "朱雀剑",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇棍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 60,
+        "items" : [ "朱雀枪",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 60,
+        "items" : [ "朱雀拳套",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 60,
+        "items" : [ "朱雀杖",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 60,
+        "items" : [ "朱雀战魂",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 60,
+        "items" : [ "朱雀元神",1,  "魔玉",15,  "天雷珠",5,  "至尊鼎",60 ]
+    },
+    "玄奇法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 60,
+        "items" : [ "朱雀法袍",1,  "天雷珠",5,  "至尊鼎",60,  "地府风灯",75 ]
+    },
+    "玄奇护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 60,
+        "items" : [ "朱雀护符",1,  "天雷珠",5,  "至尊鼎",60,  "地府风灯",75 ]
+    },
+    "玄奇法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 60,
+        "items" : [ "朱雀法冠",1,  "天雷珠",5,  "至尊鼎",60,  "地府风灯",75 ]
+    },
+    "玄奇战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 60,
+        "items" : [ "朱雀战靴",1,  "天雷珠",5,  "至尊鼎",60,  "地府风灯",75 ]
+    },
+    "倚天弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 70,
+        "items" : [ "玄奇弓",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 70,
+        "items" : [ "玄奇剑",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天大刀": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 70,
+        "items" : [ "玄奇棍",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 70,
+        "items" : [ "玄奇拳套",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 70,
+        "items" : [ "玄奇杖",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 70,
+        "items" : [ "玄奇战魂",1,  "狼尾草",60,  "鬼树枝",60,  "天心花",30 ]
+    },
+    "倚天元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 70,
+        "items" : [ "玄奇元神",1,  "狼尾草",60,  "鬼树枝",60,  "天心花",30 ]
+    },
+    "倚天法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 70,
+        "items" : [ "玄奇法袍",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 70,
+        "items" : [ "玄奇护符",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 70,
+        "items" : [ "玄奇法冠",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "倚天战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 70,
+        "items" : [ "玄奇战靴",1,  "陨石",60,  "狼尾草",60,  "天心花",30 ]
+    },
+    "赤霄弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 80,
+        "items" : [ "倚天弓",1,  "灵果",25,  "麒麟角",60,  "紫火花",30 ]
+    },
+    "赤霄剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 80,
+        "items" : [ "倚天剑",1,  "灵果",25,  "麒麟角",60,  "紫火花",30 ]
+    },
+    "赤霄斧": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 80,
+        "items" : [ "倚天大刀",1,  "灵果",25,  "麒麟角",60,  "紫火花",30 ]
+    },
+    "赤霄拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 80,
+        "items" : [ "倚天拳套",1,  "灵果",25,  "麒麟角",60,  "紫火花",30 ]
+    },
+    "赤霄杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 80,
+        "items" : [ "倚天杖",1,  "灵果",25,  "麒麟角",60,  "紫火花",30 ]
+    },
+    "赤霄战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 80,
+        "items" : [ "倚天战魂",1,  "黑流玉",30,  "紫火花",30,  "九宫瓶",90 ]
+    },
+    "赤霄元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 80,
+        "items" : [ "倚天元神",1,  "黑流玉",30,  "紫火花",30,  "九宫瓶",90 ]
+    },
+    "赤霄法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 80,
+        "items" : [ "倚天法袍",1,  "灵果",25,  "九宫瓶",72,  "紫火花",30 ]
+    },
+    "赤霄护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 80,
+        "items" : [ "倚天护符",1,  "灵果",25,  "九宫瓶",72,  "紫火花",30 ]
+    },
+    "赤霄法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 80,
+        "items" : [ "倚天法冠",1,  "灵果",25,  "九宫瓶",72,  "紫火花",30 ]
+    },
+    "赤霄战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 80,
+        "items" : [ "倚天战靴",1,  "灵果",25,  "九宫瓶",72,  "紫火花",30 ]
+    },
+    "天罡弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 90,
+        "items" : [ "赤霄弓",1,  "天仙花",15,  "仙宝石",15,  "云纹金钗",60 ]
+    },
+    "天罡剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 90,
+        "items" : [ "赤霄剑",1,  "天仙花",15,  "仙宝石",15,  "云纹金钗",60 ]
+    },
+    "天罡锤": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 90,
+        "items" : [ "赤霄斧",1,  "天仙花",15,  "仙宝石",15,  "云纹金钗",60 ]
+    },
+    "天罡拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 90,
+        "items" : [ "赤霄拳套",1,  "天仙花",15,  "仙宝石",15,  "云纹金钗",60 ]
+    },
+    "天罡杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 90,
+        "items" : [ "赤霄杖",1,  "天仙花",15,  "仙宝石",15,  "云纹金钗",60 ]
+    },
+    "天罡战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 90,
+        "items" : [ "赤霄战魂",1,  "仙宝石",15,  "火焰宝石",30,  "玉杯",60 ]
+    },
+    "天罡元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 90,
+        "items" : [ "赤霄元神",1,  "仙宝石",15,  "火焰宝石",30,  "玉杯",60 ]
+    },
+    "天罡法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 90,
+        "items" : [ "赤霄法袍",1,  "天仙花",15,  "玉杯",60,  "仙宝石",15 ]
+    },
+    "天罡护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 80,
+        "items" : [ "赤霄护符",1,  "天仙花",15,  "玉杯",60,  "仙宝石",15 ]
+    },
+    "天罡法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 90,
+        "items" : [ "赤霄法冠",1,  "天仙花",15,  "玉杯",60,  "仙宝石",15 ]
+    },
+    "天罡战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 90,
+        "items" : [ "天罡战靴",1,  "天仙花",15,  "玉杯",60,  "仙宝石",15 ]
+    },
+    "乾坤弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 100,
+        "items" : [ "天罡弓",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 100,
+        "items" : [ "天罡剑",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤宝刀": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 100,
+        "items" : [ "天罡锤",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 100,
+        "items" : [ "天罡拳套",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 100,
+        "items" : [ "天罡杖",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 100,
+        "items" : [ "天罡战魂",1,  "龙鳞",10,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 100,
+        "items" : [ "天罡元神",1,  "龙鳞",10,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 100,
+        "items" : [ "天罡法袍",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 100,
+        "items" : [ "天罡护符",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 100,
+        "items" : [ "天罡法冠",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "乾坤战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 100,
+        "items" : [ "天罡战靴",1,  "蝎刺",45,  "仙人刺",5,  "一枝花",10 ]
+    },
+    "腾龙弓": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽",
+        "level" : 110,
+        "items" : [ "乾坤弓",1,  "金蚕丝",75,  "五色土",75,  "天苍鹰羽",5 ]
+    },
+    "腾龙剑": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "剑灵",
+        "level" : 110,
+        "items" : [ "乾坤剑",1,  "金蚕丝",75,  "五色土",75,  "天苍鹰羽",5 ]
+    },
+    "腾龙戟": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "将星",
+        "level" : 110,
+        "items" : [ "乾坤宝刀",1,  "金蚕丝",75,  "五色土",75,  "天苍鹰羽",5 ]
+    },
+    "腾龙拳套": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "武圣",
+        "level" : 110,
+        "items" : [ "乾坤拳套",1,  "金蚕丝",75,  "五色土",75,  "天苍鹰羽",5 ]
+    },
+    "腾龙杖": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 110,
+        "items" : [ "乾坤杖",1,  "金蚕丝",75,  "五色土",75,  "天苍鹰羽",5 ]
+    },
+    "腾龙战魂": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "飞羽,剑灵,将星,武圣",
+        "level" : 110,
+        "items" : [ "乾坤战魂",1,  "古木",20,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+    },
+    "腾龙元神": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "术士,方士",
+        "level" : 110,
+        "items" : [ "乾坤元神",1,  "古木",20,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+    },
+    "腾龙法袍": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 110,
+        "items" : [ "乾坤法袍",1,  "金蚕丝",75,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+    },
+    "腾龙护符": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 110,
+        "items" : [ "乾坤护符",1,  "金蚕丝",75,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+    },
+    "腾龙法冠": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 110,
+        "items" : [ "乾坤法冠",1,  "金蚕丝",75,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+    },
+    "腾龙战靴": {
+        "image" : ".png",
+        "type" : "equipment",
+        "color" : "purple",
+        "data" : "通用",
+        "level" : 110,
+        "items" : [ "乾坤战靴",1,  "金蚕丝",75,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+    }
+}
