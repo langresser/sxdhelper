@@ -26,6 +26,7 @@
 -(IBAction)onClickMaterial:(id)sender;
 -(IBAction)onClickEquipment:(id)sender;
 -(IBAction)onClickDrug:(id)sender;
+-(IBAction)onClickReturn:(id)sender;
 
 -(void)search:(NSString*)text;
 @end

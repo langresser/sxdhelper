@@ -7,6 +7,7 @@
 //
 
 #import "EquipItemTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation EquipItemTableViewCell
 @synthesize image, itemName, exData, relateItems;
@@ -24,6 +25,7 @@
         
         itemName.numberOfLines = 0;
         exData.numberOfLines = 0;
+        itemName.textAlignment = UITextAlignmentCenter;
         
         itemName.font = [UIFont systemFontOfSize:15];
         exData.font = [UIFont systemFontOfSize:15];
@@ -37,6 +39,12 @@
         [self.contentView addSubview:itemName];
         [self.contentView addSubview:exData];
         [self.contentView addSubview:relateItems];
+        
+        //为视图增加边框
+        self.contentView.layer.masksToBounds=YES;
+        self.contentView.layer.cornerRadius=10.0;
+        self.contentView.layer.borderWidth=1.5;
+        self.contentView.layer.borderColor=[[UIColor darkGrayColor] CGColor];
     }
 
     return self;

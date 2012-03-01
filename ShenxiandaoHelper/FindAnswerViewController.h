@@ -15,4 +15,6 @@
     
     IBOutlet UITableView* tableView_;
 }
+
+-(IBAction)onClickReturn:(id)sender;
 @end

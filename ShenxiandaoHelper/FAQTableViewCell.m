@@ -7,6 +7,7 @@
 //
 
 #import "FAQTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation FAQTableViewCell
 @synthesize question, answer1, price1, answer2, price2;
@@ -18,18 +19,21 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
 //        self.contentView.backgroundColor = [UIColor redColor];
-        question = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 295, 50)];
-        answer1 = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, 190, 30)];
-        price1 = [[UILabel alloc]initWithFrame:CGRectMake(200, 50, 95, 30)];
-        answer2 =  [[UILabel alloc]initWithFrame:CGRectMake(10, 80, 190, 30)];
-        price2 = [[UILabel alloc]initWithFrame:CGRectMake(200, 80, 95, 30)];
+        question = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, kTableViewWidth, kQuestionHeight)];
+        answer1 = [[UILabel alloc]initWithFrame:CGRectMake(10, 5 + kQuestionHeight, kTableViewWidth - 10, kAnswerHeight)];
+        price1 = [[UILabel alloc]initWithFrame:CGRectMake(15, 5 + kQuestionHeight + kAnswerHeight, kTableViewWidth - 15, kPriceHeight)];
+        answer2 =  [[UILabel alloc]initWithFrame:CGRectMake(10, 5 + kQuestionHeight + kAnswerHeight + kPriceHeight, kTableViewWidth - 10, kAnswerHeight)];
+        price2 = [[UILabel alloc]initWithFrame:CGRectMake(15, 5 + kQuestionHeight + kAnswerHeight * 2 + kPriceHeight, kTableViewWidth - 15, kPriceHeight)];
         
-        question.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0.1 alpha:0.5];
-        answer1.backgroundColor = [UIColor colorWithRed:0 green:0.1 blue:0 alpha:0.5];
-        price1.backgroundColor = [UIColor colorWithRed:0 green:0.1 blue:0 alpha:0.5];
+        question.backgroundColor = [UIColor clearColor];
+        question.adjustsFontSizeToFitWidth = YES;
+        answer1.backgroundColor = [UIColor clearColor];
+        answer1.adjustsFontSizeToFitWidth = YES;
+        price1.backgroundColor = [UIColor clearColor];
         
-        answer2.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0 alpha:0.5];
-        price2.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0 alpha:0.5];
+        answer2.backgroundColor = [UIColor clearColor];
+        answer2.adjustsFontSizeToFitWidth = YES;
+        price2.backgroundColor = [UIColor clearColor];
 
         question.numberOfLines = 0;
         answer1.numberOfLines = 0;
@@ -54,6 +58,12 @@
         [self.contentView addSubview:price1];
         [self.contentView addSubview:answer2];
         [self.contentView addSubview:price2];
+        
+        //为视图增加边框
+        self.contentView.layer.masksToBounds=YES;
+        self.contentView.layer.cornerRadius=10.0;
+        self.contentView.layer.borderWidth=1.5;
+        self.contentView.layer.borderColor=[[UIColor darkGrayColor] CGColor];
     }
     return self;
 }

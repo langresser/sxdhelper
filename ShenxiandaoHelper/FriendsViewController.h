@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AQGridView.h"
 
-@interface FriendsViewController : UIViewController<AQGridViewDelegate, AQGridViewDataSource>
-@property(nonatomic, retain) AQGridView *gridView;
+@interface FriendsViewController : UIViewController
 
 -(IBAction)onClickPro:(id)sender;
 -(IBAction)onClickSkill:(id)sender;

@@ -398,4 +398,9 @@ enum {
     [tableView_ reloadData];
 }
 
+
+-(IBAction)onClickReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

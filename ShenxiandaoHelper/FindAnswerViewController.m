@@ -157,10 +157,10 @@
     FAQData* faqd = [currentSearchData_ objectAtIndex:indexPath.row];
     if (faqd) {
         cell.question.text = faqd.question;
-        cell.answer1.text = faqd.answer1;
-        cell.price1.text = faqd.price1;
-        cell.answer2.text = faqd.answer2;
-        cell.price2.text = faqd.price2;
+        cell.answer1.text = [NSString stringWithFormat:@"选择1:%@", faqd.answer1];
+        cell.price1.text = [NSString stringWithFormat:@"奖励:%@", faqd.price1];
+        cell.answer2.text = [NSString stringWithFormat:@"选择2:%@", faqd.answer2];
+        cell.price2.text = [NSString stringWithFormat:@"奖励:%@", faqd.price2];
     }
     
     return cell;
@@ -168,7 +168,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    return kQuestionHeight + kAnswerHeight * 4 + 5;
 }
 /*
  // Override to support conditional editing of the table view.
@@ -214,4 +214,8 @@
 {
 }
 
+-(IBAction)onClickReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

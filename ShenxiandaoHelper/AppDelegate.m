@@ -22,6 +22,7 @@
     
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [navigationController setNavigationBarHidden:YES animated:NO];
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     return YES;
