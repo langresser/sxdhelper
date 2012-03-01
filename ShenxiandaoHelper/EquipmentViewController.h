@@ -29,4 +29,5 @@
 -(IBAction)onClickReturn:(id)sender;
 
 -(void)search:(NSString*)text;
+-(void)loadFromFile:(NSString*)fileName;
 @end

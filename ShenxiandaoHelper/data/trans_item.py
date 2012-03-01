@@ -11,7 +11,7 @@ def trans_zhuangbei():
     fp = open('zhuangbei.txt', 'r');
     data = [];
     index = 0;
-    data.append('{\n');
+    data.append('[\n');
 
     for line in fp:
         line = line.strip();
@@ -21,9 +21,11 @@ def trans_zhuangbei():
             pro = match.group('pro');
             level = match.group('level');
             item = match.group('item');
-            data.append('"{0}": {{\n'.format(name));
-            data.append('    "image" : ".png",\n');
-            data.append('    "type : "equipment",\n');
+			
+            data.append('    {\n');
+            data.append('    "name" : "{0}",\n'.format(name));
+            data.append('    "image" : ".jpg",\n');
+            data.append('    "type" : "equipment",\n');
             data.append('    "color" : "purple",\n');
             data.append('    "data" : "{0}",\n'.format(pro));
             data.append('    "level" : {0},\n'.format(level));
@@ -41,6 +43,14 @@ def trans_zhuangbei():
             data.append(item_line);
             data.append('    },\n');
     fp.close();
+    data.append(']\n');
+
+    fpw = open('equip.json', 'w');
+    fpw.writelines(data);
+    fpw.close();
+
+    data = [];
+    data.append('[\n');
 
     fp = open('cailiao.txt', 'r');
     for line in fp:
@@ -50,9 +60,10 @@ def trans_zhuangbei():
             name = match.group('name');
             where = match.group('where');
             item = match.group('item');
-            data.append('"{0}": {{\n'.format(name));
-            data.append('    "image" : ".png",\n');
-            data.append('    "type : "material",\n');
+            data.append('    {\n');
+            data.append('    "name" : "{0}",\n'.format(name));
+            data.append('    "image" : ".jpg",\n');
+            data.append('    "type" : "material",\n');
             data.append('    "data" : "{0}",\n'.format(where));
 
             item_xx = parse_item(item);
@@ -68,7 +79,14 @@ def trans_zhuangbei():
             data.append(item_line);
             data.append('    },\n');
     fp.close();
+    data.append(']\n');
 
+    fpw = open('material.json', 'w');
+    fpw.writelines(data);
+    fpw.close();
+
+    data = [];
+    data.append('[\n');
     fp = open('danyao.txt', 'r');
     for line in fp:
         line = line.strip();
@@ -77,9 +95,10 @@ def trans_zhuangbei():
             name = match.group('name');
             level = match.group('level');
             item = match.group('item');
-            data.append('"{0}": {{\n'.format(name));
-            data.append('    "image" : ".png",\n');
-            data.append('    "type : "drug",\n');
+            data.append('    {\n');
+            data.append('    "name" : "{0}",\n'.format(name));
+            data.append('    "image" : ".jpg",\n');
+            data.append('    "type" : "drug",\n');
             data.append('    "color" : "purple",\n');
             data.append('    "level" : {0},\n'.format(level));
 
@@ -96,9 +115,9 @@ def trans_zhuangbei():
             data.append(item_line);
             data.append('    },\n');
     fp.close();
+    data.append(']\n');
 
-    data.append('}\n');
-    fpw = open('itemex.json', 'w');
+    fpw = open('drug.json', 'w');
     fpw.writelines(data);
     fpw.close();
 

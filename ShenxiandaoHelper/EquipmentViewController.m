@@ -78,45 +78,38 @@ enum {
 }
 
 #pragma mark - View lifecycle
-
-- (void)viewDidLoad
+-(void)loadFromFile:(NSString*)fileName
 {
-    [super viewDidLoad];
-
     NSError* error = nil;
-    NSString* filePath = [[NSBundle mainBundle]pathForResource:@"item" ofType:@"json"];
+    NSString* filePath = [[NSBundle mainBundle]pathForResource:fileName ofType:@"json"];
     NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    NSDictionary* itemData = [jsonString objectFromJSONString];
-    
-    allItems_ = [[NSMutableArray alloc]init];
-    equipments_ = [[NSMutableArray alloc]init];
-    drugs_ = [[NSMutableArray alloc]init];
-    materials_ = [[NSMutableArray alloc]init];
+    NSArray* itemData = [jsonString objectFromJSONString];
 
-    NSEnumerator* iter = [itemData keyEnumerator];
-    NSString* title = nil;
-    while (title = [iter nextObject]) {
-        ItemData* idata = [[ItemData alloc]initWithName:title];
+    for (NSDictionary* each in itemData) {
+        ItemData* idata = [[ItemData alloc]initWithName:[each objectForKey:@"name"]];
         if (idata) {
-            NSDictionary* dict = [itemData objectForKey:title];
-            NSString* type = [dict objectForKey:@"type"];
+            NSString* type = [each objectForKey:@"type"];
             if ([type isEqualToString:@"equipment"]) {
                 idata.type = kItemTypeEquipment;
+                NSString* level = [each objectForKey:@"level"];
+                idata.level = [level intValue];
+                idata.exData = [each objectForKey:@"data"];
             } else if ([type isEqualToString:@"material"]) {
                 idata.type = kItemTypeMaterial;
+                idata.exData = [each objectForKey:@"data"];
             } else if ([type isEqualToString:@"drug"]) {
                 idata.type = kItemTypeDrug;
+                NSString* level = [each objectForKey:@"level"];
+                idata.level = [level intValue];
             }
-
-            idata.image = [dict objectForKey:@"image"];
-            NSString* color = [dict objectForKey:@"color"];
+            
+            idata.image = [each objectForKey:@"image"];
+            NSString* color = [each objectForKey:@"color"];
             if ([color isEqualToString:@"purple"]) {
                 idata.nameColor = [UIColor purpleColor];
             }
-            idata.exData = [dict objectForKey:@"data"];
-            NSString* level = [dict objectForKey:@"level"];
-            idata.level = [level intValue];
-            idata.relateItem = [dict objectForKey:@"items"];
+            
+            idata.relateItem = [each objectForKey:@"items"];
         }
         
         [allItems_ addObject:idata];
@@ -135,7 +128,31 @@ enum {
                 break;
         }
     }
-    
+}
+
+-(void)checkImage
+{
+    for (ItemData* each in allItems_) {
+        UIImage* image = [UIImage imageNamed:each.image];
+        if (!image) {
+            NSLog(@"%@ for %@ not found!!!!", each.image, each.itemName);
+        }
+    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    allItems_ = [[NSMutableArray alloc]init];
+    equipments_ = [[NSMutableArray alloc]init];
+    drugs_ = [[NSMutableArray alloc]init];
+    materials_ = [[NSMutableArray alloc]init];
+
+    [self loadFromFile:@"drug"];
+    [self loadFromFile:@"material"];
+    [self loadFromFile:@"equip"];
+
     currentType = kItemTypeMaterial;
 }
 
@@ -277,13 +294,13 @@ enum {
         
         switch (idata.type) {
             case kItemTypeEquipment:
-                cell.exData.text = [NSString stringWithFormat:@"职业:%@\t\t\t使用等级:%d", idata.exData, idata.level];
+                cell.exData.text = [NSString stringWithFormat:@"职业:%@\t\t使用等级:%d", idata.exData, idata.level];
                 break;
             case kItemTypeMaterial:
-                cell.exData.text = [NSString stringWithFormat:@"掉落地点:", idata.exData];
+                cell.exData.text = [NSString stringWithFormat:@"掉落地点: %@", idata.exData];
                 break;
             case kItemTypeDrug:
-                cell.exData.text = [NSString stringWithFormat:@"等级:%d", idata.level];
+                cell.exData.text = [NSString stringWithFormat:@"使用等级: %d", idata.level];
                 break;
             default:
                 break;
@@ -305,7 +322,7 @@ enum {
             
             cell.relateItems.text = text;
         } else {
-            NSString* text = @"掉落地点:  ";
+            NSString* text = @"可制作物品:  ";
             int amount = [idata.relateItem count];
             for (int i = 0; i < amount; ++i) {
                 if (i % 2 == 0) {
