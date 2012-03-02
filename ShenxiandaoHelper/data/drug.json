@@ -3,7 +3,7 @@
     "name" : "一品武力丹",
     "image" : "yipinwulidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 10,
     "items" : [ "狐皮",2,  "蜘蛛牙",2 ]
     },
@@ -11,7 +11,7 @@
     "name" : "一品绝技丹",
     "image" : "yipinjuejidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 10,
     "items" : [ "落英花",2,  "蜘蛛牙",2 ]
     },
@@ -19,7 +19,7 @@
     "name" : "一品法术丹",
     "image" : "yipinfashudan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 10,
     "items" : [ "狐皮",2,  "蜘蛛牙",2 ]
     },
@@ -27,7 +27,7 @@
     "name" : "一品葫芦",
     "image" : "yipinhulu.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 10,
     "items" : [ "黑水珠",6,  "地府风灯",6 ]
     },
@@ -35,7 +35,7 @@
     "name" : "二品武力丹",
     "image" : "erpinwulidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 20,
     "items" : [ "落英花",9,  "胭脂",9 ]
     },
@@ -43,7 +43,7 @@
     "name" : "二品绝技丹",
     "image" : "erpinjuejidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 20,
     "items" : [ "蓝宝石",9,  "蜘蛛牙",6 ]
     },
@@ -51,7 +51,7 @@
     "name" : "二品法术丹",
     "image" : "erpinfashudan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 20,
     "items" : [ "蓝宝石",9,  "胭脂",9 ]
     },
@@ -59,7 +59,7 @@
     "name" : "二品葫芦",
     "image" : "erpinhulu.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 20,
     "items" : [ "黑水珠",12,  "地府风灯",12 ]
     },
@@ -67,7 +67,7 @@
     "name" : "三品武力丹",
     "image" : "sanpinwulidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 30,
     "items" : [ "绿珠",14,  "雷兽角",5,  "象龙角",5 ]
     },
@@ -75,7 +75,7 @@
     "name" : "三品绝技丹",
     "image" : "sanpinjuejidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 30,
     "items" : [ "念珠",14,  "蓝宝石",14,  "象龙角",5 ]
     },
@@ -83,7 +83,7 @@
     "name" : "三品法术丹",
     "image" : "sanpinfashudan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 30,
     "items" : [ "念珠",14,  "蓝宝石",14,  "象龙角",5 ]
     },
@@ -91,7 +91,7 @@
     "name" : "三品葫芦",
     "image" : "sanpinhulu.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "green",
     "level" : 30,
     "items" : [ "黑水珠",36,  "地府风灯",36,  "天雷珠",3 ]
     },
@@ -99,7 +99,7 @@
     "name" : "四品武力丹",
     "image" : "sipinwulidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 40,
     "items" : [ "露凝草",24,  "乌舌兰",24,  "炎石",24,  "血莲花",18 ]
     },
@@ -107,7 +107,7 @@
     "name" : "四品绝技丹",
     "image" : "sipinjuejidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 40,
     "items" : [ "露凝草",24,  "玄阴石",14,  "炎石",18,  "血莲花",18 ]
     },
@@ -115,7 +115,7 @@
     "name" : "四品法术丹",
     "image" : "sipinfashudan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 40,
     "items" : [ "露凝草",24,  "玄阴石",14,  "炎石",18,  "血莲花",18 ]
     },
@@ -123,7 +123,7 @@
     "name" : "四品葫芦",
     "image" : "sipinhulu.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 40,
     "items" : [ "魔玉",29,  "狼尾草",39,  "魔火邪珠",20,  "地火胆",29 ]
     },
@@ -131,7 +131,7 @@
     "name" : "五品武力丹",
     "image" : "wupinwulidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 50,
     "items" : [ "露凝草",27,  "炎石",27,  "乌舌兰",27,  "魔木鼎",24,  "冰魄珠",36 ]
     },
@@ -139,7 +139,7 @@
     "name" : "五品绝技丹",
     "image" : "wupinjuejidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 50,
     "items" : [ "露凝草",27,  "太阴鼎",42,  "乌舌兰",27,  "魔木鼎",24,  "冰魄珠",36 ]
     },
@@ -147,7 +147,7 @@
     "name" : "五品法术丹",
     "image" : "wupinfashudan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 50,
     "items" : [ "露凝草",27,  "太阴鼎",42,  "乌舌兰",27,  "魔木鼎",24,  "冰魄珠",36 ]
     },
@@ -155,7 +155,7 @@
     "name" : "五品葫芦",
     "image" : "wupinhulu.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 50,
     "items" : [ "魔火邪珠",29,  "陨石",45,  "狼尾草",58,  "鬼树枝",58,  "地火胆",44 ]
     },
@@ -163,7 +163,7 @@
     "name" : "六品武力丹",
     "image" : "liupinwulidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 60,
     "items" : [ "玉珊瑚",42,  "黑白珠",60,  "天魔果",42,  "太阴鼎",42,  "地府风灯",53,  "天雷珠",4 ]
     },
@@ -171,7 +171,7 @@
     "name" : "六品绝技丹",
     "image" : "liupinjuejidan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 60,
     "items" : [ "玉珊瑚",42,  "黑白珠",60,  "天魔果",42,  "仙树枝",32,  "地府风灯",53,  "冰魄珠",42 ]
     },
@@ -179,7 +179,7 @@
     "name" : "六品法术丹",
     "image" : "liupinfashudan.jpg",
     "type" : "drug",
-    "color" : "purple",
+    "color" : "blue",
     "level" : 60,
     "items" : [ "玉珊瑚",42,  "黑白珠",60,  "天魔果",42,  "仙树枝",32,  "地府风灯",53,  "冰魄珠",42 ]
     }
