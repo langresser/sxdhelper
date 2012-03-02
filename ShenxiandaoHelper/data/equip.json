@@ -790,5 +790,357 @@
   "data" : "通用",
   "level" : 110,
   "items" : [ "乾坤战靴",1,  "金蚕丝",75,  "天苍狼爪",5,  "天苍鹰羽",5 ]
+  },
+  {
+  "name" : "降魔弓",
+  "image" : "xiangmogong.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽",
+  "level" : 10
+  },
+  {
+  "name" : "降魔剑",
+  "image" : "xiangmojian.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "剑灵",
+  "level" : 10
+  },
+  {
+  "name" : "降魔锤",
+  "image" : "xiangmochui.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "将星",
+  "level" : 10
+  },
+  {
+  "name" : "降魔拳套",
+  "image" : "xiangmoquantao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "武圣",
+  "level" : 10
+  },
+  {
+  "name" : "降魔杖",
+  "image" : "xiangmozhang.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 10
+  },
+  {
+  "name" : "降魔战魂",
+  "image" : "xiangmozhanhun.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽,剑灵,将星,武圣",
+  "level" : 10
+  },
+  {
+  "name" : "降魔元神",
+  "image" : "xiangmoyuanshen.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 10
+  },
+  {
+  "name" : "降魔法袍",
+  "image" : "xiangmofapao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 10
+  },
+  {
+  "name" : "降魔护符",
+  "image" : "xiangmohufu.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 10
+  },
+  {
+  "name" : "降魔法冠",
+  "image" : "xiangmofaguan.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 10
+  },
+  {
+  "name" : "降魔战靴",
+  "image" : "xiangmozhanxue.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 10
+  },
+  {
+  "name" : "霸者弓",
+  "image" : "bazhegong.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽",
+  "level" : 40
+  },
+  {
+  "name" : "霸者剑",
+  "image" : "bazhejian.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "剑灵",
+  "level" : 40
+  },
+  {
+  "name" : "霸者锤",
+  "image" : "bazhechui.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "将星",
+  "level" : 40
+  },
+  {
+  "name" : "霸者拳套",
+  "image" : "bazhequantao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "武圣",
+  "level" : 40
+  },
+  {
+  "name" : "霸者杖",
+  "image" : "bazhezhang.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 40
+  },
+  {
+  "name" : "霸者战魂",
+  "image" : "bazhezhanhun.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽,剑灵,将星,武圣",
+  "level" : 40
+  },
+  {
+  "name" : "霸者元神",
+  "image" : "bazheyuanshen.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 40
+  },
+  {
+  "name" : "霸者法袍",
+  "image" : "bazhefapao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 40
+  },
+  {
+  "name" : "霸者护符",
+  "image" : "bazhehufu.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 40
+  },
+  {
+  "name" : "霸者法冠",
+  "image" : "bazhefaguan.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 40
+  },
+  {
+  "name" : "霸者战靴",
+  "image" : "bazhezhanxue.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 40
+  },
+  {
+  "name" : "水晶弓",
+  "image" : "shuijinggong.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽",
+  "level" : 60
+  },
+  {
+  "name" : "水晶剑",
+  "image" : "shuijingjian.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "剑灵",
+  "level" : 60
+  },
+  {
+  "name" : "水晶枪",
+  "image" : "shuijingqiang.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "将星",
+  "level" : 60
+  },
+  {
+  "name" : "水晶拳套",
+  "image" : "shuijingquantao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "武圣",
+  "level" : 60
+  },
+  {
+  "name" : "水晶杖",
+  "image" : "shuijingzhang.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 60
+  },
+  {
+  "name" : "水晶战魂",
+  "image" : "shuijingzhanhun.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽,剑灵,将星,武圣",
+  "level" : 60
+  },
+  {
+  "name" : "水晶元神",
+  "image" : "shuijingyuanshen.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 60
+  },
+  {
+  "name" : "水晶法袍",
+  "image" : "shuijingfapao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 60
+  },
+  {
+  "name" : "水晶护符",
+  "image" : "shuijinghufu.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 60
+  },
+  {
+  "name" : "水晶法冠",
+  "image" : "shuijingfaguan.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 60
+  },
+  {
+  "name" : "水晶战靴",
+  "image" : "shuijingzhanxue.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 60
+  },
+  {
+  "name" : "青虹弓",
+  "image" : "qinghonggong.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽",
+  "level" : 70
+  },
+  {
+  "name" : "青虹剑",
+  "image" : "qinghongjian.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "剑灵",
+  "level" : 70
+  },
+  {
+  "name" : "青虹大刀",
+  "image" : "qinghongdadao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "将星",
+  "level" : 70
+  },
+  {
+  "name" : "青虹拳套",
+  "image" : "qinghongquantao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "武圣",
+  "level" : 70
+  },
+  {
+  "name" : "青虹杖",
+  "image" : "qinghongzhang.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 70
+  },
+  {
+  "name" : "青虹战魂",
+  "image" : "qinghongzhanhun.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "飞羽,剑灵,将星,武圣",
+  "level" : 70
+  },
+  {
+  "name" : "青虹元神",
+  "image" : "qinghongyuanshen.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "术士,方士",
+  "level" : 70
+  },
+  {
+  "name" : "青虹法袍",
+  "image" : "qinghongfapao.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 70
+  },
+  {
+  "name" : "青虹护符",
+  "image" : "qinghonghufu.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 70
+  },
+  {
+  "name" : "青虹法冠",
+  "image" : "qinghongfaguan.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 70
+  },
+  {
+  "name" : "青虹战靴",
+  "image" : "qinghongzhanxue.jpg",
+  "type" : "equipment",
+  "color" : "blue",
+  "data" : "通用",
+  "level" : 70
   }
   ]
