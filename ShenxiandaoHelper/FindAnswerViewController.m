@@ -99,8 +99,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -119,6 +122,10 @@
         }
     }
     
+    NSInteger count = [tableView_ numberOfRowsInSection:0];
+    if (count > 0) {
+        [tableView_ scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
     [tableView_ reloadData];
     tableView_.alpha = 0;
     [UIView beginAnimations:@"" context:nil];

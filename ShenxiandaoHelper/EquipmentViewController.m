@@ -21,7 +21,7 @@ enum {
     NSString* exData;      // 装备物品此处存放的是职业信息，材料物品此处存放的是掉落地点
     int type;
     int level;          // 装备和材料物品有用
-    UIColor* nameColor;     // 名字的显示颜色
+    NSString* nameColor;     // 名字的显示颜色
     NSArray* relateItem;    // 对装备和丹药而言存放的是制作所需材料，对材料而言存放的是可制作的装备或丹药
 }
 
@@ -30,7 +30,7 @@ enum {
 @property(nonatomic, retain) NSString* exData;
 @property(nonatomic) int type;
 @property(nonatomic) int level;
-@property(nonatomic, retain) UIColor* nameColor;
+@property(nonatomic, retain) NSString* nameColor;
 @property(nonatomic, retain) NSArray* relateItem;
 
 -(ItemData*)initWithName:(NSString*)name;
@@ -104,11 +104,7 @@ enum {
             }
             
             idata.image = [each objectForKey:@"image"];
-            NSString* color = [each objectForKey:@"color"];
-            if ([color isEqualToString:@"purple"]) {
-                idata.nameColor = [UIColor purpleColor];
-            }
-            
+            idata.nameColor = [each objectForKey:@"color"];
             idata.relateItem = [each objectForKey:@"items"];
         }
         
@@ -153,7 +149,8 @@ enum {
     [self loadFromFile:@"material"];
     [self loadFromFile:@"equip"];
 
-    currentType = kItemTypeMaterial;
+    [self selectType:kItemTypeMaterial];
+    [self updateLabelTitle];
 }
 
 - (void)viewDidUnload
@@ -165,8 +162,11 @@ enum {
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 -(void)search:(NSString *)text
@@ -222,7 +222,19 @@ enum {
         [self search:text];
     }
     
-    [tableView_ reloadData];
+    if ([materials_ count] > 0) {
+        [self selectType:kItemTypeMaterial];
+    } else if ([equipments_ count] > 0) {
+        [self selectType:kItemTypeEquipment];
+    } else if ([drugs_ count] > 0) {
+        [self selectType:kItemTypeDrug];
+    } else {
+        // nothing
+        [self selectType:kItemTypeMaterial];
+    }
+    
+    [self updateLabelTitle];
+
     tableView_.alpha = 0;
     [UIView beginAnimations:@"" context:nil];
     [UIView setAnimationDuration:0.5];
@@ -290,7 +302,17 @@ enum {
     if (idata) {
         cell.image.image = [UIImage imageNamed:idata.image];
         cell.itemName.text = idata.itemName;
-        cell.itemName.textColor = idata.nameColor;
+        if (!idata.nameColor || [idata.nameColor length] <= 0) {
+            cell.itemName.textColor = [UIColor blackColor];
+        } else {
+            if ([idata.nameColor isEqualToString:@"purple"]) {
+                cell.itemName.textColor = [UIColor purpleColor];
+            } else if ([idata.nameColor isEqualToString:@"blue"]) {
+                cell.itemName.textColor = [UIColor colorWithRed:0.03 green:0.48 blue:0.86 alpha:1];
+            } else if ([idata.nameColor isEqualToString:@"green"]) {
+                cell.itemName.textColor = [UIColor colorWithRed:0.15 green:0.55 blue:0.35 alpha:1];
+            }
+        }
         
         switch (idata.type) {
             case kItemTypeEquipment:
@@ -306,32 +328,41 @@ enum {
                 break;
         }
 
-        if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
-            NSString* text = @"所需材料:  ";
-            int amount = [idata.relateItem count];
-            NSString* name;
-            NSString* number;
-            for (int i = 0; i < amount; ++i) {
-                if (i % 2 == 0) {
-                    name = [idata.relateItem objectAtIndex:i];
-                } else {
-                    number = [idata.relateItem objectAtIndex:i];
-                    text = [text stringByAppendingFormat:@"%@x%@   ", name, number];
-                }
+        if (!idata.relateItem || [idata.relateItem count] <= 0) {
+            if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
+                cell.relateItems.text = @"所需材料:  无";
+            } else {
+                cell.relateItems.text = @"可制作物品:  无";
             }
-            
-            cell.relateItems.text = text;
         } else {
-            NSString* text = @"可制作物品:  ";
-            int amount = [idata.relateItem count];
-            for (int i = 0; i < amount; ++i) {
-                if (i % 2 == 0) {
-                    text = [text stringByAppendingFormat:@"%@   ", [idata.relateItem objectAtIndex:i]];
+            if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
+                NSString* text = @"所需材料:  ";
+                int amount = [idata.relateItem count];
+                NSString* name;
+                NSString* number;
+                for (int i = 0; i < amount; ++i) {
+                    if (i % 2 == 0) {
+                        name = [idata.relateItem objectAtIndex:i];
+                    } else {
+                        number = [idata.relateItem objectAtIndex:i];
+                        text = [text stringByAppendingFormat:@"%@x%@   ", name, number];
+                    }
                 }
+                
+                cell.relateItems.text = text;
+            } else {
+                NSString* text = @"可制作物品:  ";
+                int amount = [idata.relateItem count];
+                for (int i = 0; i < amount; ++i) {
+                    if (i % 2 == 0) {
+                        text = [text stringByAppendingFormat:@"%@   ", [idata.relateItem objectAtIndex:i]];
+                    }
+                }
+                
+                cell.relateItems.text = text;
             }
-            
-            cell.relateItems.text = text;
         }
+       
     }
     
     return cell;
@@ -387,32 +418,84 @@ enum {
 
 -(IBAction)onClickMaterial:(id)sender
 {
-    currentType = kItemTypeMaterial;
-    btnDrug.selected = NO;
-    btnEquip.selected = NO;
-    btnMaterial.selected = YES;
-    
-    [tableView_ reloadData];
+    if (currentType == kItemTypeMaterial) {
+        return;
+    }
+
+    [self selectType:kItemTypeMaterial];
 }
 
 -(IBAction)onClickEquipment:(id)sender
 {
-    currentType = kItemTypeEquipment;
-    btnDrug.selected = NO;
-    btnEquip.selected = YES;
-    btnMaterial.selected = NO;
-    
-    [tableView_ reloadData];
+    if (currentType == kItemTypeEquipment) {
+        return;
+    }
+
+    [self selectType:kItemTypeEquipment];
 }
 
 -(IBAction)onClickDrug:(id)sender
 {
-    currentType = kItemTypeDrug;
-    btnDrug.selected = YES;
-    btnEquip.selected = NO;
-    btnMaterial.selected = NO;
+    if (currentType == kItemTypeDrug) {
+        return;
+    }
+
+    [self selectType:kItemTypeDrug];
+}
+
+-(void)selectType:(int)type
+{
+    switch (type) {
+        case kItemTypeMaterial:
+            currentType = kItemTypeMaterial;
+            btnDrug.selected = NO;
+            labelDrug.textColor = [UIColor blackColor];
+            btnEquip.selected = NO;
+            labelEquip.textColor = [UIColor blackColor];
+            btnMaterial.selected = YES;
+            labelMaterial.textColor = [UIColor yellowColor];
+            break;
+        case kItemTypeEquipment:
+            currentType = kItemTypeEquipment;
+            btnDrug.selected = NO;
+            labelDrug.textColor = [UIColor blackColor];
+            btnEquip.selected = YES;
+            labelEquip.textColor = [UIColor yellowColor];
+            btnMaterial.selected = NO;
+            labelMaterial.textColor = [UIColor blackColor];
+            break;
+        case kItemTypeDrug:
+            currentType = kItemTypeDrug;
+            btnDrug.selected = YES;
+            labelDrug.textColor = [UIColor yellowColor];
+            btnEquip.selected = NO;
+            labelEquip.textColor = [UIColor blackColor];
+            btnMaterial.selected = NO;
+            labelMaterial.textColor = [UIColor blackColor];
+            break;
+        default:
+            break;
+    }
     
+    NSInteger count = [tableView_ numberOfRowsInSection:0];
+    if (count > 0) {
+        [tableView_ scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
+
     [tableView_ reloadData];
+    
+    tableView_.alpha = 0.2;
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.5];
+    tableView_.alpha = 1;
+    [UIView commitAnimations];
+}
+
+-(void)updateLabelTitle
+{
+    labelMaterial.text = [NSString stringWithFormat:@"材料(%d)", [materials_ count]];
+    labelEquip.text = [NSString stringWithFormat:@"装备(%d)", [equipments_ count]];
+    labelDrug.text = [NSString stringWithFormat:@"丹药(%d)", [drugs_ count]];
 }
 
 

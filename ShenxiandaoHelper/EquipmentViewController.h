@@ -14,6 +14,9 @@
     IBOutlet UIButton* btnMaterial;
     IBOutlet UIButton* btnEquip;
     IBOutlet UIButton* btnDrug;
+    IBOutlet UILabel* labelMaterial;
+    IBOutlet UILabel* labelEquip;
+    IBOutlet UILabel* labelDrug;
 
     NSMutableArray* allItems_;
     NSMutableArray* equipments_;
@@ -30,4 +33,6 @@
 
 -(void)search:(NSString*)text;
 -(void)loadFromFile:(NSString*)fileName;
+-(void)selectType:(int)type;
+-(void)updateLabelTitle;
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "GameTutorialViewController.h"
 #import "FindAnswerViewController.h"
 #import "FriendsViewController.h"
@@ -22,6 +24,9 @@
     FateViewController* fateVC;
     EquipmentViewController* equipmentVC;
     ToolsViewController* toolsVC;
+
+    AVAudioPlayer *player;
+    BOOL isPlayingMusic;
 }
 
 -(IBAction)onClickGameTutorial:(id)sender;
@@ -33,4 +38,10 @@
 -(IBAction)onClickRemove:(id)sender;
 -(IBAction)onClickAbout:(id)sender;
 -(IBAction)onClickSound:(id)sender;
+
+@property(nonatomic) BOOL isPlayingMusic;
+
+-(void)loadMusic;
+-(void)playSound;
+-(void)stopPlay;
 @end

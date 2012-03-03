@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @implementation ViewController
+@synthesize isPlayingMusic;
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,6 +32,21 @@
     toolsVC = [[ToolsViewController alloc]initWithNibName:@"ToolsViewController" bundle:nil];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if (standardUserDefaults) {
+        NSString* soundFlag = [standardUserDefaults stringForKey:@"sound"];
+        if (soundFlag && [soundFlag isEqualToString:@"NO"]) {
+            isPlayingMusic = NO;
+        } else {
+            isPlayingMusic = YES;
+        }
+    }
+    
+    if (isPlayingMusic) {
+        [self playSound];
+    }
 }
 
 - (void)viewDidUnload
@@ -62,8 +78,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    if (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 
@@ -110,6 +129,47 @@
 
 -(IBAction)onClickSound:(id)sender
 {
+    isPlayingMusic = !isPlayingMusic;
     
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if (standardUserDefaults) {
+        [standardUserDefaults setObject:isPlayingMusic ? @"YES" : @"NO" forKey:@"sound"];
+        [standardUserDefaults synchronize];
+    }
+    
+    if (isPlayingMusic) {
+        [self playSound];
+    } else {
+        [self stopPlay];
+    }
+}
+
+-(void)playSound
+{
+    if (player == nil) {
+        [self performSelectorInBackground:@selector(loadMusic) withObject:nil];
+    } else {
+        [player play];
+    }
+}
+
+-(void)loadMusic
+{
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"bgmusic" ofType:@"mp3"];
+    NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL: soundURL error: nil];
+    [player prepareToPlay];
+    player.numberOfLoops = 999999;
+    
+    [player play];
+}
+
+-(void)stopPlay
+{
+    if (player) {
+        [player stop];
+    }
 }
 @end
