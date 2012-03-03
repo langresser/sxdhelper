@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11C74</string>
+		<string key="IBDocument.SystemVersion">11D50d</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1138.23</string>
-		<string key="IBDocument.HIToolboxVersion">567.00</string>
+		<string key="IBDocument.AppKitVersion">1138.32</string>
+		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">933</string>
@@ -113,7 +113,6 @@
 						<string key="NSFrame">{{12, 97}, {296, 352}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:418</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="99219235">
 							<int key="NSColorSpace">3</int>
@@ -256,7 +255,7 @@
 					<object class="IBUILabel" id="1069249572">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{22, 59}, {70, 21}}</string>
+						<string key="NSFrame">{{20, 59}, {70, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
@@ -410,6 +409,14 @@
 						<reference key="destination" ref="1069249572"/>
 					</object>
 					<int key="connectionID">29</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">searchText</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="361307134"/>
+					</object>
+					<int key="connectionID">30</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -592,7 +599,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">29</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -630,6 +637,7 @@
 						<string key="labelDrug">UILabel</string>
 						<string key="labelEquip">UILabel</string>
 						<string key="labelMaterial">UILabel</string>
+						<string key="searchText">UITextField</string>
 						<string key="tableView_">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -657,6 +665,10 @@
 							<string key="name">labelMaterial</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="searchText">
+							<string key="name">searchText</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="tableView_">
 							<string key="name">tableView_</string>
 							<string key="candidateClassName">UITableView</string>
@@ -676,7 +688,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="bg2.png">{640, 960}</string>
 			<string key="blankbtnrormal.png">{110, 28}</string>
-			<string key="blankbtnunclick.png">{16, 16}</string>
+			<string key="blankbtnunclick.png">{110, 30}</string>
 			<string key="return1.png">{98, 98}</string>
 			<string key="return2.png">{98, 98}</string>
 			<string key="search.png">{128, 128}</string>

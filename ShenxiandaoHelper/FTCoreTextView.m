@@ -374,7 +374,7 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
 				for (NSString *key in urlsKeys) {
 					NSRange range = NSRangeFromString(key);
 					if (index >= range.location && index < range.location + range.length) {
-						NSURL *url = [_URLs objectForKey:key];
+						NSString *url = [_URLs objectForKey:key];
 						if (url) [returnedDict setObject:url forKey:FTCoreTextDataURL];
 						break;
 					}
@@ -549,7 +549,7 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
         switch (tagType) {
             case FTCoreTextTagTypeOpen:
             {
-                if (currentSupernode.isLink || currentSupernode.isImage) {
+                if (currentSupernode && (currentSupernode.isLink || currentSupernode.isImage)) {
                     NSString *predefinedTag = nil;
                     if (currentSupernode.isLink) predefinedTag = [self defaultTagNameForKey:FTCoreTextTagLink];
                     else if (currentSupernode.isImage) predefinedTag = [self defaultTagNameForKey:FTCoreTextTagImage];
@@ -604,11 +604,13 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
                 break;
             case FTCoreTextTagTypeClose:
             {
-                if ((![currentSupernode.style.name isEqualToString:[self defaultTagNameForKey:FTCoreTextTagDefault]] && ![currentSupernode.style.name isEqualToString:tagName]) ) {
-                    NSLog(@"FTCoreTextView :%@ - Closing tag '%@' at range %@ doesn't match open tag '%@' - aborting rendering", self, fullTag, NSStringFromRange(tagRange), currentSupernode.style.name);
-                    return;
+                if (![currentSupernode.style.name isEqualToString:tagName]) {
+                    if (![currentSupernode.style.name isEqualToString:[self defaultTagNameForKey:FTCoreTextTagDefault]] ) {
+                        NSLog(@"FTCoreTextView :%@ - Closing tag '%@' at range %@ doesn't match open tag '%@' - aborting rendering", self, fullTag, NSStringFromRange(tagRange), currentSupernode.style.name);
+                        return;
+                    }
                 }
-                
+
                 currentSupernode.isClosed = YES;
                 
                 if (currentSupernode.isLink) {
@@ -617,22 +619,28 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
                     NSRange elementContentRange = NSMakeRange(currentSupernode.startLocation, tagRange.location - currentSupernode.startLocation);
                     NSString *elementContent = [processedString substringWithRange:elementContentRange];
                     NSRange pipeRange = [elementContent rangeOfString:@"|"];
-                    NSString *urlString = nil;
-                    NSString *urlDescription = nil;
+
                     if (pipeRange.location != NSNotFound) {
+                        NSString *urlString = nil;
+                        NSString *urlDescription = nil;
                         urlString = [elementContent substringToIndex:pipeRange.location];
                         urlDescription = [elementContent substringFromIndex:pipeRange.location + 1];
+                        
+                        [processedString replaceCharactersInRange:NSMakeRange(elementContentRange.location, elementContentRange.length + tagRange.length) withString:urlDescription];
+                        if (![urlString hasPrefix:@"http://"]) {
+                            urlString = [NSString stringWithFormat:@"http://%@", urlString];
+                        }
+                        NSRange urlDescriptionRange = NSMakeRange(elementContentRange.location, [urlDescription length]);
+                        [_URLs setObject:urlString forKey:NSStringFromRange(urlDescriptionRange)];
+                        
+                        currentSupernode.styleRange = urlDescriptionRange;
+                    } else {
+                        [processedString replaceCharactersInRange:NSMakeRange(tagRange.location, tagRange.length) withString:@""];
+                        NSRange urlDescriptionRange = NSMakeRange(elementContentRange.location, [elementContent length]);
+                        [_URLs setObject:elementContent forKey:NSStringFromRange(urlDescriptionRange)];
+
+                        currentSupernode.styleRange = urlDescriptionRange;
                     }
-                    
-                    [processedString replaceCharactersInRange:NSMakeRange(elementContentRange.location, elementContentRange.length + tagRange.length) withString:urlDescription];
-                    if (![urlString hasPrefix:@"http://"]) {
-                        urlString = [NSString stringWithFormat:@"http://%@", urlString];
-                    }
-                    NSURL *url = [NSURL URLWithString:urlString];
-                    NSRange urlDescriptionRange = NSMakeRange(elementContentRange.location, [urlDescription length]);
-                    [_URLs setObject:url forKey:NSStringFromRange(urlDescriptionRange)];
-                    
-                    currentSupernode.styleRange = urlDescriptionRange;
                 }
                 else if (currentSupernode.isImage) {
                     //replace active string with emptySpace
@@ -930,7 +938,6 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
 	[self addStyle:defaultStyle];	
 	
 	FTCoreTextStyle *linksStyle = [defaultStyle copy];
-	linksStyle.color = [UIColor blueColor];
 	linksStyle.name = FTCoreTextTagLink;
 	[_styles setValue:linksStyle forKey:linksStyle.name];
 	[linksStyle release];

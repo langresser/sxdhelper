@@ -21,4 +21,6 @@
 @property(nonatomic, retain) UILabel* itemName;
 @property(nonatomic, retain) UILabel* exData;
 @property(nonatomic, retain) FTCoreTextView* relateItems;
+
+- (NSArray *)coreTextStyle;
 @end

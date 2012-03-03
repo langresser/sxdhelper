@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FTCoreTextView.h"
 
-@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate>
 {
     IBOutlet UITableView* tableView_;
     IBOutlet UIButton* btnMaterial;
@@ -17,6 +18,7 @@
     IBOutlet UILabel* labelMaterial;
     IBOutlet UILabel* labelEquip;
     IBOutlet UILabel* labelDrug;
+    IBOutlet UITextField* searchText;
 
     NSMutableArray* allItems_;
     NSMutableArray* equipments_;
@@ -35,4 +37,6 @@
 -(void)loadFromFile:(NSString*)fileName;
 -(void)selectType:(int)type;
 -(void)updateLabelTitle;
+
+-(void)checkData;
 @end

@@ -22,7 +22,7 @@ enum {
     int type;
     int level;          // 装备和材料物品有用
     NSString* nameColor;     // 名字的显示颜色
-    NSArray* relateItem;    // 对装备和丹药而言存放的是制作所需材料，对材料而言存放的是可制作的装备或丹药
+    NSMutableArray* relateItem;    // 对装备和丹药而言存放的是制作所需材料，对材料而言存放的是可制作的装备或丹药
 }
 
 @property(nonatomic, retain) NSString* itemName;
@@ -31,7 +31,7 @@ enum {
 @property(nonatomic) int type;
 @property(nonatomic) int level;
 @property(nonatomic, retain) NSString* nameColor;
-@property(nonatomic, retain) NSArray* relateItem;
+@property(nonatomic, retain) NSMutableArray* relateItem;
 
 -(ItemData*)initWithName:(NSString*)name;
 -(void)print;
@@ -94,9 +94,11 @@ enum {
                 NSString* level = [each objectForKey:@"level"];
                 idata.level = [level intValue];
                 idata.exData = [each objectForKey:@"data"];
+                
             } else if ([type isEqualToString:@"material"]) {
                 idata.type = kItemTypeMaterial;
                 idata.exData = [each objectForKey:@"data"];
+                idata.relateItem = [[NSMutableArray alloc]init];
             } else if ([type isEqualToString:@"drug"]) {
                 idata.type = kItemTypeDrug;
                 NSString* level = [each objectForKey:@"level"];
@@ -104,8 +106,26 @@ enum {
             }
             
             idata.image = [each objectForKey:@"image"];
-            idata.nameColor = [each objectForKey:@"color"];
-            idata.relateItem = [each objectForKey:@"items"];
+            
+            if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
+                idata.nameColor = [each objectForKey:@"color"];
+                idata.relateItem = [each objectForKey:@"items"];
+
+                if (idata.relateItem) {
+                    for (NSString* each in idata.relateItem) {
+                        if (![each respondsToSelector:@selector(isEqualToString:)]) {
+                            continue;
+                        }
+                        
+                        for (ItemData* itemData in allItems_) {
+                            if (itemData.type == kItemTypeMaterial
+                                && [each isEqualToString:itemData.itemName]) {
+                                [itemData.relateItem addObject:idata.itemName];
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         [allItems_ addObject:idata];
@@ -145,12 +165,59 @@ enum {
     drugs_ = [[NSMutableArray alloc]init];
     materials_ = [[NSMutableArray alloc]init];
 
-    [self loadFromFile:@"drug"];
+    // 先加载材料，后面加载装备和丹药时会修正材料的关联物品数据
     [self loadFromFile:@"material"];
+
+    [self loadFromFile:@"drug"];
     [self loadFromFile:@"equip"];
 
     [self selectType:kItemTypeMaterial];
     [self updateLabelTitle];
+#ifdef DEBUG
+    [self checkData];
+#endif
+}
+
+-(void)checkData
+{
+    for (ItemData* each in allItems_) {
+        bool checkOk = NO;
+        // 遍历每一个物品的所有相关物品，注意有的物品如降魔弓是没有关联物品的
+        if (!each.relateItem || [each.relateItem count] == 0) {
+            continue;
+        }
+
+        for (NSString* eachItem in each.relateItem) {
+            // 这个是NSNumber，不用查询
+            if (![eachItem respondsToSelector:@selector(isEqualToString:)]) {
+                continue;
+            }
+
+            for (ItemData* findItem in allItems_) {
+                // 先找到这个相关物品的数据
+                if ([eachItem isEqualToString:findItem.itemName]) {
+                    // 遍历找到的这个物品的相关物品，看看是否有要校验的物品，如果有则正常，否则可能不正常，打印出物品名称以便确认
+                    if (!findItem.relateItem || [findItem.relateItem count] == 0) {
+                        continue;
+                    }
+
+                    for (NSString* findItemRelate in findItem.relateItem) {
+                        if (![findItemRelate respondsToSelector:@selector(isEqualToString:)]) {
+                            continue;
+                        }
+
+                        if ([findItemRelate isEqualToString:each.itemName]) {
+                            checkOk = YES;
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (!checkOk) {
+            NSLog(@"error:   %@", each.itemName);
+        }
+    }
 }
 
 - (void)viewDidUnload
@@ -281,6 +348,7 @@ enum {
     EquipItemTableViewCell *cell = (EquipItemTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[EquipItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.relateItems.delegate = self;
     }
     
     ItemData* idata = nil;
@@ -336,26 +404,26 @@ enum {
             }
         } else {
             if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
-                NSString* text = @"所需材料:  ";
+                NSString* text = @"<_default>所需材料:  </_default>";
                 int amount = [idata.relateItem count];
                 NSString* name;
-                NSString* number;
+                NSNumber* number;
                 for (int i = 0; i < amount; ++i) {
                     if (i % 2 == 0) {
                         name = [idata.relateItem objectAtIndex:i];
                     } else {
                         number = [idata.relateItem objectAtIndex:i];
-                        text = [text stringByAppendingFormat:@"%@x%@   ", name, number];
+                        text = [text stringByAppendingFormat:@"<_link>%@</_link>x%@    ", name, number];
                     }
                 }
                 
-                cell.relateItems.text = text;
+                cell.relateItems.text = text;//[NSString stringWithFormat:@"<_link>%@</_link>", text];
             } else {
-                NSString* text = @"可制作物品:  ";
+                NSString* text = @"<_default>可制作物品:  </_default>";
                 int amount = [idata.relateItem count];
                 for (int i = 0; i < amount; ++i) {
                     if (i % 2 == 0) {
-                        text = [text stringByAppendingFormat:@"%@   ", [idata.relateItem objectAtIndex:i]];
+                        text = [text stringByAppendingFormat:@"<_link>%@</_link>    ", [idata.relateItem objectAtIndex:i]];
                     }
                 }
                 
@@ -502,5 +570,32 @@ enum {
 -(IBAction)onClickReturn:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)coreTextView:(FTCoreTextView *)coreTextView receivedTouchOnData:(NSDictionary *)data
+{
+    NSString* text = [data objectForKey:FTCoreTextDataURL];
+    
+    [self search:text];
+
+    if ([materials_ count] > 0) {
+        [self selectType:kItemTypeMaterial];
+    } else if ([equipments_ count] > 0) {
+        [self selectType:kItemTypeEquipment];
+    } else if ([drugs_ count] > 0) {
+        [self selectType:kItemTypeDrug];
+    } else {
+        // nothing
+        [self selectType:kItemTypeMaterial];
+    }
+
+    searchText.text = text;
+    [self updateLabelTitle];
+
+    tableView_.alpha = 0;
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.5];
+    tableView_.alpha = 1;
+    [UIView commitAnimations];
 }
 @end
