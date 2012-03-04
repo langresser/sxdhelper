@@ -20,8 +20,8 @@
 
         image = [[UIImageView alloc]initWithFrame:CGRectMake(9, 5, 44, 44)];
         itemName = [[UILabel alloc]initWithFrame:CGRectMake(0, 55, 60, 30)];
-        exData = [[UILabel alloc]initWithFrame:CGRectMake(60, 0, 230, 25)];
-        relateItems = [[FTCoreTextView alloc]initWithFrame:CGRectMake(60, 30, 230, 60)];
+        exData = [[UILabel alloc]initWithFrame:CGRectMake(60, 0, 230, 20)];
+        relateItems = [[FTCoreTextView alloc]initWithFrame:CGRectMake(60, 20, 230, 100)];
         UIImageView* cellbg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cellbg.png"]];
         CGRect rect = relateItems.frame;
         rect.origin.x -= 5;
@@ -35,7 +35,7 @@
         itemName.textAlignment = UITextAlignmentCenter;
         exData.textAlignment = UITextAlignmentCenter;
         
-        itemName.font = [UIFont systemFontOfSize:13];
+        itemName.font = [UIFont systemFontOfSize:15];
         itemName.adjustsFontSizeToFitWidth = YES;
         exData.font = [UIFont systemFontOfSize:13];
 
@@ -68,17 +68,19 @@
     
 	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont systemFontOfSize:12];
+	defaultStyle.font = [UIFont systemFontOfSize:14];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
     defaultStyle.underlined = NO;
+    defaultStyle.minLineHeight = 20;
 	[result addObject:defaultStyle];
     
     FTCoreTextStyle* linkStyle = [defaultStyle copy];
     linkStyle.name = FTCoreTextTagLink;
-    linkStyle.font = [UIFont systemFontOfSize:13];
+    linkStyle.font = [UIFont systemFontOfSize:15];
     linkStyle.textAlignment = FTCoreTextAlignementJustified;
     linkStyle.underlined = YES;
     linkStyle.color = [UIColor blueColor];
+    linkStyle.minLineHeight = 20;
     [result addObject:linkStyle];
     
     return  result;

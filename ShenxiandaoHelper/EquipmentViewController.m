@@ -116,10 +116,13 @@ enum {
                         if (![each respondsToSelector:@selector(isEqualToString:)]) {
                             continue;
                         }
-                        
+
                         for (ItemData* itemData in allItems_) {
                             if (itemData.type == kItemTypeMaterial
                                 && [each isEqualToString:itemData.itemName]) {
+//                                if ([itemData.itemName isEqualToString:@"紫幽羽"]) {
+//                                    NSLog(@"%@    %@   %d", itemData.itemName, idata.itemName, [itemData.relateItem count]);
+//                                }
                                 [itemData.relateItem addObject:idata.itemName];
                             }
                         }
@@ -404,7 +407,7 @@ enum {
             }
         } else {
             if (idata.type == kItemTypeEquipment || idata.type == kItemTypeDrug) {
-                NSString* text = @"<_default>所需材料:  </_default>";
+                NSString* text = @"<_default>所需材料: </_default>";
                 int amount = [idata.relateItem count];
                 NSString* name;
                 NSNumber* number;
@@ -419,15 +422,14 @@ enum {
                 
                 cell.relateItems.text = text;//[NSString stringWithFormat:@"<_link>%@</_link>", text];
             } else {
-                NSString* text = @"<_default>可制作物品:  </_default>";
+                NSString* text = @"<_default>可制作物品: </_default>";
                 int amount = [idata.relateItem count];
                 for (int i = 0; i < amount; ++i) {
-                    if (i % 2 == 0) {
-                        text = [text stringByAppendingFormat:@"<_link>%@</_link>    ", [idata.relateItem objectAtIndex:i]];
-                    }
+                    text = [text stringByAppendingFormat:@"<_link>%@</_link>   ", [idata.relateItem objectAtIndex:i]];
                 }
                 
                 cell.relateItems.text = text;
+//                NSLog(@"%@     %@", idata.itemName, text);
             }
         }
        
@@ -438,7 +440,7 @@ enum {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 125;
 }
 /*
  // Override to support conditional editing of the table view.
@@ -575,6 +577,11 @@ enum {
 -(void)coreTextView:(FTCoreTextView *)coreTextView receivedTouchOnData:(NSDictionary *)data
 {
     NSString* text = [data objectForKey:FTCoreTextDataURL];
+    
+    // 点选到空白的地方了，直接返回
+    if (!text) {
+        return;
+    }
     
     [self search:text];
 
