@@ -9,7 +9,10 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
-	<array/>
+	<array>
+		<string>icon_57.png</string>
+		<string>icon_72.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.langresser.shenxiandaohelper</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -26,6 +29,8 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>CFBundleIconFile</key>
+	<string>icon_57.png</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

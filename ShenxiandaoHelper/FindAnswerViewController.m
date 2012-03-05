@@ -91,6 +91,7 @@
     
     //创建广告位1
     ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"b3c61a9d3ca184f19a56b7998e439672" size:CGSizeMake(320.0, 50.0)];
+//    ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"ee942c110277be254c5f15e73a61394b" size:CGSizeMake(320.0, 50.0)];
     //设置委托
     ghAdView1.delegate = self;
     
@@ -99,13 +100,7 @@
     //设置frame并添加到View中
     ghAdView1.frame = CGRectMake(0.0, self.view.bounds.size.height - 50.0, 320.0, 50.0);
     [self.view addSubview:ghAdView1];
-}
-
-#pragma mark -GHAdViewDelegate required method
-
-- (UIViewController *)viewControllerForPresentingModalView
-{
-    return self;
+    shouldResumeAd = NO;
 }
 
 - (void)viewDidUnload
@@ -244,14 +239,45 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark -GHAdViewDelegate required method
+
+- (UIViewController *)viewControllerForPresentingModalView
+{
+    return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (shouldResumeAd && ghAdView1) {
+        [ghAdView1 resumeAdRequest];
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    shouldResumeAd = YES;
+    if (shouldPause && ghAdView1) {
+        [ghAdView1 stopAdRequest];
+    }
+}
+
 //加载广告失败时调用
 - (void)adViewDidFailToLoadAd:(GHAdView *)view
 {
+#ifdef DEBUG
+    NSLog(@"adViewDidFailToLoadAd: FindAnswerView");
+#endif
 }
 
 //加载广告成功时调用
 - (void)adViewDidLoadAd:(GHAdView *)view
 {
+    shouldResumeAd = YES;
+#ifdef DEBUG
+    NSLog(@"adViewDidLoadAd: FindAnswerView");
+#endif
 }
 
 //广告点击出现内容窗口时调用

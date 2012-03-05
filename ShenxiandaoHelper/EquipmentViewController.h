@@ -11,6 +11,7 @@
 #import "GHAdView.h"
 #import "GHAdViewDelegate.h"
 
+@class ViewController;
 @interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate, GHAdViewDelegate>
 {
     IBOutlet UITableView* tableView_;
@@ -30,6 +31,8 @@
     int currentType;
     
     GHAdView *ghAdView1;
+    BOOL shouldResumeAd;
+    BOOL shouldPause;
 }
 
 -(IBAction)onClickMaterial:(id)sender;

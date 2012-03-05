@@ -18,6 +18,8 @@
     IBOutlet UITableView* tableView_;
     
     GHAdView *ghAdView1;
+    BOOL shouldResumeAd;
+    BOOL shouldPause;
 }
 
 -(IBAction)onClickReturn:(id)sender;

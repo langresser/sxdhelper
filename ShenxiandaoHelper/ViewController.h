@@ -27,6 +27,8 @@
 
     AVAudioPlayer *player;
     BOOL isPlayingMusic;
+    
+    IBOutlet UIButton* btnSound;
 }
 
 -(IBAction)onClickGameTutorial:(id)sender;

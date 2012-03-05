@@ -42,6 +42,11 @@
         } else {
             isPlayingMusic = YES;
         }
+        
+        btnSound.selected = !isPlayingMusic;
+    } else {
+        isPlayingMusic = YES;
+        btnSound.selected = NO;
     }
     
     if (isPlayingMusic) {
@@ -130,6 +135,7 @@
 -(IBAction)onClickSound:(id)sender
 {
     isPlayingMusic = !isPlayingMusic;
+    btnSound.selected = !isPlayingMusic;
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     

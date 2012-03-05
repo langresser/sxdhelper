@@ -10,6 +10,9 @@
 #import "EquipItemTableViewCell.h"
 #import "JSONKit.h"
 
+//#import "AppDelegate.h"
+//#import "ViewController.h"
+
 enum {
     kItemTypeEquipment,     // 装备
     kItemTypeDrug,          // 丹药
@@ -59,7 +62,6 @@ enum {
 @end
 
 @implementation EquipmentViewController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -179,9 +181,11 @@ enum {
 #ifdef DEBUG
 //    [self checkData];
 #endif
+
     
     //创建广告位1
     ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"d9f49db11f39fca8448d75e9fa995ca8" size:CGSizeMake(320.0, 50.0)];
+//    ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"ee942c110277be254c5f15e73a61394b" size:CGSizeMake(320.0, 50.0)];
     //设置委托
     ghAdView1.delegate = self;
     
@@ -190,14 +194,11 @@ enum {
     //设置frame并添加到View中
     ghAdView1.frame = CGRectMake(0.0, self.view.bounds.size.height - 50.0, 320.0, 50.0);
     [self.view addSubview:ghAdView1];
+    shouldResumeAd = NO;
+//    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//    ViewController* root = app.viewController;
+//    [self.view addSubview:root.ghAdView1];
 }
-
-#pragma mark -GHAdViewDelegate required method
-- (UIViewController *)viewControllerForPresentingModalView
-{
-    return self;
-}
-
 
 -(void)checkData
 {
@@ -624,15 +625,45 @@ enum {
     [UIView commitAnimations];
 }
 
+#pragma mark for ads
+#pragma mark -GHAdViewDelegate required method
+- (UIViewController *)viewControllerForPresentingModalView
+{
+    return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (shouldResumeAd && ghAdView1) {
+        [ghAdView1 resumeAdRequest];
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    shouldResumeAd = YES;
+    if (shouldPause && ghAdView1) {
+        [ghAdView1 stopAdRequest];
+    }
+}
 
 //加载广告失败时调用
 - (void)adViewDidFailToLoadAd:(GHAdView *)view
 {
+#ifdef DEBUG
+    NSLog(@"adViewDidFailToLoadAd: EquipmentView");
+#endif
 }
 
 //加载广告成功时调用
 - (void)adViewDidLoadAd:(GHAdView *)view
 {
+    shouldPause = YES;
+#ifdef DEBUG
+    NSLog(@"adViewDidLoadAd: EquipmentView");
+#endif
 }
 
 //广告点击出现内容窗口时调用
