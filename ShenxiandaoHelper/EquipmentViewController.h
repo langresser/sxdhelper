@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "FTCoreTextView.h"
+#import "GHAdView.h"
+#import "GHAdViewDelegate.h"
 
-@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate>
+@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate, GHAdViewDelegate>
 {
     IBOutlet UITableView* tableView_;
     IBOutlet UIButton* btnMaterial;
@@ -26,6 +28,8 @@
     NSMutableArray* materials_;
     
     int currentType;
+    
+    GHAdView *ghAdView1;
 }
 
 -(IBAction)onClickMaterial:(id)sender;

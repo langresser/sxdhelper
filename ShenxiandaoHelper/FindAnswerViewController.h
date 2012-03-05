@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GHAdView.h"
+#import "GHAdViewDelegate.h"
 
-@interface FindAnswerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface FindAnswerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, GHAdViewDelegate>
 {
     NSMutableArray* allFaqData_;
     NSMutableArray* currentSearchData_;
     
     IBOutlet UITableView* tableView_;
+    
+    GHAdView *ghAdView1;
 }
 
 -(IBAction)onClickReturn:(id)sender;

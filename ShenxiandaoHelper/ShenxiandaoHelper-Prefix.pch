@@ -11,4 +11,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+extern void GHLogWarn(NSString* text, ...);
+extern void GHLogDebug(NSString* text, ...);
+extern void GHLogInfo(NSString* text, ...);
 #endif

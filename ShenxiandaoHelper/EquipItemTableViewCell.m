@@ -19,7 +19,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
         image = [[UIImageView alloc]initWithFrame:CGRectMake(9, 5, 44, 44)];
-        itemName = [[UILabel alloc]initWithFrame:CGRectMake(0, 55, 60, 30)];
+        itemName = [[UILabel alloc]initWithFrame:CGRectMake(0, 55, 60, 50)];
         exData = [[UILabel alloc]initWithFrame:CGRectMake(60, 0, 230, 20)];
         relateItems = [[FTCoreTextView alloc]initWithFrame:CGRectMake(60, 20, 230, 100)];
         UIImageView* cellbg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cellbg.png"]];
@@ -35,9 +35,9 @@
         itemName.textAlignment = UITextAlignmentCenter;
         exData.textAlignment = UITextAlignmentCenter;
         
-        itemName.font = [UIFont systemFontOfSize:15];
+        itemName.font = [UIFont systemFontOfSize:16];
         itemName.adjustsFontSizeToFitWidth = YES;
-        exData.font = [UIFont systemFontOfSize:13];
+        exData.font = [UIFont systemFontOfSize:14];
 
         image.backgroundColor = [UIColor clearColor];
         itemName.backgroundColor = [UIColor clearColor];
