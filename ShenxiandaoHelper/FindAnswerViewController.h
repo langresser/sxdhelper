@@ -7,19 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GHAdView.h"
-#import "GHAdViewDelegate.h"
 
-@interface FindAnswerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, GHAdViewDelegate>
+@interface FindAnswerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
     NSMutableArray* allFaqData_;
     NSMutableArray* currentSearchData_;
     
     IBOutlet UITableView* tableView_;
-    
-    GHAdView *ghAdView1;
-    BOOL shouldResumeAd;
-    BOOL shouldPause;
 }
 
 -(IBAction)onClickReturn:(id)sender;
