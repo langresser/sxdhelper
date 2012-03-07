@@ -3,7 +3,7 @@ def trans_xianlvqiyuan():
     fp = open('xianlvqiyuan.txt', 'r');
     data = [];
     index = 0;
-    data.append('{\n');
+    data.append('[\n');
     question = "";
     answer1 = "";
     price1 = "";
@@ -14,28 +14,35 @@ def trans_xianlvqiyuan():
         line = line.strip();
 
         if index == 0:
-            if question != "":
-                data.append('"{0}":\n'.format(question));
-                data.append('\t[ "{0}"  ,  "{1}" ,\n'.format(answer1, price1));
-                data.append('\t  "{0}"  ,  "{1}" ],\n'.format(answer2, price2));
-            question = line;
+            pass;
         elif index == 1:
-            answer1 = line;
+            if question != "":
+                data.append('{{"question" : "{0}",\n'.format(question));
+                data.append('    "answer1" : "{0}",\n'.format(answer1));
+                data.append('        "price1" : "{0}",\n'.format(price1));
+                data.append('    "answer2" : "{0}",\n'.format(answer2));
+                data.append('        "price2" : "{0}"}},\n'.format(price2));
+            question = line;
         elif index == 2:
-            price1 = line;
+            answer1 = line;
         elif index == 3:
-            answer2 = line;
+            price1 = line;
         elif index == 4:
+            answer2 = line;
+        elif index == 5:
             price2 = line;
+
         index += 1;
-        if index == 5:
+        if index == 6:
             index = 0;
 
     if question != "":
-       data.append('"{0}":\n'.format(question));
-       data.append('\t[ "{0}"  ,  "{1}" ,\n'.format(answer1, price1));
-       data.append('\t  "{0}"  ,  "{1}" ]\n'.format(answer2, price2));
-    data.append('}\n');
+        data.append('{{"question" : "{0}",\n'.format(question));
+        data.append('    "answer1" : "{0}",\n'.format(answer1));
+        data.append('        "price1" : "{0}",\n'.format(price1));
+        data.append('    "answer2" : "{0}",\n'.format(answer2));
+        data.append('        "price2" : "{0}"}}\n'.format(price2));
+    data.append(']\n');
 
     fp.close();
     fpw = open('xianlvqiyuan.json', 'w');
