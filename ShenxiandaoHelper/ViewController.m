@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @implementation ViewController
-@synthesize isPlayingMusic;
+@synthesize isPlayingMusic, ghAdView1;
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,6 +33,16 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
+    //创建广告位1
+//    ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"d9f49db11f39fca8448d75e9fa995ca8" size:CGSizeMake(320.0, 50.0)];
+    ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"ee942c110277be254c5f15e73a61394b" size:CGSizeMake(320.0, 50.0)];
+    //设置委托
+    ghAdView1.delegate = self;
+    [ghAdView1 loadAd];
+
+    //设置frame并添加到View中
+    ghAdView1.frame = CGRectMake(0.0, self.view.bounds.size.height - 50.0, 320.0, 50.0);
+
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     
     if (standardUserDefaults) {
@@ -177,5 +187,39 @@
     if (player) {
         [player stop];
     }
+}
+
+#pragma mark for ads
+- (UIViewController *)viewControllerForPresentingModalView
+{
+    return self;
+}
+
+//加载广告失败时调用
+- (void)adViewDidFailToLoadAd:(GHAdView *)view
+{
+#ifdef DEBUG
+    static int i = 0;
+    NSLog(@"adViewDidFailToLoadAd   %d", i++);
+#endif
+}
+
+//加载广告成功时调用
+- (void)adViewDidLoadAd:(GHAdView *)view
+{
+#ifdef DEBUG
+    static int i = 0;
+    NSLog(@"adViewDidLoadAd  %d", i++);
+#endif
+}
+
+//广告点击出现内容窗口时调用
+- (void)willPresentModalViewForAd:(GHAdView *)view
+{
+}
+
+//广告位的关闭按钮被点击时调用
+- (void)didClosedAdView:(GHAdView *)view
+{
 }
 @end

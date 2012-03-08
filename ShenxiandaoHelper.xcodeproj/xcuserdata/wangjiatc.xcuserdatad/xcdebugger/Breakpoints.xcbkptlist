@@ -37,26 +37,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ShenxiandaoHelper/FindAnswerViewController.m"
-         timestampString = "352666827.860768"
+         timestampString = "352839712.686658"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
          landmarkName = "-textFieldShouldReturn:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ShenxiandaoHelper/ViewController.m"
-         timestampString = "352666374.782698"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

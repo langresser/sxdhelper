@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "FTCoreTextView.h"
-#import "GHAdView.h"
-#import "GHAdViewDelegate.h"
 
-@class ViewController;
-@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate, GHAdViewDelegate>
+@interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate>
 {
     IBOutlet UITableView* tableView_;
     IBOutlet UIButton* btnMaterial;
@@ -30,7 +27,6 @@
     
     int currentType;
     
-    GHAdView *ghAdView1;
     BOOL shouldResumeAd;
     BOOL shouldPause;
 }

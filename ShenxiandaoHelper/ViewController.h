@@ -16,7 +16,10 @@
 #import "EquipmentViewController.h"
 #import "ToolsViewController.h"
 
-@interface ViewController : UIViewController
+#import "GHAdView.h"
+#import "GHAdViewDelegate.h"
+
+@interface ViewController : UIViewController<GHAdViewDelegate>
 {
     GameTutorialViewController* gameTutorialVC;
     FindAnswerViewController* findAnswerVC;
@@ -29,6 +32,8 @@
     BOOL isPlayingMusic;
     
     IBOutlet UIButton* btnSound;
+    
+    GHAdView *ghAdView1;
 }
 
 -(IBAction)onClickGameTutorial:(id)sender;
@@ -42,6 +47,7 @@
 -(IBAction)onClickSound:(id)sender;
 
 @property(nonatomic) BOOL isPlayingMusic;
+@property(nonatomic, retain) GHAdView* ghAdView1;
 
 -(void)loadMusic;
 -(void)playSound;

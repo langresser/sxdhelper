@@ -7,9 +7,48 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendDetailViewController.h"
 
-@interface FriendsViewController : UIViewController
+enum {
+    PAGE_JIANLING = 0,
+    PAGE_JIANGXING,
+    PAGE_WUSHENG,
+    PAGE_FEIYU,
+    PAGE_SHUSHI,
+    PAGE_SHENMIHUOBAN,
+    PAGE_MAX,
+};
 
+@interface FriendsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
+{
+    IBOutlet UIScrollView* scrollView;
+    IBOutlet UITableView* tableJianLing;
+    IBOutlet UITableView* tableJiangXing;
+    IBOutlet UITableView* tableWuSheng;
+    IBOutlet UITableView* tableFeiYu;
+    IBOutlet UITableView* tableShuShi;
+    IBOutlet UITableView* tableShenMiHuoBan;
+    
+    IBOutlet UIButton* btnJianLing;
+    IBOutlet UIButton* btnJiangXing;
+    IBOutlet UIButton* btnWuSheng;
+    IBOutlet UIButton* btnFeiYu;
+    IBOutlet UIButton* btnShuShi;
+    IBOutlet UIButton* btnShenMiHuoBan;
+    
+    int currentPage;
+    
+    FriendDetailViewController* detailVC;
+    
+    NSArray* allPlayers;
+    NSMutableArray* currentPlayers[PAGE_MAX];
+}
+
+-(void)scrollToPage:(int)page;
+-(NSString*)getNameByIndex:(int)page;
+-(CGRect)rectForPage:(int)page;
+
+-(void)updateBtn:(int)page;
+-(IBAction)onClickReturn:(id)sender;
 -(IBAction)onClickPro:(id)sender;
--(IBAction)onClickSkill:(id)sender;
 @end
