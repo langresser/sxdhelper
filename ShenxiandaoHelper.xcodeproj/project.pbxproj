@@ -43,6 +43,11 @@
 		3B13D09514F8A5230066F001 /* ToolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D09314F8A5230066F001 /* ToolsViewController.xib */; };
 		3B14660214FF2F840020E365 /* return1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B14660014FF2F840020E365 /* return1.png */; };
 		3B14660314FF2F840020E365 /* return2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B14660114FF2F840020E365 /* return2.png */; };
+		3B16948B15090B45005069BD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B16948115090B45005069BD /* ViewController.xib */; };
+		3B1694911509128E005069BD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B16948E1509128D005069BD /* Default.png */; };
+		3B1694921509128E005069BD /* huoban.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B16948F1509128E005069BD /* huoban.json */; };
+		3B1694931509128E005069BD /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1694901509128E005069BD /* icon_114.png */; };
+		3B1694991509145A005069BD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B16949815091459005069BD /* Default@2x.png */; };
 		3B2BCB58150521E400BD9476 /* btn_cangbaoge_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2BCB4F150521E400BD9476 /* btn_cangbaoge_s.png */; };
 		3B2BCB59150521E400BD9476 /* btn_cangbaoge.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2BCB50150521E400BD9476 /* btn_cangbaoge.png */; };
 		3B2BCB5A150521E400BD9476 /* btnhuoban_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2BCB51150521E400BD9476 /* btnhuoban_s.png */; };
@@ -61,7 +66,6 @@
 		3B3AAA4214F69D15003BA5B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4114F69D15003BA5B8 /* main.m */; };
 		3B3AAA4614F69D15003BA5B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */; };
 		3B3AAA4914F69D15003BA5B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4814F69D15003BA5B8 /* ViewController.m */; };
-		3B3AAA4C14F69D15003BA5B8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */; };
 		3B43EC7914FA0FC100FA5DB2 /* GameTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B43EC7714FA0FC100FA5DB2 /* GameTutorialViewController.m */; };
 		3B43EC7A14FA0FC100FA5DB2 /* GameTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */; };
 		3B43EC8714FA55A800FA5DB2 /* tutorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B43EC8614FA55A800FA5DB2 /* tutorial.json */; };
@@ -411,6 +415,11 @@
 		3B13D09314F8A5230066F001 /* ToolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolsViewController.xib; sourceTree = "<group>"; };
 		3B14660014FF2F840020E365 /* return1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return1.png; sourceTree = "<group>"; };
 		3B14660114FF2F840020E365 /* return2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return2.png; sourceTree = "<group>"; };
+		3B16948115090B45005069BD /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3B16948E1509128D005069BD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3B16948F1509128E005069BD /* huoban.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = huoban.json; sourceTree = "<group>"; };
+		3B1694901509128E005069BD /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
+		3B16949815091459005069BD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3B2BCB4F150521E400BD9476 /* btn_cangbaoge_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_cangbaoge_s.png; sourceTree = "<group>"; };
 		3B2BCB50150521E400BD9476 /* btn_cangbaoge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_cangbaoge.png; sourceTree = "<group>"; };
 		3B2BCB51150521E400BD9476 /* btnhuoban_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnhuoban_s.png; sourceTree = "<group>"; };
@@ -434,7 +443,6 @@
 		3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3B3AAA4714F69D15003BA5B8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B3AAA4814F69D15003BA5B8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3B3AAA4B14F69D15003BA5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		3B43EC7614FA0FC100FA5DB2 /* GameTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorialViewController.h; sourceTree = "<group>"; };
 		3B43EC7714FA0FC100FA5DB2 /* GameTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialViewController.m; sourceTree = "<group>"; };
 		3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTutorialViewController.xib; sourceTree = "<group>"; };
@@ -876,6 +884,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B16948D15090B50005069BD /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				3B43EC8D14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.xib */,
+				3BD7D08F1506A51E00178189 /* FriendDetailViewController.xib */,
+				3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */,
+				3B73DF7214F739D0009E34CE /* FriendsViewController.xib */,
+				3B73DF7714F73A39009E34CE /* FateViewController.xib */,
+				3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */,
+				3B13D09314F8A5230066F001 /* ToolsViewController.xib */,
+				3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */,
+				3B16948115090B45005069BD /* ViewController.xib */,
+			);
+			name = xib;
+			sourceTree = "<group>";
+		};
 		3B3AAA2614F69D14003BA5B8 = {
 			isa = PBXGroup;
 			children = (
@@ -929,6 +953,7 @@
 		3B3AAA3B14F69D15003BA5B8 /* ShenxiandaoHelper */ = {
 			isa = PBXGroup;
 			children = (
+				3B16948D15090B50005069BD /* xib */,
 				3BE269BD1504239400863D73 /* iads */,
 				3B43ECBD14FA782200FA5DB2 /* categories */,
 				3B43ECC214FA782200FA5DB2 /* FTCoreTextStyle.h */,
@@ -940,38 +965,29 @@
 				3B3AAA4514F69D15003BA5B8 /* AppDelegate.m */,
 				3B3AAA4714F69D15003BA5B8 /* ViewController.h */,
 				3B3AAA4814F69D15003BA5B8 /* ViewController.m */,
-				3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */,
 				3B3AAA3C14F69D15003BA5B8 /* Supporting Files */,
 				3B73DF6B14F739BA009E34CE /* FindAnswerViewController.h */,
 				3B73DF6C14F739BA009E34CE /* FindAnswerViewController.m */,
-				3B73DF6D14F739BA009E34CE /* FindAnswerViewController.xib */,
 				3B73DF7014F739D0009E34CE /* FriendsViewController.h */,
 				3B73DF7114F739D0009E34CE /* FriendsViewController.m */,
-				3B73DF7214F739D0009E34CE /* FriendsViewController.xib */,
 				3B73DF7514F73A39009E34CE /* FateViewController.h */,
 				3B73DF7614F73A39009E34CE /* FateViewController.m */,
-				3B73DF7714F73A39009E34CE /* FateViewController.xib */,
 				3B13D08B14F8A4EC0066F001 /* EquipmentViewController.h */,
 				3B13D08C14F8A4EC0066F001 /* EquipmentViewController.m */,
-				3B13D08D14F8A4EC0066F001 /* EquipmentViewController.xib */,
 				3B13D09114F8A5220066F001 /* ToolsViewController.h */,
 				3B13D09214F8A5220066F001 /* ToolsViewController.m */,
-				3B13D09314F8A5230066F001 /* ToolsViewController.xib */,
 				3B43EC7614FA0FC100FA5DB2 /* GameTutorialViewController.h */,
 				3B43EC7714FA0FC100FA5DB2 /* GameTutorialViewController.m */,
-				3B43EC7814FA0FC100FA5DB2 /* GameTutorialViewController.xib */,
 				3B43EC8814FA5AD900FA5DB2 /* TutorialData.h */,
 				3B43EC8914FA5AD900FA5DB2 /* TutorialData.m */,
 				3B43EC8B14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.h */,
 				3B43EC8C14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.m */,
-				3B43EC8D14FA6EDA00FA5DB2 /* GameTutorialDetailViewController.xib */,
 				3B0B9E9014FD2C1E00B467E6 /* FAQTableViewCell.h */,
 				3B0B9E9114FD2C1E00B467E6 /* FAQTableViewCell.m */,
 				3B0B9E9514FD561900B467E6 /* EquipItemTableViewCell.h */,
 				3B0B9E9614FD561900B467E6 /* EquipItemTableViewCell.m */,
 				3BD7D08D1506A51E00178189 /* FriendDetailViewController.h */,
 				3BD7D08E1506A51E00178189 /* FriendDetailViewController.m */,
-				3BD7D08F1506A51E00178189 /* FriendDetailViewController.xib */,
 			);
 			path = ShenxiandaoHelper;
 			sourceTree = "<group>";
@@ -991,6 +1007,10 @@
 		3B43EC8514FA55A800FA5DB2 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				3B16949815091459005069BD /* Default@2x.png */,
+				3B16948E1509128D005069BD /* Default.png */,
+				3B16948F1509128E005069BD /* huoban.json */,
+				3B1694901509128E005069BD /* icon_114.png */,
 				3B2BCB611505283800BD9476 /* sound_off.png */,
 				3B2BCB621505283800BD9476 /* sound_on.png */,
 				3B2BCB4F150521E400BD9476 /* btn_cangbaoge_s.png */,
@@ -1698,7 +1718,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3AAA4014F69D15003BA5B8 /* InfoPlist.strings in Resources */,
-				3B3AAA4C14F69D15003BA5B8 /* ViewController.xib in Resources */,
 				3B73DF6F14F739BA009E34CE /* FindAnswerViewController.xib in Resources */,
 				3B73DF7414F739D0009E34CE /* FriendsViewController.xib in Resources */,
 				3B73DF7914F73A39009E34CE /* FateViewController.xib in Resources */,
@@ -1980,6 +1999,11 @@
 				3B2BCB631505283800BD9476 /* sound_off.png in Resources */,
 				3B2BCB641505283800BD9476 /* sound_on.png in Resources */,
 				3BD7D0911506A51E00178189 /* FriendDetailViewController.xib in Resources */,
+				3B16948B15090B45005069BD /* ViewController.xib in Resources */,
+				3B1694911509128E005069BD /* Default.png in Resources */,
+				3B1694921509128E005069BD /* huoban.json in Resources */,
+				3B1694931509128E005069BD /* icon_114.png in Resources */,
+				3B1694991509145A005069BD /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2041,14 +2065,6 @@
 				3B3AAA3F14F69D15003BA5B8 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3B3AAA4A14F69D15003BA5B8 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B3AAA4B14F69D15003BA5B8 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2143,6 +2159,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2192,6 +2209,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F2493854-D02C-46A5-BAB2-6D53CDBA3BFF";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

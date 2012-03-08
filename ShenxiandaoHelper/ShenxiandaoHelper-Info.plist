@@ -12,6 +12,7 @@
 	<array>
 		<string>icon_57.png</string>
 		<string>icon_72.png</string>
+		<string>icon_114.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.langresser.shenxiandaohelper</string>
@@ -38,8 +39,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 </dict>

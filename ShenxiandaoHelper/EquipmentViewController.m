@@ -609,12 +609,6 @@ enum {
 }
 
 #pragma mark for ads
-#pragma mark -GHAdViewDelegate required method
-- (UIViewController *)viewControllerForPresentingModalView
-{
-    return self;
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -626,14 +620,5 @@ enum {
         [rootVC.ghAdView1 removeFromSuperview];
     }
     [self.view addSubview: rootVC.ghAdView1];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    [rootVC.ghAdView1 removeFromSuperview];
 }
 @end

@@ -26,9 +26,6 @@
     NSMutableArray* materials_;
     
     int currentType;
-    
-    BOOL shouldResumeAd;
-    BOOL shouldPause;
 }
 
 -(IBAction)onClickMaterial:(id)sender;

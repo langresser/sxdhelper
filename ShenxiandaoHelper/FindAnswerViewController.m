@@ -70,25 +70,7 @@
     NSError* error = nil;
     NSString* filePath = [[NSBundle mainBundle]pathForResource:@"xianlvqiyuan" ofType:@"json"];
     NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    NSDictionary* faqData = [jsonString objectFromJSONString];
-    
-    allFaqData_ = [[NSMutableArray alloc]init];
-    
-    NSEnumerator* iter = [faqData keyEnumerator];
-    NSString* title = nil;
-    while (title = [iter nextObject]) {
-        FAQData* faqd = [[FAQData alloc]initWithQuestion:title];
-        if (faqd) {
-            NSArray* data = [faqData objectForKey:title];
-            faqd.answer1 = [data objectAtIndex:0];
-            faqd.price1 = [data objectAtIndex:1];
-            faqd.answer2 = [data objectAtIndex:2];
-            faqd.price2 = [data objectAtIndex:3];
-        }
-        
-        [allFaqData_ addObject:faqd];
-    }
-    
+    allFaqData_  = [jsonString objectFromJSONString];
     currentSearchData_ = [[NSMutableArray alloc]initWithArray:allFaqData_];
 }
 
@@ -117,8 +99,9 @@
     if ([text length] <= 0) {
         [currentSearchData_ addObjectsFromArray:allFaqData_];
     } else {
-        for (FAQData* each in allFaqData_) {
-            if ([each.question rangeOfString:text].location != NSNotFound) {
+        for (NSDictionary* each in allFaqData_) {
+            NSString* question = [each objectForKey:@"question"];
+            if ([question rangeOfString:text].location != NSNotFound) {
                 [currentSearchData_ addObject:each];
             }
         }
@@ -163,13 +146,13 @@
         cell = [[FAQTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    FAQData* faqd = [currentSearchData_ objectAtIndex:indexPath.row];
+    NSDictionary* faqd = [currentSearchData_ objectAtIndex:indexPath.row];
     if (faqd) {
-        cell.question.text = faqd.question;
-        cell.answer1.text = [NSString stringWithFormat:@"选择1:%@", faqd.answer1];
-        cell.price1.text = [NSString stringWithFormat:@"奖励:%@", faqd.price1];
-        cell.answer2.text = [NSString stringWithFormat:@"选择2:%@", faqd.answer2];
-        cell.price2.text = [NSString stringWithFormat:@"奖励:%@", faqd.price2];
+        cell.question.text = [faqd objectForKey:@"question"];
+        cell.answer1.text = [NSString stringWithFormat:@"选择1:%@", [faqd objectForKey:@"answer1"]];
+        cell.price1.text = [NSString stringWithFormat:@"奖励:%@", [faqd objectForKey:@"price1"]];
+        cell.answer2.text = [NSString stringWithFormat:@"选择2:%@", [faqd objectForKey:@"answer2"]];
+        cell.price2.text = [NSString stringWithFormat:@"奖励:%@", [faqd objectForKey:@"price2"]];
     }
     
     return cell;
@@ -242,12 +225,4 @@
     [self.view addSubview: rootVC.ghAdView1];
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    [rootVC.ghAdView1 removeFromSuperview];
-}
 @end

@@ -9,6 +9,7 @@
 #import "FriendsViewController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "JSONKit.h"
 
 @implementation FriendsViewController
 
@@ -37,6 +38,33 @@
     scrollView.contentSize = CGSizeMake(320 * PAGE_MAX, scrollView.bounds.size.height);
     
     detailVC = [[FriendDetailViewController alloc]initWithNibName:@"FriendDetailViewController" bundle:nil];
+    
+    NSError* error = nil;
+    NSString* filePath = [[NSBundle mainBundle]pathForResource:@"huoban" ofType:@"json"];
+    NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    allPlayers = [jsonString objectFromJSONString];
+    for (int i = 0; i < PAGE_MAX; ++i) {
+        currentPlayers[i] = [[NSMutableArray alloc]init];
+    }
+    
+    for (NSDictionary* each in allPlayers) {
+        NSString* type = [each objectForKey:@"职业"];
+        if ([type isEqualToString:@"剑灵"]) {
+            [currentPlayers[0] addObject:each];
+        } else if ([type isEqualToString:@"将星"]) {
+            [currentPlayers[1] addObject:each];
+        } else if ([type isEqualToString:@"武圣"]) {
+            [currentPlayers[2] addObject:each];
+        } else if ([type isEqualToString:@"飞羽"]) {
+            [currentPlayers[3] addObject:each];
+        } else if ([type isEqualToString:@"术士"]) {
+            [currentPlayers[4] addObject:each];
+        } else if ([type isEqualToString:@"神秘伙伴"]) {
+            [currentPlayers[5] addObject:each];
+        }
+    }
+    
+    currentPage = PAGE_JIANLING;
 }
 
 - (void)viewDidUnload
@@ -71,44 +99,17 @@
         [self updateBtn:page];
         [scrollView scrollRectToVisible:[self rectForPage:currentPage] animated:NO];
         
+        UITableView* tableView = (UITableView*)[self.view viewWithTag:200 + page];
+        if (tableView && [tableView numberOfRowsInSection:0] > 0) {
+            [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        }
+
         scrollView.alpha = 0.1;
         [UIView beginAnimations:@"" context:nil];
         [UIView setAnimationDuration:0.8];
         scrollView.alpha = 1;
         [UIView commitAnimations];
     }
-}
-
--(NSString*)getNameByIndex:(int)page
-{
-    if (page < 0 || page >= PAGE_MAX) {
-        return @"";
-    }
-
-    switch (page) {
-        case PAGE_JIANLING:
-            return @"剑灵";
-            break;
-        case PAGE_JIANGXING:
-            return @"将星";
-            break;
-        case PAGE_WUSHENG:
-            return @"武圣";
-            break;
-        case PAGE_FEIYU:
-            return @"飞羽";
-            break;
-        case PAGE_SHENMIHUOBAN:
-            return @"神秘伙伴";
-            break;
-        case PAGE_SHUSHI:
-            return @"术士";
-            break;
-        default:
-            break;
-    }
-    
-    return @"";
 }
 
 -(CGRect)rectForPage:(int)page
@@ -143,8 +144,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int page = tableView.tag - 200;
-    
-    return 10;
+    if (page < 0 || page >= PAGE_MAX) {
+        return 0;
+    }
+
+    return [currentPlayers[page] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,10 +158,52 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        UIImageView* image = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 50, 50)];
+        image.backgroundColor = [UIColor clearColor];
+        image.tag = 300;
+        UILabel* name = [[UILabel alloc]initWithFrame:CGRectMake(60, 5, 110, 20)];
+        name.backgroundColor = [UIColor clearColor];
+        name.font = [UIFont systemFontOfSize:14];
+        name.tag = 301;
+        UILabel* shengw = [[UILabel alloc]initWithFrame:CGRectMake(180, 5, 120, 20)];
+        shengw.backgroundColor = [UIColor clearColor];
+        shengw.font = [UIFont systemFontOfSize:14];
+        shengw.tag = 302;
+        UILabel* jueji = [[UILabel alloc]initWithFrame:CGRectMake(60, 25, 250, 55)];
+        jueji.backgroundColor = [UIColor clearColor];
+        jueji.numberOfLines = 0;
+        jueji.font = [UIFont systemFontOfSize:14];
+        jueji.tag = 303;
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        [cell.contentView addSubview:image];
+        [cell.contentView addSubview:name];
+        [cell.contentView addSubview:shengw];
+        [cell.contentView addSubview:jueji];
+        
+        cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.94 blue:0.96 alpha:0.8];
+
+        //为视图增加边框
+        cell.contentView.layer.masksToBounds=YES;
+        cell.contentView.layer.cornerRadius=10.0;
+        cell.contentView.layer.borderWidth=1.5;
+        cell.contentView.layer.borderColor=[[UIColor darkGrayColor] CGColor];
     }
     
     int page = tableView.tag - 200;
-    cell.textLabel.text = [self getNameByIndex:page];
+    if (page < 0 || page >= PAGE_MAX) {
+        return cell;
+    }
+
+    UIImageView* image = (UIImageView*)[cell.contentView viewWithTag:300];
+    UILabel* name = (UILabel*)[cell.contentView viewWithTag:301];
+    UILabel* shengw = (UILabel*)[cell.contentView viewWithTag:302];
+    UILabel* jueji = (UILabel*)[cell.contentView viewWithTag:303];
+    NSDictionary* data = [currentPlayers[page] objectAtIndex:indexPath.row];
+    image.image = [UIImage imageNamed:[data objectForKey:@"image_small"]];
+    name.text = [NSString stringWithFormat:@"姓名:%@", [data objectForKey:@"姓名"]];
+    shengw.text = [NSString stringWithFormat:@"声望要求:%@", [data objectForKey:@"声望"]];
+    jueji.text = [NSString stringWithFormat:@"战法:%@", [data objectForKey:@"战法"]];
     
     
     return cell;
@@ -171,11 +217,25 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (currentPage < 0 || currentPage >= PAGE_MAX) {
+        return;
+    }
+    
+    if (indexPath.row >= [currentPlayers[currentPage] count]) {
+        return;
+    }
+
+    detailVC.currentPlayer = [currentPlayers[currentPage] objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)ascrollView;
 {
+    if (ascrollView == scrollView) {
+        currentPage = ascrollView.contentOffset.x / ascrollView.bounds.size.width;
+        [self updateBtn:currentPage];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -190,14 +250,5 @@
     }
 
     [self.view addSubview: rootVC.ghAdView1];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    [rootVC.ghAdView1 removeFromSuperview];
 }
 @end

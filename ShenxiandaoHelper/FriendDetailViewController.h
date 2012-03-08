@@ -9,5 +9,25 @@
 #import <UIKit/UIKit.h>
 
 @interface FriendDetailViewController : UIViewController
+{
+    NSDictionary* currentPlayer;
+
+    IBOutlet UILabel* labelTitle;
+    IBOutlet UILabel* labelFuben;
+    IBOutlet UILabel* labelShengw;
+    IBOutlet UILabel* labelFeiyong;
+    IBOutlet UILabel* labelWuli;
+    IBOutlet UILabel* labelJueji;
+    IBOutlet UILabel* labelFali;
+    IBOutlet UILabel* labelZhanfa;
+    IBOutlet UILabel* labelMiaoshu;
+    IBOutlet UILabel* labelMiaoshuTitle;
+    IBOutlet UILabel* labelPingjia;
+    IBOutlet UILabel* labelPingjiaTitle;
+    
+    IBOutlet UIImageView* image;
+    IBOutlet UIScrollView* scrollView;
+}
+@property(nonatomic, retain) NSDictionary* currentPlayer;
 -(IBAction)onClickReturn:(id)sender;
 @end

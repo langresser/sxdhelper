@@ -22,19 +22,6 @@ enum {
 @interface FriendsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIScrollView* scrollView;
-    IBOutlet UITableView* tableJianLing;
-    IBOutlet UITableView* tableJiangXing;
-    IBOutlet UITableView* tableWuSheng;
-    IBOutlet UITableView* tableFeiYu;
-    IBOutlet UITableView* tableShuShi;
-    IBOutlet UITableView* tableShenMiHuoBan;
-    
-    IBOutlet UIButton* btnJianLing;
-    IBOutlet UIButton* btnJiangXing;
-    IBOutlet UIButton* btnWuSheng;
-    IBOutlet UIButton* btnFeiYu;
-    IBOutlet UIButton* btnShuShi;
-    IBOutlet UIButton* btnShenMiHuoBan;
     
     int currentPage;
     
@@ -44,8 +31,6 @@ enum {
     NSMutableArray* currentPlayers[PAGE_MAX];
 }
 
--(void)scrollToPage:(int)page;
--(NSString*)getNameByIndex:(int)page;
 -(CGRect)rectForPage:(int)page;
 
 -(void)updateBtn:(int)page;
