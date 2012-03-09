@@ -34,6 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    image.layer.masksToBounds=YES;
+    image.layer.cornerRadius=10.0;
+    image.layer.borderWidth=1.5;
+    image.layer.borderColor=[[UIColor darkGrayColor] CGColor];
 }
 
 - (void)viewDidUnload

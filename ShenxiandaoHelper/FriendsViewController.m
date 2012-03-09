@@ -158,7 +158,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        UIImageView* image = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 50, 50)];
+        UIImageView* image = [[UIImageView alloc]initWithFrame:CGRectMake(2, 10, 56, 56)];
         image.backgroundColor = [UIColor clearColor];
         image.tag = 300;
         UILabel* name = [[UILabel alloc]initWithFrame:CGRectMake(60, 5, 110, 20)];
@@ -184,6 +184,11 @@
         cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.94 blue:0.96 alpha:0.8];
 
         //为视图增加边框
+        image.layer.masksToBounds=YES;
+        image.layer.cornerRadius=10.0;
+        image.layer.borderWidth=1.5;
+        image.layer.borderColor=[[UIColor darkGrayColor] CGColor];
+
         cell.contentView.layer.masksToBounds=YES;
         cell.contentView.layer.cornerRadius=10.0;
         cell.contentView.layer.borderWidth=1.5;

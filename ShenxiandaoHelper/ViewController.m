@@ -38,7 +38,7 @@
     ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"ee942c110277be254c5f15e73a61394b" size:CGSizeMake(320.0, 50.0)];
     //设置委托
     ghAdView1.delegate = self;
-    [ghAdView1 loadAd];
+//    [ghAdView1 loadAd];
 
     //设置frame并添加到View中
     ghAdView1.frame = CGRectMake(0.0, self.view.bounds.size.height - 50.0, 320.0, 50.0);
