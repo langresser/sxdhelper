@@ -63,11 +63,20 @@
 }
 
 #pragma mark for ads
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    image.image = nil;
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    image.image = [UIImage imageNamed:[currentPlayer objectForKey:@"image_big"]];
+    NSString* imageName = [currentPlayer objectForKey:@"image_big"];
+    NSString* path = [[NSBundle mainBundle]pathForResource:[imageName stringByDeletingPathExtension] ofType:[imageName pathExtension]];
+    image.image = [[UIImage alloc]initWithContentsOfFile:path];
     imageJueji.image = [UIImage imageNamed:[currentPlayer objectForKey:@"绝技标签"]];
     
     labelTitle.text = [NSString stringWithFormat:@"%@ · %@", [currentPlayer objectForKey:@"姓名"],
@@ -111,12 +120,12 @@
                                         labelPingjia.frame.origin.y + labelPingjia.frame.size.height + 80);
     [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    
-    if ([rootVC.ghAdView1 superview]) {
-        [rootVC.ghAdView1 removeFromSuperview];
-    }
-    [self.view addSubview: rootVC.ghAdView1];
+//    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+//    ViewController* rootVC = appDelegate.viewController;
+//    
+//    if ([rootVC.ghAdView1 superview]) {
+//        [rootVC.ghAdView1 removeFromSuperview];
+//    }
+//    [self.view addSubview: rootVC.ghAdView1];
 }
 @end

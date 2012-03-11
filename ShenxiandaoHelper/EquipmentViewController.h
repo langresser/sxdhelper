@@ -25,6 +25,8 @@
     NSMutableArray* drugs_;
     NSMutableArray* materials_;
     
+    NSArray* fontStyles;
+    
     int currentType;
 }
 
@@ -39,4 +41,5 @@
 -(void)updateLabelTitle;
 
 -(void)checkData;
+- (NSArray *)coreTextStyle;
 @end

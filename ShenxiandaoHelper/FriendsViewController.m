@@ -36,12 +36,7 @@
 {
     [super viewDidLoad];
 
-    if ([[UIDevice currentDevice]isPad]) {
-        scrollView.contentSize = CGSizeMake(4320, scrollView.bounds.size.height);
-    } else {
-        scrollView.contentSize = CGSizeMake(320 * PAGE_MAX, scrollView.bounds.size.height);
-    }
-    
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * PAGE_MAX, scrollView.bounds.size.height);    
     
     detailVC = [[FriendDetailViewController alloc]initWithNibName:@"FriendDetailViewController" bundle:nil];
     
@@ -178,7 +173,7 @@
             rectImage = CGRectMake(5, 15, 100, 100);
             rectName = CGRectMake(120, 10, 200, 40);
             rectShengw = CGRectMake(310, 5, 200, 40);
-            rectJueji = CGRectMake(120, 60, 600, 60);
+            rectJueji = CGRectMake(120, 50, 585, 90);
             fontSize = 24;
         }
         

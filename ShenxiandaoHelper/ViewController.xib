@@ -174,9 +174,10 @@
 					<object class="IBUIButton" id="871961616">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{107, 417}, {36, 31}}</string>
+						<string key="NSFrame">{{107, 412}, {36, 36}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:225</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -412,27 +413,15 @@
 					<string key="className">ViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="onClickAbout:">id</string>
 						<string key="onClickEquipment:">id</string>
-						<string key="onClickFate:">id</string>
 						<string key="onClickFindAnswer:">id</string>
 						<string key="onClickFriends:">id</string>
 						<string key="onClickGameTutorial:">id</string>
-						<string key="onClickRemove:">id</string>
 						<string key="onClickSound:">id</string>
-						<string key="onClickTools:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="onClickAbout:">
-							<string key="name">onClickAbout:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="onClickEquipment:">
 							<string key="name">onClickEquipment:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="onClickFate:">
-							<string key="name">onClickFate:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="onClickFindAnswer:">
@@ -447,16 +436,8 @@
 							<string key="name">onClickGameTutorial:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="onClickRemove:">
-							<string key="name">onClickRemove:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="onClickSound:">
 							<string key="name">onClickSound:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="onClickTools:">
-							<string key="name">onClickTools:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

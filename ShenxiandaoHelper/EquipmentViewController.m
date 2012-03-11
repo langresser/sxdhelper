@@ -178,6 +178,8 @@ enum {
 
     [self selectType:kItemTypeMaterial];
     [self updateLabelTitle];
+    
+    fontStyles = [self coreTextStyle];
 #ifdef DEBUG
 //    [self checkData];
 #endif
@@ -320,6 +322,35 @@ enum {
     return NO;
 }
 
+- (NSArray *)coreTextStyle
+{
+    NSMutableArray *result = [NSMutableArray array];
+    float fontSize = 14;
+    float minLineHeight = 20;
+    if ([[UIDevice currentDevice]isPad]) {
+        fontSize = 22;
+        minLineHeight = 32;
+    }
+	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
+	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
+	defaultStyle.font = [UIFont systemFontOfSize:fontSize];
+	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
+    defaultStyle.underlined = NO;
+    defaultStyle.minLineHeight = minLineHeight;
+	[result addObject:defaultStyle];
+    
+    FTCoreTextStyle* linkStyle = [defaultStyle copy];
+    linkStyle.name = FTCoreTextTagLink;
+    linkStyle.font = [UIFont systemFontOfSize:fontSize + 1];
+    linkStyle.textAlignment = FTCoreTextAlignementJustified;
+    linkStyle.underlined = YES;
+    linkStyle.color = [UIColor blueColor];
+    linkStyle.minLineHeight = minLineHeight;
+    [result addObject:linkStyle];
+    
+    return  result;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -354,6 +385,7 @@ enum {
     if (cell == nil) {
         cell = [[EquipItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.relateItems.delegate = self;
+        [cell.relateItems addStyles:fontStyles];
     }
     
     ItemData* idata = nil;

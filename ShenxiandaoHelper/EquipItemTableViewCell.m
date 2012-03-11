@@ -60,8 +60,6 @@
         itemName.backgroundColor = [UIColor clearColor];
         exData.backgroundColor = [UIColor clearColor];
         relateItems.backgroundColor = [UIColor clearColor];
-        
-        [relateItems addStyles:[self coreTextStyle]];
 
         [self.contentView addSubview:image];
         [self.contentView addSubview:itemName];
@@ -77,33 +75,6 @@
     }
 
     return self;
-}
-
-- (NSArray *)coreTextStyle
-{
-    NSMutableArray *result = [NSMutableArray array];
-    float fontSize = 14;
-    if ([[UIDevice currentDevice]isPad]) {
-        fontSize = 22;
-    }
-	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
-	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont systemFontOfSize:fontSize];
-	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
-    defaultStyle.underlined = NO;
-    defaultStyle.minLineHeight = 20;
-	[result addObject:defaultStyle];
-    
-    FTCoreTextStyle* linkStyle = [defaultStyle copy];
-    linkStyle.name = FTCoreTextTagLink;
-    linkStyle.font = [UIFont systemFontOfSize:fontSize + 1];
-    linkStyle.textAlignment = FTCoreTextAlignementJustified;
-    linkStyle.underlined = YES;
-    linkStyle.color = [UIColor blueColor];
-    linkStyle.minLineHeight = 20;
-    [result addObject:linkStyle];
-    
-    return  result;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
