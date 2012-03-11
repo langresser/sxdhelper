@@ -79,26 +79,32 @@
     labelJueji.text = [currentPlayer objectForKey:@"绝技"];
     labelFali.text = [currentPlayer objectForKey:@"法术"];
     labelZhanfa.text = [currentPlayer objectForKey:@"战法"];
-    labelZhanfa.frame = CGRectMake(labelZhanfa.frame.origin.x, labelZhanfa.frame.origin.y, 220, 50);
+    float labelWidth = 220;
+    float padding = 10;
+    if ([[UIDevice currentDevice]isPad]) {
+        labelWidth = 600;
+        padding = 20;
+    }
+    labelZhanfa.frame = CGRectMake(labelZhanfa.frame.origin.x, labelZhanfa.frame.origin.y, labelWidth, 50);
     [labelZhanfa sizeToFit];
     labelMiaoshu.text = [currentPlayer objectForKey:@"伙伴描述"];
-    labelMiaoshu.frame = CGRectMake(labelMiaoshu.frame.origin.x, labelMiaoshu.frame.origin.y, 220, 50);
+    labelMiaoshu.frame = CGRectMake(labelMiaoshu.frame.origin.x, labelMiaoshu.frame.origin.y, labelWidth, 50);
     [labelMiaoshu sizeToFit];
     labelPingjia.text = [currentPlayer objectForKey:@"评价"];
-    labelPingjia.frame = CGRectMake(labelPingjia.frame.origin.x, labelPingjia.frame.origin.y, 220, 50);
+    labelPingjia.frame = CGRectMake(labelPingjia.frame.origin.x, labelPingjia.frame.origin.y, labelWidth, 50);
     [labelPingjia sizeToFit];
     
     labelMiaoshuTitle.frame = CGRectMake(labelMiaoshuTitle.frame.origin.x,
-        labelZhanfa.frame.origin.y + labelZhanfa.frame.size.height + 10,
+        labelZhanfa.frame.origin.y + labelZhanfa.frame.size.height + padding,
         labelMiaoshuTitle.frame.size.width, labelMiaoshuTitle.frame.size.height);
     labelMiaoshu.frame = CGRectMake(labelMiaoshu.frame.origin.x,
-        labelZhanfa.frame.origin.y + labelZhanfa.frame.size.height + 10,
+        labelZhanfa.frame.origin.y + labelZhanfa.frame.size.height + padding,
         labelMiaoshu.frame.size.width, labelMiaoshu.frame.size.height);
     labelPingjiaTitle.frame = CGRectMake(labelPingjiaTitle.frame.origin.x,
-        labelMiaoshu.frame.origin.y + labelMiaoshu.frame.size.height + 10,
+        labelMiaoshu.frame.origin.y + labelMiaoshu.frame.size.height + padding,
         labelPingjiaTitle.frame.size.width, labelPingjiaTitle.frame.size.height);
     labelPingjia.frame = CGRectMake(labelPingjia.frame.origin.x,
-        labelMiaoshu.frame.origin.y + labelMiaoshu.frame.size.height + 10,
+        labelMiaoshu.frame.origin.y + labelMiaoshu.frame.size.height + padding,
         labelPingjia.frame.size.width, labelPingjia.frame.size.height);
     
     scrollView.contentSize = CGSizeMake(scrollView.bounds.size.width,

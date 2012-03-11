@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define kTableViewWidth 285
-#define kQuestionHeight 45
-#define kAnswerHeight 20
-#define kPriceHeight 15
-
 @interface FAQTableViewCell : UITableViewCell
 {
     UILabel* question;

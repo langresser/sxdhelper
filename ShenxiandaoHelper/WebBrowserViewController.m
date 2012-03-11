@@ -8,6 +8,7 @@
 
 #import "WebBrowserViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIDevice_AMAdditions.h"
 
 @implementation WebBrowserViewController
 @synthesize url;
@@ -33,7 +34,12 @@
 {
     [super viewDidLoad];
     
-    activity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    if ([[UIDevice currentDevice]isPad]) {
+        activity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    } else {
+        activity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    }
+    
     [webView_ addSubview:activity];
     activity.center = webView_.center;
     

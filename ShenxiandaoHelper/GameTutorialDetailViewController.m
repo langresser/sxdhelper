@@ -16,19 +16,18 @@
 - (NSArray *)coreTextStyle
 {
     NSMutableArray *result = [NSMutableArray array];
-    
+
+    float fontSize = 14;
+    if ([[UIDevice currentDevice]isPad]) {
+        fontSize = 20;
+    }
+
 	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont systemFontOfSize:14];
+    
+	defaultStyle.font = [UIFont systemFontOfSize:fontSize];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
 	[result addObject:defaultStyle];
-	
-	
-	FTCoreTextStyle *titleStyle = [FTCoreTextStyle styleWithName:@"title"]; // using fast method
-	titleStyle.font = [UIFont boldSystemFontOfSize:18];
-	titleStyle.paragraphInset = UIEdgeInsetsMake(0, 0, 25, 0);
-	titleStyle.textAlignment = FTCoreTextAlignementCenter;
-	[result addObject:titleStyle];
 	
 	FTCoreTextStyle *imageStyle = [FTCoreTextStyle new];
 	imageStyle.paragraphInset = UIEdgeInsetsMake(0,0,0,0);
@@ -42,14 +41,14 @@
 	[result addObject:linkStyle];
 	
 	FTCoreTextStyle *subtitleStyle = [FTCoreTextStyle styleWithName:@"subtitle"];
-	subtitleStyle.font = [UIFont italicSystemFontOfSize:14];
+	subtitleStyle.font = [UIFont italicSystemFontOfSize:fontSize];
     subtitleStyle.textAlignment = FTCoreTextAlignementCenter;
     subtitleStyle.color = [UIColor lightGrayColor];
 	[result addObject:subtitleStyle];
 	
 	FTCoreTextStyle *bulletStyle = [defaultStyle copy];
 	bulletStyle.name = FTCoreTextTagBullet;
-	bulletStyle.bulletFont = [UIFont systemFontOfSize:14];
+	bulletStyle.bulletFont = [UIFont systemFontOfSize:fontSize];
 	bulletStyle.bulletColor = [UIColor orangeColor];
 	bulletStyle.bulletCharacter = @"❧";
 	[result addObject:bulletStyle];
@@ -57,12 +56,12 @@
     FTCoreTextStyle *italicStyle = [defaultStyle copy];
 	italicStyle.name = @"italic";
 	italicStyle.underlined = YES;
-    italicStyle.font = [UIFont systemFontOfSize:14];
+    italicStyle.font = [UIFont systemFontOfSize:fontSize];
 	[result addObject:italicStyle];
     
     FTCoreTextStyle *boldStyle = [defaultStyle copy];
 	boldStyle.name = @"bold";
-    boldStyle.font = [UIFont boldSystemFontOfSize:14];
+    boldStyle.font = [UIFont boldSystemFontOfSize:fontSize];
 	[result addObject:boldStyle];
     
     FTCoreTextStyle *redColor = [defaultStyle copy];
@@ -73,11 +72,13 @@
     FTCoreTextStyle *blueColor = [defaultStyle copy];
     [blueColor setName:@"bluecolor"];
     [blueColor setColor:[UIColor blueColor]];
+    blueColor.font = [UIFont systemFontOfSize:fontSize];
 	[result addObject:blueColor];
     
     FTCoreTextStyle *purpleColor = [defaultStyle copy];
     [purpleColor setName:@"purplecolor"];
     [purpleColor setColor:[UIColor purpleColor]];
+    purpleColor.font = [UIFont systemFontOfSize:fontSize];
 	[result addObject:purpleColor];
     
     return  result;

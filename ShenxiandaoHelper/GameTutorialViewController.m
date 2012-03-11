@@ -100,18 +100,6 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 {
     NSString* text = textField.text;
     
-//    [currentSearchData_ removeAllObjects];
-//    
-//    if ([text length] <= 0) {
-//        [currentSearchData_ addObjectsFromArray:allFaqData_];
-//    } else {
-//        for (NSDictionary* each in allFaqData_) {
-//            NSString* question = [each objectForKey:@"question"];
-//            if ([question rangeOfString:text].location != NSNotFound) {
-//                [currentSearchData_ addObject:each];
-//            }
-//        }
-//    }
     [currentTutorial removeAllObjects];
 
     if ([text length] <= 0) {
@@ -163,15 +151,23 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+        float kLabelWidth = 290;
+        float fontSize = 15;
+        float leftPadding = 5;
+        if ([[UIDevice currentDevice]isPad]) {
+            kLabelWidth = 705;
+            fontSize = 20;
+            leftPadding = 10;
+        }
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        UILabel* title = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 290, 40)];
+        UILabel* title = [[UILabel alloc]initWithFrame:CGRectMake(leftPadding, 5, kLabelWidth, 40)];
         title.numberOfLines = 0;
-        title.font = [UIFont systemFontOfSize:15];
+        title.font = [UIFont systemFontOfSize:fontSize];
         title.tag = 100;
         
-        UILabel* detail = [[UILabel alloc]initWithFrame:CGRectMake(5, 40, 290, 20)];
+        UILabel* detail = [[UILabel alloc]initWithFrame:CGRectMake(leftPadding, 40, kLabelWidth, 20)];
         detail.numberOfLines = 1;
-        detail.font = [UIFont systemFontOfSize:13];
+        detail.font = [UIFont systemFontOfSize:fontSize - 2];
         detail.textColor = [UIColor lightGrayColor];
         detail.textAlignment = UITextAlignmentRight;
         detail.tag = 101;

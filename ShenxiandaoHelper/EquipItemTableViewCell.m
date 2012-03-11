@@ -8,6 +8,7 @@
 
 #import "EquipItemTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIDevice_AMAdditions.h"
 
 @implementation EquipItemTableViewCell
 @synthesize image, itemName, exData, relateItems;
@@ -18,26 +19,42 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-        image = [[UIImageView alloc]initWithFrame:CGRectMake(9, 5, 44, 44)];
-        itemName = [[UILabel alloc]initWithFrame:CGRectMake(0, 55, 60, 50)];
-        exData = [[UILabel alloc]initWithFrame:CGRectMake(60, 0, 230, 20)];
-        relateItems = [[FTCoreTextView alloc]initWithFrame:CGRectMake(60, 20, 230, 100)];
+        float bgpadding = 5;
+
+        if ([[UIDevice currentDevice]isPad]) {
+            bgpadding = 10;
+
+            image = [[UIImageView alloc]initWithFrame:CGRectMake(9, 5, 80, 80)];
+            itemName = [[UILabel alloc]initWithFrame:CGRectMake(5, 90, 90, 50)];
+            exData = [[UILabel alloc]initWithFrame:CGRectMake(100, 5, 600, 30)];
+            relateItems = [[FTCoreTextView alloc]initWithFrame:CGRectMake(100, 40, 600, 125)];
+            
+            itemName.font = [UIFont systemFontOfSize:22];
+            exData.font = [UIFont systemFontOfSize:22];
+        } else {
+            image = [[UIImageView alloc]initWithFrame:CGRectMake(9, 5, 44, 44)];
+            itemName = [[UILabel alloc]initWithFrame:CGRectMake(0, 55, 60, 50)];
+            exData = [[UILabel alloc]initWithFrame:CGRectMake(60, 0, 230, 20)];
+            relateItems = [[FTCoreTextView alloc]initWithFrame:CGRectMake(60, 20, 230, 100)];
+            
+            itemName.font = [UIFont systemFontOfSize:16];
+            exData.font = [UIFont systemFontOfSize:14];
+        }
+        
         UIImageView* cellbg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cellbg.png"]];
         CGRect rect = relateItems.frame;
-        rect.origin.x -= 5;
-        rect.origin.y -= 5;
-        rect.size.width += 10;
-        rect.size.height += 10;
+        rect.origin.x -= bgpadding;
+        rect.origin.y -= bgpadding;
+        rect.size.width += bgpadding * 2;
+        rect.size.height += bgpadding * 2;
         cellbg.frame = rect;
         
         itemName.numberOfLines = 0;
         exData.numberOfLines = 0;
         itemName.textAlignment = UITextAlignmentCenter;
         exData.textAlignment = UITextAlignmentCenter;
-        
-        itemName.font = [UIFont systemFontOfSize:16];
+
         itemName.adjustsFontSizeToFitWidth = YES;
-        exData.font = [UIFont systemFontOfSize:14];
 
         image.backgroundColor = [UIColor clearColor];
         itemName.backgroundColor = [UIColor clearColor];
@@ -65,10 +82,13 @@
 - (NSArray *)coreTextStyle
 {
     NSMutableArray *result = [NSMutableArray array];
-    
+    float fontSize = 14;
+    if ([[UIDevice currentDevice]isPad]) {
+        fontSize = 22;
+    }
 	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont systemFontOfSize:14];
+	defaultStyle.font = [UIFont systemFontOfSize:fontSize];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
     defaultStyle.underlined = NO;
     defaultStyle.minLineHeight = 20;
@@ -76,7 +96,7 @@
     
     FTCoreTextStyle* linkStyle = [defaultStyle copy];
     linkStyle.name = FTCoreTextTagLink;
-    linkStyle.font = [UIFont systemFontOfSize:15];
+    linkStyle.font = [UIFont systemFontOfSize:fontSize + 1];
     linkStyle.textAlignment = FTCoreTextAlignementJustified;
     linkStyle.underlined = YES;
     linkStyle.color = [UIColor blueColor];

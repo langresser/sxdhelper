@@ -35,7 +35,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    scrollView.contentSize = CGSizeMake(320 * PAGE_MAX, scrollView.bounds.size.height);
+
+    if ([[UIDevice currentDevice]isPad]) {
+        scrollView.contentSize = CGSizeMake(4320, scrollView.bounds.size.height);
+    } else {
+        scrollView.contentSize = CGSizeMake(320 * PAGE_MAX, scrollView.bounds.size.height);
+    }
+    
     
     detailVC = [[FriendDetailViewController alloc]initWithNibName:@"FriendDetailViewController" bundle:nil];
     
@@ -162,22 +168,36 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+        CGRect rectImage = CGRectMake(2, 10, 56, 56);
+        CGRect rectName = CGRectMake(60, 5, 110, 20);
+        CGRect rectShengw = CGRectMake(180, 5, 120, 20);
+        CGRect rectJueji = CGRectMake(60, 25, 250, 55);
+        float fontSize = 14;
+        
+        if ([[UIDevice currentDevice]isPad]) {
+            rectImage = CGRectMake(5, 15, 100, 100);
+            rectName = CGRectMake(120, 10, 200, 40);
+            rectShengw = CGRectMake(310, 5, 200, 40);
+            rectJueji = CGRectMake(120, 60, 600, 60);
+            fontSize = 24;
+        }
+        
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        UIImageView* image = [[UIImageView alloc]initWithFrame:CGRectMake(2, 10, 56, 56)];
+        UIImageView* image = [[UIImageView alloc]initWithFrame:rectImage];
         image.backgroundColor = [UIColor clearColor];
         image.tag = 300;
-        UILabel* name = [[UILabel alloc]initWithFrame:CGRectMake(60, 5, 110, 20)];
+        UILabel* name = [[UILabel alloc]initWithFrame:rectName];
         name.backgroundColor = [UIColor clearColor];
-        name.font = [UIFont systemFontOfSize:14];
+        name.font = [UIFont systemFontOfSize:fontSize];
         name.tag = 301;
-        UILabel* shengw = [[UILabel alloc]initWithFrame:CGRectMake(180, 5, 120, 20)];
+        UILabel* shengw = [[UILabel alloc]initWithFrame:rectShengw];
         shengw.backgroundColor = [UIColor clearColor];
-        shengw.font = [UIFont systemFontOfSize:14];
+        shengw.font = [UIFont systemFontOfSize:fontSize];
         shengw.tag = 302;
-        UILabel* jueji = [[UILabel alloc]initWithFrame:CGRectMake(60, 25, 250, 55)];
+        UILabel* jueji = [[UILabel alloc]initWithFrame:rectJueji];
         jueji.backgroundColor = [UIColor clearColor];
         jueji.numberOfLines = 0;
-        jueji.font = [UIFont systemFontOfSize:14];
+        jueji.font = [UIFont systemFontOfSize:fontSize];
         jueji.tag = 303;
         
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -217,11 +237,6 @@
     
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 80;
 }
 
 #pragma mark - Table view delegate

@@ -76,7 +76,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">44</float>
+								<float key="IBUIRowHeight">80</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -96,7 +96,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">44</float>
+								<float key="IBUIRowHeight">80</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -116,7 +116,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">44</float>
+								<float key="IBUIRowHeight">80</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -136,7 +136,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">44</float>
+								<float key="IBUIRowHeight">80</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -156,7 +156,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">44</float>
+								<float key="IBUIRowHeight">80</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -166,7 +166,6 @@
 								<string key="NSFrame">{{1605, 0}, {310, 375}}</string>
 								<reference key="NSSuperview" ref="493992416"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:418</string>
 								<reference key="IBUIBackgroundColor" ref="42605186"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -176,7 +175,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">44</float>
+								<float key="IBUIRowHeight">80</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -261,7 +260,7 @@
 							<string key="NSResourceName">tab_jianling_c.png</string>
 						</object>
 						<reference key="IBUISelectedImage" ref="444207668"/>
-						<object class="NSCustomResource" key="IBUINormalImage" id="511142329">
+						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">tab_jianling.png</string>
 						</object>
@@ -416,9 +415,15 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="120931152"/>
-						<reference key="IBUIHighlightedImage" ref="444207668"/>
-						<reference key="IBUISelectedImage" ref="444207668"/>
-						<reference key="IBUINormalImage" ref="511142329"/>
+						<object class="NSCustomResource" key="IBUIHighlightedImage" id="284074616">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">tab_all_c.png</string>
+						</object>
+						<reference key="IBUISelectedImage" ref="284074616"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">tab_all.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="448681527"/>
 						<reference key="IBUIFont" ref="389770337"/>
 					</object>
@@ -776,7 +781,7 @@
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="60.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="2" key="72.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="72.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -830,6 +835,8 @@
 			<string key="bg2.png">{640, 960}</string>
 			<string key="return1.png">{98, 98}</string>
 			<string key="return2.png">{98, 98}</string>
+			<string key="tab_all.png">{200, 100}</string>
+			<string key="tab_all_c.png">{200, 100}</string>
 			<string key="tab_feiyu.png">{200, 100}</string>
 			<string key="tab_feiyu_c.png">{200, 100}</string>
 			<string key="tab_jiangxing.png">{200, 100}</string>
