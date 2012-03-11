@@ -68,6 +68,7 @@
     [super viewWillAppear:animated];
     
     image.image = [UIImage imageNamed:[currentPlayer objectForKey:@"image_big"]];
+    imageJueji.image = [UIImage imageNamed:[currentPlayer objectForKey:@"绝技标签"]];
     
     labelTitle.text = [NSString stringWithFormat:@"%@ · %@", [currentPlayer objectForKey:@"姓名"],
                   [currentPlayer objectForKey:@"职业"]];

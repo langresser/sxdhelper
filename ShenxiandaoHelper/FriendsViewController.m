@@ -50,21 +50,26 @@
     for (NSDictionary* each in allPlayers) {
         NSString* type = [each objectForKey:@"职业"];
         if ([type isEqualToString:@"剑灵"]) {
-            [currentPlayers[0] addObject:each];
+            [currentPlayers[PAGE_JIANLING] addObject:each];
         } else if ([type isEqualToString:@"将星"]) {
-            [currentPlayers[1] addObject:each];
+            [currentPlayers[PAGE_JIANGXING] addObject:each];
         } else if ([type isEqualToString:@"武圣"]) {
-            [currentPlayers[2] addObject:each];
+            [currentPlayers[PAGE_WUSHENG] addObject:each];
         } else if ([type isEqualToString:@"飞羽"]) {
-            [currentPlayers[3] addObject:each];
+            [currentPlayers[PAGE_FEIYU] addObject:each];
         } else if ([type isEqualToString:@"术士"]) {
-            [currentPlayers[4] addObject:each];
-        } else if ([type isEqualToString:@"神秘伙伴"]) {
-            [currentPlayers[5] addObject:each];
+            [currentPlayers[PAGE_SHUSHI] addObject:each];
+        } else if ([type isEqualToString:@"术士(神秘伙伴)"]) {
+            [currentPlayers[PAGE_SHUSHI] addObject:each];
+        } else if ([type isEqualToString:@"武圣(神秘伙伴)"]) {
+            [currentPlayers[PAGE_WUSHENG] addObject:each];
         }
+        
+        [currentPlayers[PAGE_ALL] addObject:each];
     }
     
-    currentPage = PAGE_JIANLING;
+    currentPage = PAGE_ALL;
+    [self updateBtn];
 }
 
 - (void)viewDidUnload
@@ -80,7 +85,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)updateBtn:(int)page
+-(void)updateBtn
 {
     for (int i = 0; i < PAGE_MAX; ++i) {
         UIButton* btn = (UIButton*)[self.view viewWithTag:i + 100];
@@ -96,7 +101,7 @@
     if (btn) {
         int page = btn.tag - 100;
         currentPage = page;
-        [self updateBtn:page];
+        [self updateBtn];
         [scrollView scrollRectToVisible:[self rectForPage:currentPage] animated:NO];
         
         UITableView* tableView = (UITableView*)[self.view viewWithTag:200 + page];
@@ -239,7 +244,7 @@
 {
     if (ascrollView == scrollView) {
         currentPage = ascrollView.contentOffset.x / ascrollView.bounds.size.width;
-        [self updateBtn:currentPage];
+        [self updateBtn];
     }
 }
 

@@ -10,12 +10,12 @@
 #import "FriendDetailViewController.h"
 
 enum {
-    PAGE_JIANLING = 0,
+    PAGE_ALL = 0,
+    PAGE_JIANLING,
     PAGE_JIANGXING,
     PAGE_WUSHENG,
     PAGE_FEIYU,
     PAGE_SHUSHI,
-    PAGE_SHENMIHUOBAN,
     PAGE_MAX,
 };
 
@@ -33,7 +33,7 @@ enum {
 
 -(CGRect)rectForPage:(int)page;
 
--(void)updateBtn:(int)page;
+-(void)updateBtn;
 -(IBAction)onClickReturn:(id)sender;
 -(IBAction)onClickPro:(id)sender;
 @end

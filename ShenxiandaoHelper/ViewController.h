@@ -12,9 +12,7 @@
 #import "GameTutorialViewController.h"
 #import "FindAnswerViewController.h"
 #import "FriendsViewController.h"
-#import "FateViewController.h"
 #import "EquipmentViewController.h"
-#import "ToolsViewController.h"
 
 #import "GHAdView.h"
 #import "GHAdViewDelegate.h"
@@ -24,9 +22,7 @@
     GameTutorialViewController* gameTutorialVC;
     FindAnswerViewController* findAnswerVC;
     FriendsViewController* friendsVC;
-    FateViewController* fateVC;
     EquipmentViewController* equipmentVC;
-    ToolsViewController* toolsVC;
 
     AVAudioPlayer *player;
     BOOL isPlayingMusic;
@@ -39,11 +35,7 @@
 -(IBAction)onClickGameTutorial:(id)sender;
 -(IBAction)onClickFindAnswer:(id)sender;
 -(IBAction)onClickFriends:(id)sender;
--(IBAction)onClickFate:(id)sender;
 -(IBAction)onClickEquipment:(id)sender;
--(IBAction)onClickTools:(id)sender;
--(IBAction)onClickRemove:(id)sender;
--(IBAction)onClickAbout:(id)sender;
 -(IBAction)onClickSound:(id)sender;
 
 @property(nonatomic) BOOL isPlayingMusic;

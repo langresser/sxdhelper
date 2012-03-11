@@ -41,6 +41,17 @@ enum
 };
 typedef uint8_t FTCoreTextAlignement;
 
+enum
+{
+    FTLineBreakByWordWrapping = 0,
+	FTLineBreakByCharWrapping = 1,
+	FTLineBreakByClipping = 2,
+	FTLineBreakByTruncatingHead = 3,
+	FTLineBreakByTruncatingTail = 4,
+	FTLineBreakByTruncatingMiddle = 5
+};
+typedef uint8_t FTLinkBreakMode;
+
 @interface FTCoreTextStyle : NSObject <NSCopying>
 
 @property (nonatomic, retain) NSString			*name;
@@ -49,6 +60,7 @@ typedef uint8_t FTCoreTextAlignement;
 @property (nonatomic, retain) UIColor			*color;
 @property (nonatomic, assign, getter=isUnderLined) BOOL underlined;
 @property (nonatomic, assign) FTCoreTextAlignement textAlignment;
+@property (nonatomic, assign) FTLinkBreakMode linkBreakMode;
 @property (nonatomic, assign) UIEdgeInsets		paragraphInset;
 @property (nonatomic, assign) CGFloat			leading;
 @property (nonatomic, assign) CGFloat			maxLineHeight;

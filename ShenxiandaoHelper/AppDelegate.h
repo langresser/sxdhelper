@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIDevice_AMAdditions.h"
 
 @class ViewController;
 

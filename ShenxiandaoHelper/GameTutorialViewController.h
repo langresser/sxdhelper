@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "GameTutorialDetailViewController.h"
 
-@interface GameTutorialViewController : UITableViewController
+@interface GameTutorialViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray* gameTutorial_;
     GameTutorialDetailViewController* detailVC;
+    NSMutableArray* currentTutorial;
+    
+    IBOutlet UITableView* tableView_;
 }
+
+-(IBAction)onClickReturn:(id)sender;
 @end

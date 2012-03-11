@@ -841,6 +841,7 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
 	CGFloat paragraphFirstLineHeadIntent = style.paragraphInset.left;
 	CGFloat paragraphHeadIntent = style.paragraphInset.left;
 	CGFloat paragraphTailIntent = style.paragraphInset.right;
+    CTLineBreakMode paraLinkBreak = style.linkBreakMode;
 	
 	//if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
 	paragraphSpacingBefore = 0;
@@ -884,6 +885,7 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
 			{kCTParagraphStyleSpecifierHeadIndent, sizeof(CGFloat), &paragraphHeadIntent},
 			{kCTParagraphStyleSpecifierTailIndent, sizeof(CGFloat), &paragraphTailIntent},
 			{kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &paragraphLeading},
+            {kCTParagraphStyleSpecifierLineBreakMode, sizeof(CTLineBreakMode), &paraLinkBreak},
 			{kCTParagraphStyleSpecifierTabStops, sizeof(CFArrayRef), &tabStops}//always at the end
 		};
 		
@@ -1073,7 +1075,7 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
 		[defaultStyle.color setFill];
 		[_processedString drawInRect:rect
 							withFont:defaultStyle.font
-					   lineBreakMode:UILineBreakModeWordWrap
+					   lineBreakMode:UILineBreakModeCharacterWrap
 						   alignment:UITextAlignmentFromCoreTextAlignment(defaultStyle.textAlignment)];
 	}
 	else {

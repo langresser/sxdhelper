@@ -7,23 +7,25 @@
 //
 
 #import "GameTutorialDetailViewController.h"
+#import "AppDelegate.h"
+#import "ViewController.h"
 
 @implementation GameTutorialDetailViewController
-@synthesize text;
+@synthesize text, titleString, subTitleString;
 
 - (NSArray *)coreTextStyle
 {
     NSMutableArray *result = [NSMutableArray array];
     
-	FTCoreTextStyle *defaultStyle = [FTCoreTextStyle new];
+	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont fontWithName:@"TimesNewRomanPSMT" size:16.f];
+	defaultStyle.font = [UIFont systemFontOfSize:14];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
 	[result addObject:defaultStyle];
 	
 	
 	FTCoreTextStyle *titleStyle = [FTCoreTextStyle styleWithName:@"title"]; // using fast method
-	titleStyle.font = [UIFont fontWithName:@"TimesNewRomanPSMT" size:40.f];
+	titleStyle.font = [UIFont boldSystemFontOfSize:18];
 	titleStyle.paragraphInset = UIEdgeInsetsMake(0, 0, 25, 0);
 	titleStyle.textAlignment = FTCoreTextAlignementCenter;
 	[result addObject:titleStyle];
@@ -34,25 +36,20 @@
 	imageStyle.textAlignment = FTCoreTextAlignementCenter;
 	[result addObject:imageStyle];
 	
-	FTCoreTextStyle *firstLetterStyle = [FTCoreTextStyle new];
-	firstLetterStyle.name = @"firstLetter";
-	firstLetterStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-BoldMT" size:30.f];
-	[result addObject:firstLetterStyle];
-	
 	FTCoreTextStyle *linkStyle = [defaultStyle copy];
 	linkStyle.name = FTCoreTextTagLink;
-	linkStyle.color = [UIColor orangeColor];
+	linkStyle.color = [UIColor blueColor];
 	[result addObject:linkStyle];
 	
 	FTCoreTextStyle *subtitleStyle = [FTCoreTextStyle styleWithName:@"subtitle"];
-	subtitleStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-BoldMT" size:25.f];
-	subtitleStyle.color = [UIColor brownColor];
-	subtitleStyle.paragraphInset = UIEdgeInsetsMake(10, 0, 10, 0);
+	subtitleStyle.font = [UIFont italicSystemFontOfSize:14];
+    subtitleStyle.textAlignment = FTCoreTextAlignementCenter;
+    subtitleStyle.color = [UIColor lightGrayColor];
 	[result addObject:subtitleStyle];
 	
 	FTCoreTextStyle *bulletStyle = [defaultStyle copy];
 	bulletStyle.name = FTCoreTextTagBullet;
-	bulletStyle.bulletFont = [UIFont fontWithName:@"TimesNewRomanPSMT" size:16.f];
+	bulletStyle.bulletFont = [UIFont systemFontOfSize:14];
 	bulletStyle.bulletColor = [UIColor orangeColor];
 	bulletStyle.bulletCharacter = @"❧";
 	[result addObject:bulletStyle];
@@ -60,26 +57,40 @@
     FTCoreTextStyle *italicStyle = [defaultStyle copy];
 	italicStyle.name = @"italic";
 	italicStyle.underlined = YES;
-    italicStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-ItalicMT" size:16.f];
+    italicStyle.font = [UIFont systemFontOfSize:14];
 	[result addObject:italicStyle];
     
     FTCoreTextStyle *boldStyle = [defaultStyle copy];
 	boldStyle.name = @"bold";
-    boldStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-BoldMT" size:16.f];
+    boldStyle.font = [UIFont boldSystemFontOfSize:14];
 	[result addObject:boldStyle];
     
-    FTCoreTextStyle *coloredStyle = [defaultStyle copy];
-    [coloredStyle setName:@"colored"];
-    [coloredStyle setColor:[UIColor redColor]];
-	[result addObject:coloredStyle];
+    FTCoreTextStyle *redColor = [defaultStyle copy];
+    [redColor setName:@"redcolor"];
+    [redColor setColor:[UIColor redColor]];
+	[result addObject:redColor];
+    
+    FTCoreTextStyle *blueColor = [defaultStyle copy];
+    [blueColor setName:@"bluecolor"];
+    [blueColor setColor:[UIColor blueColor]];
+	[result addObject:blueColor];
+    
+    FTCoreTextStyle *purpleColor = [defaultStyle copy];
+    [purpleColor setName:@"purplecolor"];
+    [purpleColor setColor:[UIColor purpleColor]];
+	[result addObject:purpleColor];
     
     return  result;
 }
 
 - (void)coreTextView:(FTCoreTextView *)coreTextView receivedTouchOnData:(NSDictionary *)data {
-    NSURL *url = [data objectForKey:FTCoreTextDataURL];
-    if (!url) return;
-    [[UIApplication sharedApplication] openURL:url];
+    NSString *urlString = [data objectForKey:FTCoreTextDataURL];
+    if (!urlString) {
+        return;
+    }
+//    [[UIApplication sharedApplication] openURL:url];
+    webBrowerVC.url = urlString;
+    [self presentModalViewController:webBrowerVC animated:YES];
 }
 
 
@@ -107,14 +118,16 @@
     [super viewDidLoad];
 
     //add coretextview
-    scrollView_ = [[UIScrollView alloc] initWithFrame:self.view.bounds];
 	scrollView_.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    coreTextView_ = [[FTCoreTextView alloc] initWithFrame:CGRectMake(20, 20, 280, 0)];
+    coreTextView_ = [[FTCoreTextView alloc] initWithFrame:CGRectMake(0, 0, scrollView_.bounds.size.width, 0)];
 	coreTextView_.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    coreTextView_.backgroundColor = [UIColor clearColor];
+    coreTextView_.delegate = self;
+    scrollView_.backgroundColor = [UIColor clearColor];
 
-    [coreTextView_ setDelegate:self];
     [scrollView_ addSubview:coreTextView_];
-    [self.view addSubview:scrollView_];
+    
+    webBrowerVC = [[WebBrowserViewController alloc]initWithNibName:@"WebBrowserViewController" bundle:nil];
 }
 
 - (void)viewDidUnload
@@ -127,6 +140,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    titleLabel.text = titleString;
+    subTitleLabel.text = subTitleString;
 
     // set styles
     [coreTextView_ setText:text];
@@ -134,6 +149,16 @@
 	[coreTextView_ fitToSuggestedHeight];
     
     [scrollView_ setContentSize:CGSizeMake(CGRectGetWidth(scrollView_.bounds), CGRectGetHeight(coreTextView_.frame) + 40)];
+    [scrollView_ setContentOffset:CGPointMake(0, 0)];
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    ViewController* rootVC = appDelegate.viewController;
+    
+    if ([rootVC.ghAdView1 superview]) {
+        [rootVC.ghAdView1 removeFromSuperview];
+    }
+    
+    [self.view addSubview: rootVC.ghAdView1];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -148,5 +173,10 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
 	[scrollView_ setContentSize:CGSizeMake(CGRectGetWidth(scrollView_.bounds), CGRectGetHeight(coreTextView_.frame) + 40)];
+}
+
+-(IBAction)onClickReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

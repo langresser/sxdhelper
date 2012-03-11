@@ -26,6 +26,7 @@
     IBOutlet UILabel* labelPingjiaTitle;
     
     IBOutlet UIImageView* image;
+    IBOutlet UIImageView* imageJueji;
     IBOutlet UIScrollView* scrollView;
 }
 @property(nonatomic, retain) NSDictionary* currentPlayer;

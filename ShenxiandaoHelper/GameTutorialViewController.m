@@ -8,12 +8,13 @@
 
 #import "GameTutorialViewController.h"
 #import "JSONKit.h"
-#import "TutorialData.h"
+#import "AppDelegate.h"
+#import "ViewController.h"
 
-static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* content)
+static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* content)
 {
-    NSArray* array1 = [data1.date componentsSeparatedByString:@"-"];
-    NSArray* array2 = [data2.date componentsSeparatedByString:@"-"];
+    NSArray* array1 = [[data1 objectForKey:@"date"] componentsSeparatedByString:@"-"];
+    NSArray* array2 = [[data2 objectForKey:@"date"] componentsSeparatedByString:@"-"];
     NSInteger year1 = [[array1 objectAtIndex:0]intValue];
     NSInteger year2 = [[array2 objectAtIndex:0]intValue];
     NSInteger month1 = [[array1 objectAtIndex:1]intValue];
@@ -21,21 +22,21 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
     NSInteger day1 = [[array1 objectAtIndex:2]intValue];
     NSInteger day2 = [[array2 objectAtIndex:2]intValue];
 
-    if (year1 < year2) {
+    if (year1 > year2) {
         return NSOrderedAscending;
-    } else if (year1 > year2) {
+    } else if (year1 < year2) {
         return NSOrderedDescending;
     }
     
-    if (month1 < month2) {
+    if (month1 > month2) {
         return NSOrderedAscending;
-    } else if (month1 > month2) {
+    } else if (month1 < month2) {
         return  NSOrderedDescending;
     }
     
-    if (day1 < day2) {
+    if (day1 > day2) {
         return NSOrderedAscending;
-    } else if (day1 > day2) {
+    } else if (day1 < day2) {
         return NSOrderedDescending;
     }
     
@@ -43,10 +44,9 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
 }
 
 @implementation GameTutorialViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -67,35 +67,17 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
 {
     [super viewDidLoad];
 
-    gameTutorial_ = [[NSMutableArray alloc]init];
-
     NSError* error = nil;
     NSString* filePath = [[NSBundle mainBundle]pathForResource:@"tutorial" ofType:@"json"];
     NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
 
-    NSDictionary* tutorialData = [jsonString objectFromJSONString];
-    NSEnumerator* iter = [tutorialData keyEnumerator];
-    NSString* title = nil;
-    while (title = [iter nextObject]) {
-        TutorialData* td = [[TutorialData alloc]initWithTitle:title];
-        if (td) {
-            NSArray* data = [tutorialData objectForKey:title];
-            td.text = [data objectAtIndex:0];
-            td.author = [data objectAtIndex:1];
-            td.date = [data objectAtIndex:2];
-        }
-
-        [gameTutorial_ addObject:td];
-    }
-    
+    NSArray* data = [jsonString objectFromJSONString];
+    gameTutorial_ = [[NSMutableArray alloc]initWithArray:data];
     [gameTutorial_ sortUsingFunction:sortByDate context:nil];
     
+    currentTutorial = [[NSMutableArray alloc]initWithArray:gameTutorial_];
+    
     detailVC = [[GameTutorialDetailViewController alloc]initWithNibName:@"GameTutorialDetailViewController" bundle:nil];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -103,26 +85,6 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -134,6 +96,55 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
     }
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSString* text = textField.text;
+    
+//    [currentSearchData_ removeAllObjects];
+//    
+//    if ([text length] <= 0) {
+//        [currentSearchData_ addObjectsFromArray:allFaqData_];
+//    } else {
+//        for (NSDictionary* each in allFaqData_) {
+//            NSString* question = [each objectForKey:@"question"];
+//            if ([question rangeOfString:text].location != NSNotFound) {
+//                [currentSearchData_ addObject:each];
+//            }
+//        }
+//    }
+    [currentTutorial removeAllObjects];
+
+    if ([text length] <= 0) {
+        [currentTutorial addObjectsFromArray:gameTutorial_];
+    } else {
+        for (NSDictionary* dict in gameTutorial_) {
+            NSString* title = [dict objectForKey:@"title"];
+            if ([title rangeOfString:text].location != NSNotFound) {
+                [currentTutorial addObject:dict];
+            }
+        }
+    }
+
+    [tableView_ reloadData];
+
+    NSInteger count = [tableView_ numberOfRowsInSection:0];
+    if (count > 0) {
+        [tableView_ scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
+    
+    tableView_.alpha = 0;
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.5];
+    tableView_.alpha = 1;
+    [UIView commitAnimations];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -143,7 +154,7 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [gameTutorial_ count];
+    return [currentTutorial count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -152,15 +163,50 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        UILabel* title = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 290, 40)];
+        title.numberOfLines = 0;
+        title.font = [UIFont systemFontOfSize:15];
+        title.tag = 100;
+        
+        UILabel* detail = [[UILabel alloc]initWithFrame:CGRectMake(5, 40, 290, 20)];
+        detail.numberOfLines = 1;
+        detail.font = [UIFont systemFontOfSize:13];
+        detail.textColor = [UIColor lightGrayColor];
+        detail.textAlignment = UITextAlignmentRight;
+        detail.tag = 101;
+
+        [cell.contentView addSubview:title];
+        [cell.contentView addSubview:detail];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        
+        //为视图增加边框
+        cell.contentView.layer.masksToBounds=YES;
+        cell.contentView.layer.cornerRadius=10.0;
+        cell.contentView.layer.borderWidth=1.5;
+        cell.contentView.layer.borderColor=[[UIColor darkGrayColor] CGColor];
     }
 
-    TutorialData* td = [gameTutorial_ objectAtIndex:indexPath.row];
-    cell.textLabel.text = td.title;
+    if (indexPath.row >= [currentTutorial count]) {
+        return cell;
+    }
+
+    NSDictionary* dict = [currentTutorial objectAtIndex:indexPath.row];
+    UILabel* title = (UILabel*)[cell.contentView viewWithTag:100];
+    UILabel* detail = (UILabel*)[cell.contentView viewWithTag:101];
+    title.text = [dict objectForKey:@"title"];
+    detail.text = [NSString stringWithFormat:@"%@      %@", [dict objectForKey:@"author"], [dict objectForKey:@"date"]];
+
+    title.backgroundColor = [UIColor clearColor];
+    detail.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -204,10 +250,38 @@ static NSInteger sortByDate(TutorialData* data1, TutorialData* data2, void* cont
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TutorialData* td = [gameTutorial_ objectAtIndex:indexPath.row];
-    NSString* text = [NSString stringWithFormat:@"<title>%@</title>\n<_bullet>%@  %@</_bullet>\n%@", td.title, td.author, td.date, td.text];
+    NSDictionary* dict = [currentTutorial objectAtIndex:indexPath.row];
+    NSError* error = nil;
+    NSString* filePath = [[NSBundle mainBundle]pathForResource:[dict objectForKey:@"text"] ofType:@"txt"];
+    NSString* data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+
+//    NSString* text = [NSString stringWithFormat:@"<title>%@</title>\n<subtitle>%@    %@</subtitle>\n原始地址:<_link>%@</_link>\n%@", [dict objectForKey:@"title"], [dict objectForKey:@"author"], [dict objectForKey:@"date"], [dict objectForKey:@"link"], data];
+    NSString* text = [NSString stringWithFormat:@"原始地址:<_link>%@</_link>\n\n%@", [dict objectForKey:@"link"], data];
     detailVC.text = text;
+    detailVC.titleString = [dict objectForKey:@"title"];
+    detailVC.subTitleString = [NSString stringWithFormat:@"%@  %@", [dict objectForKey:@"author"], [dict objectForKey:@"date"]];
     [self.navigationController pushViewController:detailVC animated:YES];
+    
+    [tableView_ deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(IBAction)onClickReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    ViewController* rootVC = appDelegate.viewController;
+    
+    if ([rootVC.ghAdView1 superview]) {
+        [rootVC.ghAdView1 removeFromSuperview];
+    }
+    
+    [self.view addSubview: rootVC.ghAdView1];
 }
 
 @end

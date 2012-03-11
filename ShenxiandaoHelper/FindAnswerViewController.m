@@ -107,11 +107,13 @@
         }
     }
     
+    [tableView_ reloadData];
+
     NSInteger count = [tableView_ numberOfRowsInSection:0];
     if (count > 0) {
         [tableView_ scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
-    [tableView_ reloadData];
+    
     tableView_.alpha = 0;
     [UIView beginAnimations:@"" context:nil];
     [UIView setAnimationDuration:0.5];

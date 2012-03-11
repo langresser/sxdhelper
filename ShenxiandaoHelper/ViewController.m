@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIDevice_AMAdditions.h"
 
 @implementation ViewController
 @synthesize isPlayingMusic, ghAdView1;
@@ -27,9 +28,7 @@
     gameTutorialVC = [[GameTutorialViewController alloc]initWithNibName:@"GameTutorialViewController" bundle:nil];
     findAnswerVC = [[FindAnswerViewController alloc]initWithNibName:@"FindAnswerViewController" bundle:nil];
     friendsVC = [[FriendsViewController alloc]initWithNibName:@"FriendsViewController" bundle:nil];
-    fateVC = [[FateViewController alloc]initWithNibName:@"FateViewController" bundle:nil];
     equipmentVC = [[EquipmentViewController alloc]initWithNibName:@"EquipmentViewController" bundle:nil];
-    toolsVC = [[ToolsViewController alloc]initWithNibName:@"ToolsViewController" bundle:nil];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
@@ -116,31 +115,12 @@
     [self.navigationController pushViewController:friendsVC animated:YES];
 }
 
--(IBAction)onClickFate:(id)sender
-{
-    [self.navigationController pushViewController:fateVC animated:YES];
-}
-
 
 -(IBAction)onClickEquipment:(id)sender
 {
     [self.navigationController pushViewController:equipmentVC animated:YES];
 }
 
--(IBAction)onClickTools:(id)sender
-{
-    [self.navigationController pushViewController:toolsVC animated:YES];
-}
-
--(IBAction)onClickRemove:(id)sender
-{
-
-}
-
--(IBAction)onClickAbout:(id)sender
-{
-    
-}
 
 -(IBAction)onClickSound:(id)sender
 {
