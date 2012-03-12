@@ -25,7 +25,7 @@
 	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
     
-	defaultStyle.font = [UIFont systemFontOfSize:fontSize];
+	defaultStyle.font = [UIFont fontWithName:@"STHeitiSC-Light" size:fontSize];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
 	[result addObject:defaultStyle];
 	
@@ -40,23 +40,17 @@
 	linkStyle.color = [UIColor blueColor];
 	[result addObject:linkStyle];
 	
-	FTCoreTextStyle *subtitleStyle = [FTCoreTextStyle styleWithName:@"subtitle"];
-	subtitleStyle.font = [UIFont italicSystemFontOfSize:fontSize];
-    subtitleStyle.textAlignment = FTCoreTextAlignementCenter;
-    subtitleStyle.color = [UIColor lightGrayColor];
-	[result addObject:subtitleStyle];
-	
 	FTCoreTextStyle *bulletStyle = [defaultStyle copy];
 	bulletStyle.name = FTCoreTextTagBullet;
-	bulletStyle.bulletFont = [UIFont systemFontOfSize:fontSize];
+	bulletStyle.bulletFont = [UIFont fontWithName:@"STHeitiSC-Medium" size:fontSize];
 	bulletStyle.bulletColor = [UIColor orangeColor];
-	bulletStyle.bulletCharacter = @"❧";
+	bulletStyle.bulletCharacter = @"*";
 	[result addObject:bulletStyle];
     
     FTCoreTextStyle *italicStyle = [defaultStyle copy];
 	italicStyle.name = @"italic";
 	italicStyle.underlined = YES;
-    italicStyle.font = [UIFont systemFontOfSize:fontSize];
+    italicStyle.font = [UIFont italicSystemFontOfSize:fontSize];
 	[result addObject:italicStyle];
     
     FTCoreTextStyle *boldStyle = [defaultStyle copy];
@@ -72,13 +66,11 @@
     FTCoreTextStyle *blueColor = [defaultStyle copy];
     [blueColor setName:@"bluecolor"];
     [blueColor setColor:[UIColor blueColor]];
-    blueColor.font = [UIFont systemFontOfSize:fontSize];
 	[result addObject:blueColor];
     
     FTCoreTextStyle *purpleColor = [defaultStyle copy];
     [purpleColor setName:@"purplecolor"];
     [purpleColor setColor:[UIColor purpleColor]];
-    purpleColor.font = [UIFont systemFontOfSize:fontSize];
 	[result addObject:purpleColor];
     
     return  result;

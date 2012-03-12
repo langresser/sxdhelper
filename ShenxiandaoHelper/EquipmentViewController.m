@@ -333,7 +333,7 @@ enum {
     }
 	FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc]init];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont systemFontOfSize:fontSize];
+	defaultStyle.font = [UIFont fontWithName:@"STHeitiSC-Light" size:fontSize];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
     defaultStyle.underlined = NO;
     defaultStyle.minLineHeight = minLineHeight;
@@ -341,7 +341,7 @@ enum {
     
     FTCoreTextStyle* linkStyle = [defaultStyle copy];
     linkStyle.name = FTCoreTextTagLink;
-    linkStyle.font = [UIFont systemFontOfSize:fontSize + 1];
+    linkStyle.font = [UIFont fontWithName:@"STHeitiSC-Light" size:fontSize];//STHeitiSC-Medium
     linkStyle.textAlignment = FTCoreTextAlignementJustified;
     linkStyle.underlined = YES;
     linkStyle.color = [UIColor blueColor];
