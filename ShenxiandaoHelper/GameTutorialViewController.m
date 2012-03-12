@@ -44,6 +44,8 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 }
 
 @implementation GameTutorialViewController
+@synthesize tableView_, gameTutorial_, currentTutorial, detailVC;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -73,7 +75,7 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 
     NSArray* data = [jsonString objectFromJSONString];
     gameTutorial_ = [[NSMutableArray alloc]initWithArray:data];
-    [gameTutorial_ sortUsingFunction:sortByDate context:nil];
+//    [gameTutorial_ sortUsingFunction:sortByDate context:nil];
     
     currentTutorial = [[NSMutableArray alloc]initWithArray:gameTutorial_];
     
@@ -84,7 +86,10 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.tableView_ = nil;
+    self.detailVC = nil;
+    self.currentTutorial = nil;
+    self.gameTutorial_ = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -273,11 +278,10 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if ([rootVC.ghAdView1 superview]) {
-        [rootVC.ghAdView1 removeFromSuperview];
+    if ([rootVC.adView superview]) {
+        [rootVC.adView removeFromSuperview];
     }
-    
-    [self.view addSubview: rootVC.ghAdView1];
+    [self.view addSubview:rootVC.adView];
 }
 
 @end

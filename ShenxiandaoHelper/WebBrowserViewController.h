@@ -9,17 +9,15 @@
 
 
 @interface WebBrowserViewController : UIViewController
-{
-    IBOutlet UIWebView* webView_;
-    IBOutlet UIBarButtonItem* back;
-    IBOutlet UIBarButtonItem* forward;
-    IBOutlet UILabel* titleLabel;
-    NSString* url;
-    
-    
-    UIActivityIndicatorView* activity;
-}
-@property(nonatomic, retain) NSString* url;
+
+@property(nonatomic, strong)    IBOutlet UIWebView* webView_;
+@property(nonatomic, strong)    IBOutlet UIBarButtonItem* back;
+@property(nonatomic, strong)    IBOutlet UIBarButtonItem* forward;
+@property(nonatomic, strong)    IBOutlet UILabel* titleLabel;
+
+@property(nonatomic, strong)    UIActivityIndicatorView* activity;
+@property(nonatomic, strong) NSString* url;
+
 -(IBAction)onClickOpen:(id)sender;
 -(IBAction)onClickClose:(id)sender;
 @end

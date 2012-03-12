@@ -12,7 +12,7 @@
 
 @implementation GameTutorialDetailViewController
 @synthesize text, titleString, subTitleString;
-
+@synthesize coreTextView_, titleLabel, subTitleLabel, scrollView_, webBrowerVC;
 - (NSArray *)coreTextStyle
 {
     NSMutableArray *result = [NSMutableArray array];
@@ -127,7 +127,14 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.coreTextView_ = nil;
+    self.titleLabel = nil;
+    self.subTitleLabel = nil;
+    self.scrollView_ = nil;
+    self.webBrowerVC = nil;
+    self.text = nil;
+    self.titleString = nil;
+    self.subTitleString = nil;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -147,11 +154,19 @@
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if ([rootVC.ghAdView1 superview]) {
-        [rootVC.ghAdView1 removeFromSuperview];
+    if ([rootVC.adView superview]) {
+        [rootVC.adView removeFromSuperview];
     }
-    
-    [self.view addSubview: rootVC.ghAdView1];
+    [self.view addSubview:rootVC.adView];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    self.titleString = nil;
+    self.subTitleString = nil;
+    self.text = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

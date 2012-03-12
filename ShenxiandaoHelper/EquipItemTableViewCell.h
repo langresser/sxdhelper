@@ -10,15 +10,8 @@
 #import "FTCoreTextView.h"
 
 @interface EquipItemTableViewCell : UITableViewCell
-{
-    UIImageView* image;
-    UILabel* itemName;
-    UILabel* exData;
-    FTCoreTextView* relateItems;
-}
-
-@property(nonatomic, retain) UIImageView* image;
-@property(nonatomic, retain) UILabel* itemName;
-@property(nonatomic, retain) UILabel* exData;
-@property(nonatomic, retain) FTCoreTextView* relateItems;
+@property(nonatomic, strong) UIImageView* image;
+@property(nonatomic, strong) UILabel* itemName;
+@property(nonatomic, strong) UILabel* exData;
+@property(nonatomic, strong) FTCoreTextView* relateItems;
 @end

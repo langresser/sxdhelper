@@ -21,15 +21,13 @@ enum {
 
 @interface FriendsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 {
-    IBOutlet UIScrollView* scrollView;
-    
-    int currentPage;
-    
-    FriendDetailViewController* detailVC;
-    
-    NSArray* allPlayers;
     NSMutableArray* currentPlayers[PAGE_MAX];
 }
+
+@property(nonatomic, strong) IBOutlet UIScrollView* scrollView;
+@property(nonatomic, strong) NSArray* allPlayers;
+@property(nonatomic, strong) FriendDetailViewController* detailVC;
+@property(nonatomic) int currentPage;
 
 -(CGRect)rectForPage:(int)page;
 

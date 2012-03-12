@@ -11,7 +11,9 @@
 #import "ViewController.h"
 
 @implementation FriendDetailViewController
-@synthesize currentPlayer;
+@synthesize currentPlayer, labelTitle, labelFuben, labelShengw, labelFeiyong, labelWuli, labelJueji;
+@synthesize labelFali, labelZhanfa, labelMiaoshu, labelMiaoshuTitle, labelPingjia, labelPingjiaTitle;
+@synthesize image, imageJueji, scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,7 +47,24 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.labelTitle = nil;
+    self.labelFuben = nil;
+    self.labelShengw = nil;
+    self.labelFeiyong = nil;
+    self.labelWuli = nil;
+    self.labelJueji = nil;
+    self.labelFali = nil;
+    self.labelZhanfa = nil;
+    self.labelMiaoshu = nil;
+    self.labelMiaoshuTitle = nil;
+    self.labelPingjia = nil;
+    self.labelPingjiaTitle = nil;
+    
+    self.image = nil;
+    self.imageJueji = nil;
+    self.scrollView = nil;
+    
+    self.currentPlayer = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -63,11 +82,12 @@
 }
 
 #pragma mark for ads
--(void)viewWillDisappear:(BOOL)animated
+-(void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    [super viewDidDisappear:animated];
 
     image.image = nil;
+    self.currentPlayer = nil;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -88,7 +108,7 @@
     labelJueji.text = [currentPlayer objectForKey:@"绝技"];
     labelFali.text = [currentPlayer objectForKey:@"法术"];
     labelZhanfa.text = [currentPlayer objectForKey:@"战法"];
-    float labelWidth = 220;
+    float labelWidth = 230;
     float padding = 10;
     if ([[UIDevice currentDevice]isPad]) {
         labelWidth = 600;
@@ -120,12 +140,13 @@
                                         labelPingjia.frame.origin.y + labelPingjia.frame.size.height + 80);
     [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     
-//    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-//    ViewController* rootVC = appDelegate.viewController;
-//    
-//    if ([rootVC.ghAdView1 superview]) {
-//        [rootVC.ghAdView1 removeFromSuperview];
-//    }
-//    [self.view addSubview: rootVC.ghAdView1];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    ViewController* rootVC = appDelegate.viewController;
+    
+    if ([rootVC.adView superview]) {
+        [rootVC.adView removeFromSuperview];
+    }
+    [self.view addSubview:rootVC.adView];
 }
+
 @end

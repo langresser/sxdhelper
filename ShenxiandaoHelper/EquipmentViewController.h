@@ -10,25 +10,21 @@
 #import "FTCoreTextView.h"
 
 @interface EquipmentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FTCoreTextViewDelegate>
-{
-    IBOutlet UITableView* tableView_;
-    IBOutlet UIButton* btnMaterial;
-    IBOutlet UIButton* btnEquip;
-    IBOutlet UIButton* btnDrug;
-    IBOutlet UILabel* labelMaterial;
-    IBOutlet UILabel* labelEquip;
-    IBOutlet UILabel* labelDrug;
-    IBOutlet UITextField* searchText;
 
-    NSMutableArray* allItems_;
-    NSMutableArray* equipments_;
-    NSMutableArray* drugs_;
-    NSMutableArray* materials_;
-    
-    NSArray* fontStyles;
-    
-    int currentType;
-}
+@property(nonatomic, strong) IBOutlet UITableView* tableView_;
+@property(nonatomic, strong) IBOutlet UIButton* btnMaterial;
+@property(nonatomic, strong) IBOutlet UIButton* btnEquip;
+@property(nonatomic, strong) IBOutlet UIButton* btnDrug;
+@property(nonatomic, strong) IBOutlet UILabel* labelMaterial;
+@property(nonatomic, strong) IBOutlet UILabel* labelEquip;
+@property(nonatomic, strong) IBOutlet UILabel* labelDrug;
+@property(nonatomic, strong) IBOutlet UITextField* searchText;
+@property(nonatomic, strong) NSMutableArray* allItems_;
+@property(nonatomic, strong) NSMutableArray* equipments_;
+@property(nonatomic, strong) NSMutableArray* drugs_;
+@property(nonatomic, strong) NSMutableArray* materials_;
+@property(nonatomic, strong) NSArray* fontStyles;
+@property(nonatomic) int currentType;
 
 -(IBAction)onClickMaterial:(id)sender;
 -(IBAction)onClickEquipment:(id)sender;

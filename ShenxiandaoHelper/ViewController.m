@@ -10,7 +10,8 @@
 #import "UIDevice_AMAdditions.h"
 
 @implementation ViewController
-@synthesize isPlayingMusic, ghAdView1;
+@synthesize isPlayingMusic, btnSound, player;
+@synthesize gameTutorialVC, friendsVC, findAnswerVC, equipmentVC, adView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,16 +32,6 @@
     equipmentVC = [[EquipmentViewController alloc]initWithNibName:@"EquipmentViewController" bundle:nil];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-    //创建广告位1
-//    ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"d9f49db11f39fca8448d75e9fa995ca8" size:CGSizeMake(320.0, 50.0)];
-    ghAdView1 = [[GHAdView alloc] initWithAdUnitId:@"ee942c110277be254c5f15e73a61394b" size:CGSizeMake(320.0, 50.0)];
-    //设置委托
-    ghAdView1.delegate = self;
-//    [ghAdView1 loadAd];
-
-    //设置frame并添加到View中
-    ghAdView1.frame = CGRectMake(0.0, self.view.bounds.size.height - 50.0, 320.0, 50.0);
 
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -61,6 +52,11 @@
     if (isPlayingMusic) {
         [self playSound];
     }
+    
+    self.adView = [AdMoGoView requestAdMoGoViewWithDelegate:self AndAdType:AdViewTypeNormalBanner
+                                                ExpressMode:NO];
+    [adView setFrame:CGRectMake(0, self.view.bounds.size.height, 0, 0)];
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -68,6 +64,15 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    player = nil;
+    self.btnSound = nil;
+    
+    self.gameTutorialVC = nil;
+    self.findAnswerVC = nil;
+    self.friendsVC = nil;
+    self.equipmentVC = nil;
+    
+    self.adView = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -152,14 +157,16 @@
 
 -(void)loadMusic
 {
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"bgmusic" ofType:@"mp3"];
-    NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-    
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL: soundURL error: nil];
-    [player prepareToPlay];
-    player.numberOfLoops = 999999;
-    
-    [player play];
+    @autoreleasepool {
+        NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"bgmusic" ofType:@"mp3"];
+        NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+        
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL: soundURL error: nil];
+        [player prepareToPlay];
+        player.numberOfLoops = 999999;
+        
+        [player play];
+    }
 }
 
 -(void)stopPlay
@@ -170,36 +177,41 @@
 }
 
 #pragma mark for ads
-- (UIViewController *)viewControllerForPresentingModalView
-{
-    return self;
+- (NSString *)adMoGoApplicationKey {
+	return @"321d8211a8e1423d9e75961189a3929d"; // my
+//    return @"bb0bf739cd8f4bbabb74bbaa9d2768bf"; // test
+    //此字符串为您的App在芒果上的唯一标识
 }
 
-//加载广告失败时调用
-- (void)adViewDidFailToLoadAd:(GHAdView *)view
-{
-#ifdef DEBUG
-    static int i = 0;
-    NSLog(@"adViewDidFailToLoadAd   %d", i++);
-#endif
+- (UIViewController *)viewControllerForPresentingModalView {
+	return self;//返回的对象为adView的父视图控制器
 }
 
-//加载广告成功时调用
-- (void)adViewDidLoadAd:(GHAdView *)view
-{
-#ifdef DEBUG
-    static int i = 0;
-    NSLog(@"adViewDidLoadAd  %d", i++);
-#endif
+- (void)adMoGoDidReceiveAd:(AdMoGoView *)adMoGoView {
+	//广告成功展示时调用
+    [UIView beginAnimations:@"AdResize" context:nil];
+	[UIView setAnimationDuration:0.7];
+	CGSize adSize = [adView actualAdSize];
+	CGRect newFrame = adView.frame;
+	newFrame.size.height = adSize.height;
+	newFrame.size.width = adSize.width;
+	newFrame.origin.x = (self.view.bounds.size.width - adSize.width)/2;
+    newFrame.origin.y = self.view.bounds.size.height - adSize.height;
+	adView.frame = newFrame;
+    
+	[UIView commitAnimations];
 }
 
-//广告点击出现内容窗口时调用
-- (void)willPresentModalViewForAd:(GHAdView *)view
-{
+- (void)adMoGoDidFailToReceiveAd:(AdMoGoView *)adMoGoView 
+                     usingBackup:(BOOL)yesOrNo {
+    //请求广告失败
 }
 
-//广告位的关闭按钮被点击时调用
-- (void)didClosedAdView:(GHAdView *)view
-{
+- (void)adMoGoWillPresentFullScreenModal {
+    //点击广告后打开内置浏览器时调用
+}
+
+- (void)adMoGoDidDismissFullScreenModal {
+    //关闭广告内置浏览器时调用 
 }
 @end

@@ -12,37 +12,8 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-@interface FAQData : NSObject
-{
-    NSString* question;
-    NSString* answer1;
-    NSString* price1;
-    NSString* answer2;
-    NSString* price2;
-}
-@property(nonatomic, retain) NSString* question;
-@property(nonatomic, retain) NSString* answer1;
-@property(nonatomic, retain) NSString* price1;
-@property(nonatomic, retain) NSString* answer2;
-@property(nonatomic, retain) NSString* price2;
-
--(FAQData*)initWithQuestion:(NSString*)quest;
-@end
-
-@implementation FAQData
-@synthesize question, answer1, price1, answer2, price2;
-
--(FAQData*)initWithQuestion:(NSString*)quest
-{
-    self = [super init];
-    if (self) {
-        self.question = quest;
-    }
-    return self;
-}
-@end
-
 @implementation FindAnswerViewController
+@synthesize currentSearchData_, allFaqData_, tableView_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,11 +38,12 @@
 {
     [super viewDidLoad];
 
-    NSError* error = nil;
-    NSString* filePath = [[NSBundle mainBundle]pathForResource:@"xianlvqiyuan" ofType:@"json"];
-    NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    allFaqData_  = [jsonString objectFromJSONString];
-    currentSearchData_ = [[NSMutableArray alloc]initWithArray:allFaqData_];
+    @autoreleasepool {
+        NSString* filePath = [[NSBundle mainBundle]pathForResource:@"xianlvqiyuan" ofType:@"json"];
+        NSString* jsonString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+        allFaqData_  = [jsonString objectFromJSONString];
+        currentSearchData_ = [[NSMutableArray alloc]initWithArray:allFaqData_];
+    }
 }
 
 - (void)viewDidUnload
@@ -79,6 +51,9 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.allFaqData_ = nil;
+    self.currentSearchData_ = nil;
+    self.tableView_ = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -216,11 +191,10 @@
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
 
-    if ([rootVC.ghAdView1 superview]) {
-        [rootVC.ghAdView1 removeFromSuperview];
+    if ([rootVC.adView superview]) {
+        [rootVC.adView removeFromSuperview];
     }
-
-    [self.view addSubview: rootVC.ghAdView1];
+    [self.view addSubview:rootVC.adView];
 }
 
 @end

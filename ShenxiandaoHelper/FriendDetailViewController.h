@@ -9,26 +9,23 @@
 #import <UIKit/UIKit.h>
 
 @interface FriendDetailViewController : UIViewController
-{
-    NSDictionary* currentPlayer;
+@property(nonatomic, strong)    IBOutlet UILabel* labelTitle;
+@property(nonatomic, strong)    IBOutlet UILabel* labelFuben;
+@property(nonatomic, strong)    IBOutlet UILabel* labelShengw;
+@property(nonatomic, strong)    IBOutlet UILabel* labelFeiyong;
+@property(nonatomic, strong)    IBOutlet UILabel* labelWuli;
+@property(nonatomic, strong)    IBOutlet UILabel* labelJueji;
+@property(nonatomic, strong)    IBOutlet UILabel* labelFali;
+@property(nonatomic, strong)    IBOutlet UILabel* labelZhanfa;
+@property(nonatomic, strong)    IBOutlet UILabel* labelMiaoshu;
+@property(nonatomic, strong)    IBOutlet UILabel* labelMiaoshuTitle;
+@property(nonatomic, strong)    IBOutlet UILabel* labelPingjia;
+@property(nonatomic, strong)    IBOutlet UILabel* labelPingjiaTitle;
+@property(nonatomic, strong)    IBOutlet UIImageView* image;
+@property(nonatomic, strong)    IBOutlet UIImageView* imageJueji;
+@property(nonatomic, strong)    IBOutlet UIScrollView* scrollView;
 
-    IBOutlet UILabel* labelTitle;
-    IBOutlet UILabel* labelFuben;
-    IBOutlet UILabel* labelShengw;
-    IBOutlet UILabel* labelFeiyong;
-    IBOutlet UILabel* labelWuli;
-    IBOutlet UILabel* labelJueji;
-    IBOutlet UILabel* labelFali;
-    IBOutlet UILabel* labelZhanfa;
-    IBOutlet UILabel* labelMiaoshu;
-    IBOutlet UILabel* labelMiaoshuTitle;
-    IBOutlet UILabel* labelPingjia;
-    IBOutlet UILabel* labelPingjiaTitle;
-    
-    IBOutlet UIImageView* image;
-    IBOutlet UIImageView* imageJueji;
-    IBOutlet UIScrollView* scrollView;
-}
-@property(nonatomic, retain) NSDictionary* currentPlayer;
+@property(nonatomic, strong) NSDictionary* currentPlayer;
+
 -(IBAction)onClickReturn:(id)sender;
 @end

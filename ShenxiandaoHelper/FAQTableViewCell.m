@@ -102,4 +102,12 @@
     // Configure the view for the selected state
 }
 
+-(void)dealloc
+{
+    self.question = nil;
+    self.answer1 = nil;
+    self.price1 = nil;
+    self.answer2 = nil;
+    self.price2 = nil;
+}
 @end

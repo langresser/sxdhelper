@@ -11,7 +11,7 @@
 #import "UIDevice_AMAdditions.h"
 
 @implementation WebBrowserViewController
-@synthesize url;
+@synthesize url, webView_, back, forward, titleLabel, activity;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,7 +53,12 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.webView_ = nil;
+    self.back = nil;
+    self.forward = nil;
+    self.titleLabel = nil;
+    self.url = nil;
+    self.activity = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -77,6 +82,12 @@
     forward.enabled = NO;
 
     [activity startAnimating];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.url = nil;
 }
 
 -(IBAction)onClickOpen:(id)sender

@@ -106,7 +106,7 @@
 								<string key="NSFrame">{{4, 0}, {300, 375}}</string>
 								<reference key="NSSuperview" ref="99397663"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="577816722"/>
+								<reference key="NSNextKeyView" ref="40735801"/>
 								<string key="NSReuseIdentifierKey">_NS:567</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -155,7 +155,7 @@
 							<object class="IBUILabel" id="506746134">
 								<reference key="NSNextResponder" ref="99397663"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{60, 375}, {90, 25}}</string>
+								<string key="NSFrame">{{60, 375}, {103, 25}}</string>
 								<reference key="NSSuperview" ref="99397663"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="756256491"/>
@@ -172,7 +172,6 @@
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
-								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
 								<reference key="IBUIFontDescription" ref="268029375"/>
 								<reference key="IBUIFont" ref="684382433"/>
@@ -458,7 +457,7 @@
 							<object class="IBUILabel" id="485734726">
 								<reference key="NSNextResponder" ref="99397663"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{60, 476}, {220, 24}}</string>
+								<string key="NSFrame">{{60, 476}, {230, 24}}</string>
 								<reference key="NSSuperview" ref="99397663"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="498760912"/>
@@ -509,7 +508,7 @@
 							<object class="IBUILabel" id="310417175">
 								<reference key="NSNextResponder" ref="99397663"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{60, 508}, {220, 24}}</string>
+								<string key="NSFrame">{{60, 508}, {230, 24}}</string>
 								<reference key="NSSuperview" ref="99397663"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="848003371"/>
@@ -560,9 +559,10 @@
 							<object class="IBUILabel" id="658975539">
 								<reference key="NSNextResponder" ref="99397663"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{60, 540}, {220, 20}}</string>
+								<string key="NSFrame">{{60, 540}, {230, 20}}</string>
 								<reference key="NSSuperview" ref="99397663"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:328</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -585,6 +585,7 @@
 								<string key="NSFrame">{{20, 10}, {77, 91}}</string>
 								<reference key="NSSuperview" ref="99397663"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="577816722"/>
 								<string key="NSReuseIdentifierKey">_NS:567</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -857,7 +858,6 @@
 							<reference ref="577816722"/>
 							<reference ref="310417175"/>
 							<reference ref="658975539"/>
-							<reference ref="506746134"/>
 							<reference ref="485734726"/>
 							<reference ref="23826251"/>
 							<reference ref="297914843"/>
@@ -865,6 +865,7 @@
 							<reference ref="498760912"/>
 							<reference ref="725239458"/>
 							<reference ref="40735801"/>
+							<reference ref="506746134"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -1120,7 +1121,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="bg2.png">{640, 960}</string>
+			<string key="bg2.png">{320, 480}</string>
 			<string key="return1.png">{98, 98}</string>
 			<string key="return2.png">{98, 98}</string>
 		</dictionary>

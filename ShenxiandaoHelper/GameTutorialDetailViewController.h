@@ -11,23 +11,15 @@
 #import "WebBrowserViewController.h"
 
 @interface GameTutorialDetailViewController : UIViewController<FTCoreTextViewDelegate>
-{
-    FTCoreTextView *coreTextView_;
-    NSString* text;
-    
-    IBOutlet UILabel* titleLabel;
-    IBOutlet UILabel* subTitleLabel;
-    
-    NSString* titleString;
-    NSString* subTitleString;
-    
-    IBOutlet UIScrollView* scrollView_;
-    WebBrowserViewController* webBrowerVC;
-}
+@property (nonatomic, strong)   FTCoreTextView *coreTextView_; 
+@property (nonatomic, strong)   IBOutlet UILabel* titleLabel;
+@property (nonatomic, strong)   IBOutlet UILabel* subTitleLabel;
+@property (nonatomic, strong)   IBOutlet UIScrollView* scrollView_;
+@property (nonatomic, strong)   WebBrowserViewController* webBrowerVC;
 
-@property (nonatomic, retain) NSString* text;
-@property(nonatomic, retain) NSString* titleString;
-@property(nonatomic, retain) NSString* subTitleString;
+@property (nonatomic, strong) NSString* text;
+@property(nonatomic, strong) NSString* titleString;
+@property(nonatomic, strong) NSString* subTitleString;
 
 -(IBAction)onClickReturn:(id)sender;
 @end

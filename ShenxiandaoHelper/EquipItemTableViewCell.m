@@ -84,4 +84,12 @@
     // Configure the view for the selected state
 }
 
+-(void)dealloc
+{
+    self.image = nil;
+    self.itemName = nil;
+    self.exData = nil;
+    self.relateItems = nil;
+}
+
 @end

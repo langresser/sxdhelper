@@ -9,17 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface FAQTableViewCell : UITableViewCell
-{
-    UILabel* question;
-    UILabel* answer1;
-    UILabel* price1;
-    UILabel* answer2;
-    UILabel* price2;
-}
-
-@property(nonatomic, retain) UILabel* question;
-@property(nonatomic, retain) UILabel* answer1;
-@property(nonatomic, retain) UILabel* price1;
-@property(nonatomic, retain) UILabel* answer2;
-@property(nonatomic, retain) UILabel* price2;
+@property(nonatomic, strong) UILabel* question;
+@property(nonatomic, strong) UILabel* answer1;
+@property(nonatomic, strong) UILabel* price1;
+@property(nonatomic, strong) UILabel* answer2;
+@property(nonatomic, strong) UILabel* price2;
 @end

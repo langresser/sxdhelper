@@ -28,13 +28,13 @@ enum {
     NSMutableArray* relateItem;    // 对装备和丹药而言存放的是制作所需材料，对材料而言存放的是可制作的装备或丹药
 }
 
-@property(nonatomic, retain) NSString* itemName;
-@property(nonatomic, retain) NSString* image;
-@property(nonatomic, retain) NSString* exData;
+@property(nonatomic, strong) NSString* itemName;
+@property(nonatomic, strong) NSString* image;
+@property(nonatomic, strong) NSString* exData;
 @property(nonatomic) int type;
 @property(nonatomic) int level;
-@property(nonatomic, retain) NSString* nameColor;
-@property(nonatomic, retain) NSMutableArray* relateItem;
+@property(nonatomic, strong) NSString* nameColor;
+@property(nonatomic, strong) NSMutableArray* relateItem;
 
 -(ItemData*)initWithName:(NSString*)name;
 -(void)print;
@@ -62,6 +62,9 @@ enum {
 @end
 
 @implementation EquipmentViewController
+@synthesize tableView_, btnMaterial, btnDrug, btnEquip, labelDrug, labelEquip, labelMaterial;
+@synthesize searchText, allItems_, equipments_, drugs_, materials_, fontStyles, currentType;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -231,7 +234,19 @@ enum {
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.tableView_ = nil;
+    self.btnEquip = nil;
+    self.btnMaterial = nil;
+    self.btnDrug = nil;
+    self.labelMaterial = nil;
+    self.labelEquip = nil;
+    self.labelDrug = nil;
+    self.searchText = nil;
+    self.allItems_ = nil;
+    self.equipments_ = nil;
+    self.materials_ = nil;
+    self.drugs_ = nil;
+    self.fontStyles = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -644,9 +659,9 @@ enum {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if ([rootVC.ghAdView1 superview]) {
-        [rootVC.ghAdView1 removeFromSuperview];
+    if ([rootVC.adView superview]) {
+        [rootVC.adView removeFromSuperview];
     }
-    [self.view addSubview: rootVC.ghAdView1];
+    [self.view addSubview:rootVC.adView];
 }
 @end

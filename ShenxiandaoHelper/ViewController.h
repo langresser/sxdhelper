@@ -14,32 +14,24 @@
 #import "FriendsViewController.h"
 #import "EquipmentViewController.h"
 
-#import "GHAdView.h"
-#import "GHAdViewDelegate.h"
+#import "AdMoGoView.h"
 
-@interface ViewController : UIViewController<GHAdViewDelegate>
-{
-    GameTutorialViewController* gameTutorialVC;
-    FindAnswerViewController* findAnswerVC;
-    FriendsViewController* friendsVC;
-    EquipmentViewController* equipmentVC;
+@interface ViewController : UIViewController<AdMoGoDelegate>
+@property(nonatomic, strong)    GameTutorialViewController* gameTutorialVC;
+@property(nonatomic, strong)    FindAnswerViewController* findAnswerVC;
+@property(nonatomic, strong)    FriendsViewController* friendsVC;
+@property(nonatomic, strong)    EquipmentViewController* equipmentVC;
 
-    AVAudioPlayer *player;
-    BOOL isPlayingMusic;
-    
-    IBOutlet UIButton* btnSound;
-    
-    GHAdView *ghAdView1;
-}
+@property(nonatomic) BOOL isPlayingMusic;
+@property(nonatomic, strong) AVAudioPlayer *player;
+@property(nonatomic, strong) IBOutlet UIButton* btnSound;
+@property (nonatomic, strong) AdMoGoView *adView;
 
 -(IBAction)onClickGameTutorial:(id)sender;
 -(IBAction)onClickFindAnswer:(id)sender;
 -(IBAction)onClickFriends:(id)sender;
 -(IBAction)onClickEquipment:(id)sender;
 -(IBAction)onClickSound:(id)sender;
-
-@property(nonatomic) BOOL isPlayingMusic;
-@property(nonatomic, retain) GHAdView* ghAdView1;
 
 -(void)loadMusic;
 -(void)playSound;

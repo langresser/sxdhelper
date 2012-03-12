@@ -12,7 +12,7 @@
 #import "JSONKit.h"
 
 @implementation FriendsViewController
-
+@synthesize scrollView, allPlayers, detailVC, currentPage;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -78,6 +78,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.scrollView = nil;
+    self.allPlayers = nil;
+    
+    detailVC = nil;
+    
+    for (int i = 0; i < PAGE_MAX; ++i) {
+        currentPlayers[i] = nil;
+    }
 }
 
 
@@ -264,11 +272,10 @@
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
-
-    if ([rootVC.ghAdView1 superview]) {
-        [rootVC.ghAdView1 removeFromSuperview];
+    
+    if ([rootVC.adView superview]) {
+        [rootVC.adView removeFromSuperview];
     }
-
-    [self.view addSubview: rootVC.ghAdView1];
+    [self.view addSubview:rootVC.adView];
 }
 @end

@@ -10,13 +10,11 @@
 #import "GameTutorialDetailViewController.h"
 
 @interface GameTutorialViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
-{
-    NSMutableArray* gameTutorial_;
-    GameTutorialDetailViewController* detailVC;
-    NSMutableArray* currentTutorial;
-    
-    IBOutlet UITableView* tableView_;
-}
+
+@property(nonatomic, strong) NSMutableArray* gameTutorial_;
+@property(nonatomic, strong) GameTutorialDetailViewController* detailVC;
+@property(nonatomic, strong) NSMutableArray* currentTutorial;
+@property(nonatomic, strong) IBOutlet UITableView* tableView_;
 
 -(IBAction)onClickReturn:(id)sender;
 @end
