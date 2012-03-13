@@ -88,6 +88,18 @@
 
     image.image = nil;
     self.currentPlayer = nil;
+    
+    self.labelTitle.text = nil;
+    self.labelFuben.text = nil;
+    self.labelShengw.text = nil;
+    self.labelFeiyong.text = nil;
+    self.labelWuli.text = nil;
+    self.labelJueji.text = nil;
+    self.labelFali.text = nil;
+    self.labelZhanfa.text = nil;
+    self.labelMiaoshu.text = nil;
+    self.labelPingjia.text = nil;
+    imageJueji.image = nil;;
 }
 
 -(void)viewWillAppear:(BOOL)animated

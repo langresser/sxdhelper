@@ -167,6 +167,9 @@
     self.titleString = nil;
     self.subTitleString = nil;
     self.text = nil;
+    self.titleLabel.text = nil;
+    self.subTitleLabel.text = nil;
+    self.coreTextView_.text = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

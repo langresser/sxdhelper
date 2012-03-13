@@ -54,7 +54,7 @@
     }
     
     self.adView = [AdMoGoView requestAdMoGoViewWithDelegate:self AndAdType:AdViewTypeNormalBanner
-                                                ExpressMode:NO];
+                                                ExpressMode:YES];
     [adView setFrame:CGRectMake(0, self.view.bounds.size.height, 0, 0)];
     [super viewDidLoad];
 }
