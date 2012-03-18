@@ -13,7 +13,7 @@
 
 @implementation ViewController
 @synthesize isPlayingMusic, btnSound, player, popoverVC, settingVC;
-@synthesize gameTutorialVC, friendsVC, findAnswerVC, equipmentVC, adView;
+@synthesize gameTutorialVC, friendsVC, findAnswerVC, equipmentVC, adView, shouldShowAds;
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,7 +36,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL shouldAddAds = YES;
+    shouldShowAds = YES;
 
     if (standardUserDefaults) {
         NSString* soundFlag = [standardUserDefaults stringForKey:@"sound"];
@@ -46,10 +46,10 @@
             isPlayingMusic = YES;
         }
         
-        // 如果有收据信息，并且记录了udid，那么已经购买过应用，不显示广告
+        // 如果记录了udid，那么已经购买过应用，不显示广告
         NSString* udid = [standardUserDefaults stringForKey:kRemoveAdsFlag];
         if (udid && [udid isEqualToString:[UIDevice currentDevice].uniqueDeviceIdentifier]) {
-            shouldAddAds = NO;
+            shouldShowAds = NO;
         }
 
         btnSound.selected = !isPlayingMusic;
@@ -62,7 +62,7 @@
         [self playSound];
     }
 
-    if (shouldAddAds) {
+    if (shouldShowAds) {
         if ([[UIDevice currentDevice]isPad]) {
             self.adView = [AdMoGoView requestAdMoGoViewWithDelegate:self AndAdType:AdViewTypeLargeBanner
                                                         ExpressMode:YES];
@@ -87,7 +87,18 @@
     if (adView) {
         [adView pauseAdRequest];
         [adView removeFromSuperview];
-        self.adView = nil;
+        shouldShowAds = NO;
+    }
+    
+    if (settingVC && settingVC.tableView) {
+        settingVC.shouldShowAds = NO;
+
+        if (settingVC.openApps) {
+            [settingVC.openApps removeAllObjects];
+            settingVC.openApps = nil;
+        }
+
+        [settingVC.tableView reloadData];
     }
 }
 
@@ -100,17 +111,19 @@
     if (!settingVC) {
         settingVC = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
     }
+    
+    settingVC.shouldShowAds = (adView != nil);
 
     if ([[UIDevice currentDevice]isPad]) {
         
         if (!popoverVC) {
             popoverVC = [[UIPopoverController alloc]initWithContentViewController:settingVC];
             popoverVC.delegate = self;//可不设置，如果不需要的话
-            popoverVC.popoverContentSize=CGSizeMake(250, 320);
+            popoverVC.popoverContentSize=CGSizeMake(320, 460);
         }
 
         //显示popover，则理告诉它是为一个矩形框设置popover
-        [popoverVC presentPopoverFromRect:CGRectMake(20, 850, 260, 320) inView:self.view
+        [popoverVC presentPopoverFromRect:CGRectMake(10, 850, 330, 480) inView:self.view
                          permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES]; 
     } else {
         [self.navigationController pushViewController:settingVC animated:YES];

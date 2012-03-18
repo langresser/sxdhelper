@@ -28,6 +28,7 @@
 @property(nonatomic, strong) AVAudioPlayer *player;
 @property(nonatomic, strong) IBOutlet UIButton* btnSound;
 @property (nonatomic, strong) AdMoGoView *adView;
+@property(nonatomic) BOOL shouldShowAds;
 
 -(IBAction)onClickGameTutorial:(id)sender;
 -(IBAction)onClickFindAnswer:(id)sender;

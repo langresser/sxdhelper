@@ -278,7 +278,7 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if (rootVC.adView) {
+    if (rootVC.shouldShowAds && rootVC.adView) {
         if ([rootVC.adView superview]) {
             [rootVC.adView removeFromSuperview];
         }

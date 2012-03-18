@@ -1123,6 +1123,9 @@
 		3B9116A91515DFB50072F2E5 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		3B9116AA1515DFB50072F2E5 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		3B9116AD151602BE0072F2E5 /* 97a9493b53dd4ad7a41dd40c0ea25a4e.config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 97a9493b53dd4ad7a41dd40c0ea25a4e.config; path = data/97a9493b53dd4ad7a41dd40c0ea25a4e.config; sourceTree = "<group>"; };
+		3B9116B7151615A00072F2E5 /* YouMiWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWall.h; sourceTree = "<group>"; };
+		3B9116B8151615A00072F2E5 /* YouMiWallAppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallAppModel.h; sourceTree = "<group>"; };
+		3B9116B9151615A00072F2E5 /* YouMiWallDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallDelegateProtocol.h; sourceTree = "<group>"; };
 		3BD49AB41500276B00ACF6FD /* cellbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellbg.png; sourceTree = "<group>"; };
 		3BD7D08D1506A51E00178189 /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
 		3BD7D08E1506A51E00178189 /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailViewController.m; sourceTree = "<group>"; };
@@ -1243,6 +1246,9 @@
 		3B19255B15159EE6005BB556 /* YouMi */ = {
 			isa = PBXGroup;
 			children = (
+				3B9116B7151615A00072F2E5 /* YouMiWall.h */,
+				3B9116B8151615A00072F2E5 /* YouMiWallAppModel.h */,
+				3B9116B9151615A00072F2E5 /* YouMiWallDelegateProtocol.h */,
 				3B19255C15159EE6005BB556 /* AdsMoGoAdapter */,
 				3B19256115159EE6005BB556 /* libYouMi.a */,
 				3B19256215159EE6005BB556 /* YouMiDelegateProtocol.h */,

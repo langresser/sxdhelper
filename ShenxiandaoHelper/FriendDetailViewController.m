@@ -155,7 +155,7 @@
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if (rootVC.adView) {
+    if (rootVC.shouldShowAds && rootVC.adView) {
         if ([rootVC.adView superview]) {
             [rootVC.adView removeFromSuperview];
         }
