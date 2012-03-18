@@ -9,10 +9,11 @@
 #import "GameTutorialDetailViewController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SVWebViewController.h"
 
 @implementation GameTutorialDetailViewController
 @synthesize text, titleString, subTitleString;
-@synthesize coreTextView_, titleLabel, subTitleLabel, scrollView_, webBrowerVC;
+@synthesize coreTextView_, titleLabel, subTitleLabel, scrollView_;
 - (NSArray *)coreTextStyle
 {
     NSMutableArray *result = [NSMutableArray array];
@@ -81,9 +82,12 @@
     if (!urlString) {
         return;
     }
-//    [[UIApplication sharedApplication] openURL:url];
-    webBrowerVC.url = urlString;
-    [self presentModalViewController:webBrowerVC animated:YES];
+
+    NSURL *URL = [NSURL URLWithString:urlString];
+	SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];
+	webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
+	[self presentModalViewController:webViewController animated:YES];
 }
 
 
@@ -119,8 +123,6 @@
     scrollView_.backgroundColor = [UIColor clearColor];
 
     [scrollView_ addSubview:coreTextView_];
-    
-    webBrowerVC = [[WebBrowserViewController alloc]initWithNibName:@"WebBrowserViewController" bundle:nil];
 }
 
 - (void)viewDidUnload
@@ -131,7 +133,6 @@
     self.titleLabel = nil;
     self.subTitleLabel = nil;
     self.scrollView_ = nil;
-    self.webBrowerVC = nil;
     self.text = nil;
     self.titleString = nil;
     self.subTitleString = nil;
@@ -154,10 +155,12 @@
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if ([rootVC.adView superview]) {
-        [rootVC.adView removeFromSuperview];
+    if (rootVC.adView) {
+        if ([rootVC.adView superview]) {
+            [rootVC.adView removeFromSuperview];
+        }
+        [self.view addSubview:rootVC.adView];
     }
-    [self.view addSubview:rootVC.adView];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

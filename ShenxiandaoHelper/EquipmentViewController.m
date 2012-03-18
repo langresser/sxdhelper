@@ -659,9 +659,11 @@ enum {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
-    if ([rootVC.adView superview]) {
-        [rootVC.adView removeFromSuperview];
+    if (rootVC.adView) {
+        if ([rootVC.adView superview]) {
+            [rootVC.adView removeFromSuperview];
+        }
+        [self.view addSubview:rootVC.adView];
     }
-    [self.view addSubview:rootVC.adView];
 }
 @end

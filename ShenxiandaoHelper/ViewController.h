@@ -13,14 +13,16 @@
 #import "FindAnswerViewController.h"
 #import "FriendsViewController.h"
 #import "EquipmentViewController.h"
-
+#import "SettingViewController.h"
 #import "AdMoGoView.h"
 
-@interface ViewController : UIViewController<AdMoGoDelegate>
+@interface ViewController : UIViewController<AdMoGoDelegate, UIPopoverControllerDelegate>
 @property(nonatomic, strong)    GameTutorialViewController* gameTutorialVC;
 @property(nonatomic, strong)    FindAnswerViewController* findAnswerVC;
 @property(nonatomic, strong)    FriendsViewController* friendsVC;
 @property(nonatomic, strong)    EquipmentViewController* equipmentVC;
+@property(nonatomic, strong)    UIPopoverController* popoverVC;
+@property(nonatomic, strong)    SettingViewController* settingVC;
 
 @property(nonatomic) BOOL isPlayingMusic;
 @property(nonatomic, strong) AVAudioPlayer *player;
@@ -33,7 +35,12 @@
 -(IBAction)onClickEquipment:(id)sender;
 -(IBAction)onClickSound:(id)sender;
 
+-(IBAction)onClickAbout:(id)sender;
+
 -(void)loadMusic;
 -(void)playSound;
 -(void)stopPlay;
+
+-(void)onPurchaseOk;
+-(void)onPurchaseFail;
 @end

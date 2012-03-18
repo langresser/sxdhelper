@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import "UIDevice_AMAdditions.h"
+#import "UIDevice+IdentifierAddition.h"
+#import "InAppPurchaseMgr.h"
 
 @implementation ViewController
-@synthesize isPlayingMusic, btnSound, player;
+@synthesize isPlayingMusic, btnSound, player, popoverVC, settingVC;
 @synthesize gameTutorialVC, friendsVC, findAnswerVC, equipmentVC, adView;
 
 - (void)didReceiveMemoryWarning
@@ -34,7 +36,8 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    
+    BOOL shouldAddAds = YES;
+
     if (standardUserDefaults) {
         NSString* soundFlag = [standardUserDefaults stringForKey:@"sound"];
         if (soundFlag && [soundFlag isEqualToString:@"NO"]) {
@@ -43,6 +46,12 @@
             isPlayingMusic = YES;
         }
         
+        // 如果有收据信息，并且记录了udid，那么已经购买过应用，不显示广告
+        NSString* udid = [standardUserDefaults stringForKey:kRemoveAdsFlag];
+        if (udid && [udid isEqualToString:[UIDevice currentDevice].uniqueDeviceIdentifier]) {
+            shouldAddAds = NO;
+        }
+
         btnSound.selected = !isPlayingMusic;
     } else {
         isPlayingMusic = YES;
@@ -52,11 +61,60 @@
     if (isPlayingMusic) {
         [self playSound];
     }
+
+    if (shouldAddAds) {
+        if ([[UIDevice currentDevice]isPad]) {
+            self.adView = [AdMoGoView requestAdMoGoViewWithDelegate:self AndAdType:AdViewTypeLargeBanner
+                                                        ExpressMode:YES];
+        } else {
+            self.adView = [AdMoGoView requestAdMoGoViewWithDelegate:self AndAdType:AdViewTypeNormalBanner
+                                                        ExpressMode:YES];
+        }
+
+        [adView setFrame:CGRectMake(0, self.view.bounds.size.height, 0, 0)];
+    } else {
+        adView = nil;
+    }
+
+    [[InAppPurchaseMgr sharedInstance] loadStore];
     
-    self.adView = [AdMoGoView requestAdMoGoViewWithDelegate:self AndAdType:AdViewTypeNormalBanner
-                                                ExpressMode:YES];
-    [adView setFrame:CGRectMake(0, self.view.bounds.size.height, 0, 0)];
-    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onPurchaseOk) name:kIAPSucceededNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onPurchaseFail) name:kIAPFailedNotification object:nil];
+}
+
+-(void)onPurchaseOk
+{
+    if (adView) {
+        [adView pauseAdRequest];
+        [adView removeFromSuperview];
+        self.adView = nil;
+    }
+}
+
+-(void)onPurchaseFail
+{
+}
+
+-(IBAction)onClickAbout:(id)sender
+{
+    if (!settingVC) {
+        settingVC = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
+    }
+
+    if ([[UIDevice currentDevice]isPad]) {
+        
+        if (!popoverVC) {
+            popoverVC = [[UIPopoverController alloc]initWithContentViewController:settingVC];
+            popoverVC.delegate = self;//可不设置，如果不需要的话
+            popoverVC.popoverContentSize=CGSizeMake(250, 320);
+        }
+
+        //显示popover，则理告诉它是为一个矩形框设置popover
+        [popoverVC presentPopoverFromRect:CGRectMake(20, 850, 260, 320) inView:self.view
+                         permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES]; 
+    } else {
+        [self.navigationController pushViewController:settingVC animated:YES];
+    }
 }
 
 - (void)viewDidUnload
@@ -73,6 +131,10 @@
     self.equipmentVC = nil;
     
     self.adView = nil;
+    self.popoverVC = nil;
+    self.settingVC = nil;
+
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -178,7 +240,11 @@
 
 #pragma mark for ads
 - (NSString *)adMoGoApplicationKey {
-	return @"321d8211a8e1423d9e75961189a3929d"; // my
+    if ([[UIDevice currentDevice]isPad]) {
+        return @"97a9493b53dd4ad7a41dd40c0ea25a4e";
+    } else {
+        return @"321d8211a8e1423d9e75961189a3929d"; // my
+    }
 //    return @"bb0bf739cd8f4bbabb74bbaa9d2768bf"; // test
     //此字符串为您的App在芒果上的唯一标识
 }
@@ -192,6 +258,7 @@
     [UIView beginAnimations:@"AdResize" context:nil];
 	[UIView setAnimationDuration:0.7];
 	CGSize adSize = [adView actualAdSize];
+
 	CGRect newFrame = adView.frame;
 	newFrame.size.height = adSize.height;
 	newFrame.size.width = adSize.width;

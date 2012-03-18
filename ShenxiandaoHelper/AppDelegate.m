@@ -20,12 +20,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    if ([[UIDevice currentDevice]isPad]) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController~ipad" bundle:nil];
-    } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    }
-
+    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [navigationController setNavigationBarHidden:YES animated:NO];
     [self.window addSubview:navigationController.view];
