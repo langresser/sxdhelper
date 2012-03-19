@@ -7,8 +7,8 @@
 //
 
 #import "FriendDetailViewController.h"
-#import "AppDelegate.h"
-#import "ViewController.h"
+#import "UIDevice_AMAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation FriendDetailViewController
 @synthesize currentPlayer, labelTitle, labelFuben, labelShengw, labelFeiyong, labelWuli, labelJueji;
@@ -151,16 +151,6 @@
     scrollView.contentSize = CGSizeMake(scrollView.bounds.size.width,
                                         labelPingjia.frame.origin.y + labelPingjia.frame.size.height + 80);
     [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    
-    if (rootVC.shouldShowAds && rootVC.adView) {
-        if ([rootVC.adView superview]) {
-            [rootVC.adView removeFromSuperview];
-        }
-        [self.view addSubview:rootVC.adView];
-    }
 }
 
 @end

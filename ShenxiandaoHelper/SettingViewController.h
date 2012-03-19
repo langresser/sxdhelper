@@ -7,12 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
 #import "iads/AdNetworklibs/YouMi/YouMiWall.h"
 
-//#define APP_FOR_APPSTORE 1
-
-@interface SettingViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, YouMiWallDelegate, UIAlertViewDelegate>
+@interface SettingViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, YouMiWallDelegate, UIAlertViewDelegate>
 {    
     IBOutlet UITableView* tableView_;
 

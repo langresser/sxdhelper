@@ -11,6 +11,8 @@
 #import "InAppPurchaseMgr.h"
 #import "UIDevice_AMAdditions.h"
 #import "UIDevice+IdentifierAddition.h"
+#import "UIImageView+WebCache.h"
+#import "MobClick.h"
 
 @implementation SettingViewController
 @synthesize tableView = tableView_, shouldShowAds, openApps;
@@ -253,6 +255,9 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+            cell.imageView.layer.cornerRadius = 10.0;
+            cell.imageView.layer.masksToBounds = YES;
 
 #ifndef APP_FOR_APPSTORE
             UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(210, 5, 50, 30)];
@@ -275,7 +280,8 @@
 
         cell.textLabel.text = model.name;
         cell.detailTextLabel.text = model.desc;
-        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:model.smallIconURL]]];
+//        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:model.smallIconURL]]];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:model.smallIconURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
         
 #ifndef APP_FOR_APPSTORE
         UILabel* label = (UILabel*)[cell.contentView viewWithTag:100];
@@ -307,15 +313,7 @@
             [[InAppPurchaseMgr sharedInstance]purchaseProUpgrade];
             break;
         case 1:
-        {
-            MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-            mailViewController.mailComposeDelegate = self;
-            [mailViewController setSubject:@"给神仙道小助手的意见"];
-            [mailViewController setToRecipients:[NSArray arrayWithObjects:@"bananastudio@sina.cn", nil]];
-            mailViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-            
-            [self presentModalViewController:mailViewController animated:YES];
-        }
+            [MobClick showFeedback:self];
             break;
         case 2:
         {
@@ -381,10 +379,5 @@
 -(IBAction)onClickReturn:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
-    [self dismissModalViewControllerAnimated:YES];
 }
 @end

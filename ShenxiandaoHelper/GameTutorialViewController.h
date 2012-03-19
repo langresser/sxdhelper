@@ -15,6 +15,8 @@
 @property(nonatomic, strong) GameTutorialDetailViewController* detailVC;
 @property(nonatomic, strong) NSMutableArray* currentTutorial;
 @property(nonatomic, strong) IBOutlet UITableView* tableView_;
+@property(nonatomic, strong) IBOutlet UITextField* textField_;
 
 -(IBAction)onClickReturn:(id)sender;
+-(IBAction)onClickSearch:(id)sender;
 @end

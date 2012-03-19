@@ -44,7 +44,7 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 }
 
 @implementation GameTutorialViewController
-@synthesize tableView_, gameTutorial_, currentTutorial, detailVC;
+@synthesize tableView_, gameTutorial_, currentTutorial, detailVC, textField_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,6 +90,15 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
     self.detailVC = nil;
     self.currentTutorial = nil;
     self.gameTutorial_ = nil;
+    self.textField_ = nil;
+}
+
+-(IBAction)onClickSearch:(id)sender
+{
+    if (![textField_ isFirstResponder]) {
+        textField_.text = @"";
+        [textField_ becomeFirstResponder];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -274,8 +283,8 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
     if (rootVC.shouldShowAds && rootVC.adView) {

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UIDevice_AMAdditions.h"
+#import "MobClick.h"
 
 @class ViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MobClickDelegate, UIAlertViewDelegate>
 {
     UIWindow *window;
     ViewController *viewController;
@@ -21,5 +22,8 @@
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ViewController *viewController;
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) NSString* ignoreUpdateFlag;
+@property (nonatomic, strong) NSString* appStoreURL;
+@property (nonatomic, strong) NSDictionary* backupInfo;
 
 @end

@@ -10,6 +10,7 @@
 #import "UIDevice_AMAdditions.h"
 #import "UIDevice+IdentifierAddition.h"
 #import "InAppPurchaseMgr.h"
+#import "MobClick.h"
 
 @implementation ViewController
 @synthesize isPlayingMusic, btnSound, player, popoverVC, settingVC;
@@ -59,8 +60,12 @@
     }
     
     if (isPlayingMusic) {
+        [MobClick event:@"event_open_sound"];
         [self playSound];
+    } else {
+        [MobClick event:@"event_close_sound"];
     }
+    
 
     if (shouldShowAds) {
         if ([[UIDevice currentDevice]isPad]) {
@@ -108,6 +113,8 @@
 
 -(IBAction)onClickAbout:(id)sender
 {
+    [MobClick event:@"event_click_about"];
+
     if (!settingVC) {
         settingVC = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
     }
@@ -135,7 +142,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    player = nil;
+    self.player = nil;
     self.btnSound = nil;
     
     self.gameTutorialVC = nil;
@@ -182,22 +189,26 @@
 
 -(IBAction)onClickGameTutorial:(id)sender
 {
+    [MobClick event:@"event_open_gonglue"];
     [self.navigationController pushViewController:gameTutorialVC animated:YES];
 }
 
 -(IBAction)onClickFindAnswer:(id)sender
 {
+    [MobClick event:@"event_open_xianlv"];
     [self.navigationController pushViewController:findAnswerVC animated:YES];
 }
 
 -(IBAction)onClickFriends:(id)sender
 {
+    [MobClick event:@"event_open_huoban"];
     [self.navigationController pushViewController:friendsVC animated:YES];
 }
 
 
 -(IBAction)onClickEquipment:(id)sender
 {
+    [MobClick event:@"event_open_cailiao"];
     [self.navigationController pushViewController:equipmentVC animated:YES];
 }
 

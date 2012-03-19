@@ -7,9 +7,9 @@
 //
 
 #import "FriendsViewController.h"
-#import "AppDelegate.h"
-#import "ViewController.h"
 #import "JSONKit.h"
+#import "UIDevice_AMAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation FriendsViewController
 @synthesize scrollView, allPlayers, detailVC, currentPage;
@@ -81,13 +81,12 @@
     self.scrollView = nil;
     self.allPlayers = nil;
     
-    detailVC = nil;
+    self.detailVC = nil;
     
     for (int i = 0; i < PAGE_MAX; ++i) {
         currentPlayers[i] = nil;
     }
 }
-
 
 -(IBAction)onClickReturn:(id)sender
 {
@@ -263,21 +262,6 @@
     if (ascrollView == scrollView) {
         currentPage = ascrollView.contentOffset.x / ascrollView.bounds.size.width;
         [self updateBtn];
-    }
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    
-    if (rootVC.shouldShowAds && rootVC.adView) {
-        if ([rootVC.adView superview]) {
-            [rootVC.adView removeFromSuperview];
-        }
-        [self.view addSubview:rootVC.adView];
     }
 }
 @end

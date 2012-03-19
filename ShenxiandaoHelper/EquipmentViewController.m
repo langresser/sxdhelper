@@ -249,6 +249,14 @@ enum {
     self.fontStyles = nil;
 }
 
+-(IBAction)onClickSearch:(id)sender
+{
+    if (![searchText isFirstResponder]) {
+        searchText.text = @"";
+        [searchText becomeFirstResponder];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -656,7 +664,7 @@ enum {
 {
     [super viewWillAppear:animated];
     
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
     
     if (rootVC.shouldShowAds && rootVC.adView) {

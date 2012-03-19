@@ -14,7 +14,7 @@
 
 @synthesize window;
 @synthesize viewController;
-@synthesize navigationController;
+@synthesize navigationController, ignoreUpdateFlag, appStoreURL, backupInfo;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,6 +25,10 @@
     [navigationController setNavigationBarHidden:YES animated:NO];
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
+
+//    [MobClick setLogEnabled:YES];
+    [MobClick setDelegate:self reportPolicy:BATCH];
+    [MobClick checkUpdate];
     return YES;
 }
 
@@ -71,6 +75,69 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark youmeng
+-(NSString*)appKey
+{ 
+    return @"4f66f75f5270154ffc0000c3";
+}
+
+#ifdef APP_FOR_APPSTORE
+-(NSString*)channelId
+{
+    return @"App Store";
+}
+#elif defined APP_FOR_91
+-(NSString*)channelId
+{
+    return @"91store";
+}
+#elif defined APP_FOR_TONGBU
+-(NSString*)channelId
+{
+    return @"tongbu";
+}
+#elif defined APP_FOR_QQ
+-(NSString*)channelId
+{
+    return @"qqstore";
+}
+#endif
+
+// 自定义appUpdate的实现
+- (void)appUpdate:(NSDictionary *)appInfo {
+    if ([[appInfo objectForKey:@"update"] isEqualToString:@"YES"]) {
+        ignoreUpdateFlag = [[NSString alloc]initWithFormat:@"UpadateFlag%@", [appInfo objectForKey:@"version"]];
+        self.appStoreURL = [appInfo objectForKey:@"path"];
+        BOOL ignore = [[NSUserDefaults standardUserDefaults]boolForKey:ignoreUpdateFlag];
+        
+        if (!ignore) {
+            self.backupInfo = appInfo;
+            // 防止网络阻塞
+            [self performSelectorOnMainThread:@selector(showUpdateView:) withObject:backupInfo waitUntilDone:YES];
+        }
+    }
+}
+
+-(void)showUpdateView:(NSDictionary*) appInfo{
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"有可用的新版本%@", [appInfo objectForKey:@"version"]] message:[appInfo objectForKey:@"update_log"] delegate:self cancelButtonTitle:@"下次再说" otherButtonTitles:@"访问App Store", @"忽略此版本", nil];
+    [alert show];
+    self.backupInfo = nil;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.appStoreURL]];
+    } else if (buttonIndex == 2) {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:ignoreUpdateFlag];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    } else if (buttonIndex == 0) {
+    }
+
+    self.appStoreURL = nil;
+    self.ignoreUpdateFlag = nil;
 }
 
 @end

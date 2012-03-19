@@ -13,7 +13,7 @@
 #import "ViewController.h"
 
 @implementation FindAnswerViewController
-@synthesize currentSearchData_, allFaqData_, tableView_;
+@synthesize currentSearchData_, allFaqData_, tableView_, textField_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +54,7 @@
     self.allFaqData_ = nil;
     self.currentSearchData_ = nil;
     self.tableView_ = nil;
+    self.textField_ = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -62,6 +63,14 @@
         return YES;
     } else {
         return NO;
+    }
+}
+
+-(IBAction)onClickSearch:(id)sender
+{
+    if (![textField_ isFirstResponder]) {
+        textField_.text = @"";
+        [textField_ becomeFirstResponder];
     }
 }
 
@@ -150,8 +159,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     ViewController* rootVC = appDelegate.viewController;
 
     if (rootVC.shouldShowAds && rootVC.adView) {

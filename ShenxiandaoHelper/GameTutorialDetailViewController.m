@@ -7,9 +7,8 @@
 //
 
 #import "GameTutorialDetailViewController.h"
-#import "AppDelegate.h"
-#import "ViewController.h"
 #import "SVWebViewController.h"
+#import "UIDevice_AMAdditions.h"
 
 @implementation GameTutorialDetailViewController
 @synthesize text, titleString, subTitleString;
@@ -151,16 +150,6 @@
     
     [scrollView_ setContentSize:CGSizeMake(CGRectGetWidth(scrollView_.bounds), CGRectGetHeight(coreTextView_.frame) + 40)];
     [scrollView_ setContentOffset:CGPointMake(0, 0)];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    
-    if (rootVC.shouldShowAds && rootVC.adView) {
-        if ([rootVC.adView superview]) {
-            [rootVC.adView removeFromSuperview];
-        }
-        [self.view addSubview:rootVC.adView];
-    }
 }
 
 -(void)viewDidDisappear:(BOOL)animated

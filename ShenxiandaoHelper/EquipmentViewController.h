@@ -30,6 +30,7 @@
 -(IBAction)onClickEquipment:(id)sender;
 -(IBAction)onClickDrug:(id)sender;
 -(IBAction)onClickReturn:(id)sender;
+-(IBAction)onClickSearch:(id)sender;
 
 -(void)search:(NSString*)text;
 -(void)loadFromFile:(NSString*)fileName;
