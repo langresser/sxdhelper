@@ -28,6 +28,7 @@
 
 //    [MobClick setLogEnabled:YES];
     [MobClick setDelegate:self reportPolicy:BATCH];
+    [MobClick updateOnlineConfig];
     [MobClick checkUpdate];
     return YES;
 }

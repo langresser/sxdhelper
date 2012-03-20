@@ -12,8 +12,11 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
-//#define APP_FOR_APPSTORE 1
-#define APP_FOR_91      2
+#define APP_FOR_APPSTORE 1
+//#define APP_FOR_91      2
 //#define APP_FOR_TONGBU  3
 //#define APP_FOR_QQ      4
+
+
+#define ENABLE_OFFER_WALL 0
 #endif

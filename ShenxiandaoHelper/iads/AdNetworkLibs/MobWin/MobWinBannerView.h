@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MobWinBannerViewDelegate.h"
 
 typedef enum {
     MobWINBannerSizeIdentifierUnknow     = 0,
@@ -22,11 +23,11 @@ typedef enum {
 
 // 应用鉴权ID
 // 详解：[必须设定]绑定应用的应用鉴权ID
-@property (nonatomic, retain) NSString *adUnitID;
+@property (nonatomic, copy) NSString *adUnitID;
 
 // 父视图
 // 详解：[必选]需设置为显示广告的UIViewController
-@property (nonatomic, retain) UIViewController *rootViewController;
+@property (nonatomic, assign) UIViewController *rootViewController;
 
 // 测试模式开关
 // 默认测试模式关闭 adTestMode == NO
@@ -53,21 +54,21 @@ typedef enum {
 // @{255/255.0, 255/255.0, 255/255.0, 1.0}
 //
 // 详解：[可选]广告推广标题文本颜色
-@property(nonatomic, retain) UIColor *adTextColor;
+@property(nonatomic, copy) UIColor *adTextColor;
 
 
 // 推广语文本颜色
 // @{255/255.0, 255/255.0, 255/255.0, 1.0}
 //
 // 详解：[可选]广告推广语文本颜色，针对纯文字广告的小字体
-@property(nonatomic, retain) UIColor *adSubtextColor;
+@property(nonatomic, copy) UIColor *adSubtextColor;
 
 
 // 广告条背景颜色
 // @{2.0/255.0, 12.0/255.0, 15.0/255.0, 1.0}
 //
 // 详解：[可选]广告条背景颜色
-@property(nonatomic, retain) UIColor *adBackgroundColor;
+@property(nonatomic, copy) UIColor *adBackgroundColor;
 
 
 // 广告条透明度
@@ -77,6 +78,7 @@ typedef enum {
 @property(nonatomic, assign) CGFloat adAlpha; 
 
 @property(nonatomic, assign) id<MobWinBannerViewDelegate> delegate;
+
 
 #pragma mark -
 #pragma mark PreRequest

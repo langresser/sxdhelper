@@ -30,8 +30,6 @@
 		3B1694991509145A005069BD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B16949815091459005069BD /* Default@2x.png */; };
 		3B19256615159EE6005BB556 /* AdMoGoAdapterGoogleAdMobAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B19254C15159EE6005BB556 /* AdMoGoAdapterGoogleAdMobAds.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B19256715159EE6005BB556 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19255315159EE6005BB556 /* libGoogleAdMobAds.a */; };
-		3B19256815159EE6005BB556 /* AdMoGoAdapterSmartMAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B19255715159EE6005BB556 /* AdMoGoAdapterSmartMAD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3B19256915159EE6005BB556 /* libSmartMad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19255815159EE6005BB556 /* libSmartMad.a */; };
 		3B19256A15159EE6005BB556 /* AdMoGoAdapterYouMi.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B19255E15159EE6005BB556 /* AdMoGoAdapterYouMi.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B19256B15159EE6005BB556 /* AdMoGoAdapterYouMiFullAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B19256015159EE6005BB556 /* AdMoGoAdapterYouMiFullAd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B19256C15159EE6005BB556 /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19256115159EE6005BB556 /* libYouMi.a */; };
@@ -75,6 +73,9 @@
 		3B1A06E9150BAE3700318A2F /* tab_shushi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A06DB150BAE3600318A2F /* tab_shushi.png */; };
 		3B1A06EA150BAE3700318A2F /* tab_wusheng_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A06DC150BAE3700318A2F /* tab_wusheng_c.png */; };
 		3B1A06EB150BAE3700318A2F /* tab_wusheng.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A06DD150BAE3700318A2F /* tab_wusheng.png */; };
+		3B1D3D111518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D3D0A1518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3B1D3D121518F57D00C8B6A0 /* LBSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1D3D0B1518F57D00C8B6A0 /* LBSSDK.framework */; };
+		3B1D3D131518F57D00C8B6A0 /* MobWin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1D3D0C1518F57D00C8B6A0 /* MobWin.a */; };
 		3B21B41E15178A68007E34A8 /* AdMoGoAdapterAdwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B21B40C15178A68007E34A8 /* AdMoGoAdapterAdwo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B21B41F15178A68007E34A8 /* adwoAdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B21B41015178A68007E34A8 /* adwoAdlib.a */; };
 		3B21B42015178A68007E34A8 /* ad50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B21B41215178A68007E34A8 /* ad50.png */; };
@@ -139,9 +140,6 @@
 		3B28E651150EB84B00784D8C /* DoMobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B28E625150EB84B00784D8C /* DoMobViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B28E652150EB84B00784D8C /* libDomob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28E626150EB84B00784D8C /* libDomob.a */; };
 		3B28E653150EB84B00784D8C /* AdMoGoAdapterIAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B28E629150EB84B00784D8C /* AdMoGoAdapterIAd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3B28E654150EB84B00784D8C /* AdMoGoAdapterMobWinAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B28E62D150EB84B00784D8C /* AdMoGoAdapterMobWinAd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3B28E655150EB84B00784D8C /* LBSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28E62E150EB84B00784D8C /* LBSSDK.framework */; };
-		3B28E656150EB84B00784D8C /* MobWin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28E62F150EB84B00784D8C /* MobWin.a */; };
 		3B28E65C150EB89B00784D8C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28E65B150EB89B00784D8C /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3B28E65E150EB8CB00784D8C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28E65D150EB8CB00784D8C /* iAd.framework */; };
 		3B28E660150EB8D400784D8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B28E65F150EB8D400784D8C /* MediaPlayer.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -572,11 +570,6 @@
 		3B19255115159EE6005BB556 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
 		3B19255215159EE6005BB556 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
 		3B19255315159EE6005BB556 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		3B19255615159EE6005BB556 /* AdMoGoAdapterSmartMAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterSmartMAD.h; sourceTree = "<group>"; };
-		3B19255715159EE6005BB556 /* AdMoGoAdapterSmartMAD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterSmartMAD.m; sourceTree = "<group>"; };
-		3B19255815159EE6005BB556 /* libSmartMad.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSmartMad.a; sourceTree = "<group>"; };
-		3B19255915159EE6005BB556 /* SmartMadAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartMadAdView.h; sourceTree = "<group>"; };
-		3B19255A15159EE6005BB556 /* SmartMadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartMadDelegate.h; sourceTree = "<group>"; };
 		3B19255D15159EE6005BB556 /* AdMoGoAdapterYouMi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterYouMi.h; sourceTree = "<group>"; };
 		3B19255E15159EE6005BB556 /* AdMoGoAdapterYouMi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterYouMi.m; sourceTree = "<group>"; };
 		3B19255F15159EE6005BB556 /* AdMoGoAdapterYouMiFullAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterYouMiFullAd.h; sourceTree = "<group>"; };
@@ -631,6 +624,14 @@
 		3B1A06DB150BAE3600318A2F /* tab_shushi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_shushi.png; sourceTree = "<group>"; };
 		3B1A06DC150BAE3700318A2F /* tab_wusheng_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_wusheng_c.png; sourceTree = "<group>"; };
 		3B1A06DD150BAE3700318A2F /* tab_wusheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_wusheng.png; sourceTree = "<group>"; };
+		3B1D3D091518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterMobWinAd.h; sourceTree = "<group>"; };
+		3B1D3D0A1518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterMobWinAd.m; sourceTree = "<group>"; };
+		3B1D3D0B1518F57D00C8B6A0 /* LBSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LBSSDK.framework; sourceTree = "<group>"; };
+		3B1D3D0C1518F57D00C8B6A0 /* MobWin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = MobWin.a; sourceTree = "<group>"; };
+		3B1D3D0D1518F57D00C8B6A0 /* MobWinBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinBannerView.h; sourceTree = "<group>"; };
+		3B1D3D0E1518F57D00C8B6A0 /* MobWinBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinBannerViewDelegate.h; sourceTree = "<group>"; };
+		3B1D3D0F1518F57D00C8B6A0 /* MobWinSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinSpotView.h; sourceTree = "<group>"; };
+		3B1D3D101518F57D00C8B6A0 /* MobWinSpotViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinSpotViewDelegate.h; sourceTree = "<group>"; };
 		3B21B40B15178A68007E34A8 /* AdMoGoAdapterAdwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterAdwo.h; sourceTree = "<group>"; };
 		3B21B40C15178A68007E34A8 /* AdMoGoAdapterAdwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterAdwo.m; sourceTree = "<group>"; };
 		3B21B40E15178A68007E34A8 /* AWAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWAdView.h; sourceTree = "<group>"; };
@@ -736,14 +737,6 @@
 		3B28E626150EB84B00784D8C /* libDomob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomob.a; sourceTree = "<group>"; };
 		3B28E628150EB84B00784D8C /* AdMoGoAdapterIAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterIAd.h; sourceTree = "<group>"; };
 		3B28E629150EB84B00784D8C /* AdMoGoAdapterIAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterIAd.m; sourceTree = "<group>"; };
-		3B28E62C150EB84B00784D8C /* AdMoGoAdapterMobWinAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoGoAdapterMobWinAd.h; sourceTree = "<group>"; };
-		3B28E62D150EB84B00784D8C /* AdMoGoAdapterMobWinAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoGoAdapterMobWinAd.m; sourceTree = "<group>"; };
-		3B28E62E150EB84B00784D8C /* LBSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LBSSDK.framework; sourceTree = "<group>"; };
-		3B28E62F150EB84B00784D8C /* MobWin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = MobWin.a; sourceTree = "<group>"; };
-		3B28E630150EB84B00784D8C /* MobWinBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinBannerView.h; sourceTree = "<group>"; };
-		3B28E631150EB84B00784D8C /* MobWinBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinBannerViewDelegate.h; sourceTree = "<group>"; };
-		3B28E632150EB84B00784D8C /* MobWinSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinSpotView.h; sourceTree = "<group>"; };
-		3B28E633150EB84B00784D8C /* MobWinSpotViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobWinSpotViewDelegate.h; sourceTree = "<group>"; };
 		3B28E65B150EB89B00784D8C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3B28E65D150EB8CB00784D8C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3B28E65F150EB8D400784D8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -1190,13 +1183,12 @@
 				3B3AAA3A14F69D15003BA5B8 /* CoreGraphics.framework in Frameworks */,
 				3B28E537150E9F4200784D8C /* libAdMoGo.a in Frameworks */,
 				3B28E652150EB84B00784D8C /* libDomob.a in Frameworks */,
-				3B28E655150EB84B00784D8C /* LBSSDK.framework in Frameworks */,
-				3B28E656150EB84B00784D8C /* MobWin.a in Frameworks */,
 				3B19256715159EE6005BB556 /* libGoogleAdMobAds.a in Frameworks */,
-				3B19256915159EE6005BB556 /* libSmartMad.a in Frameworks */,
 				3B19256C15159EE6005BB556 /* libYouMi.a in Frameworks */,
 				3B21B41F15178A68007E34A8 /* adwoAdlib.a in Frameworks */,
 				3B21B4321517951E007E34A8 /* libMobClickLibrary.a in Frameworks */,
+				3B1D3D121518F57D00C8B6A0 /* LBSSDK.framework in Frameworks */,
+				3B1D3D131518F57D00C8B6A0 /* MobWin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,27 +1239,6 @@
 			children = (
 				3B19254B15159EE6005BB556 /* AdMoGoAdapterGoogleAdMobAds.h */,
 				3B19254C15159EE6005BB556 /* AdMoGoAdapterGoogleAdMobAds.m */,
-			);
-			path = AdsMoGoAdapter;
-			sourceTree = "<group>";
-		};
-		3B19255415159EE6005BB556 /* SmartMad */ = {
-			isa = PBXGroup;
-			children = (
-				3B19255515159EE6005BB556 /* AdsMoGoAdapter */,
-				3B19255815159EE6005BB556 /* libSmartMad.a */,
-				3B19255915159EE6005BB556 /* SmartMadAdView.h */,
-				3B19255A15159EE6005BB556 /* SmartMadDelegate.h */,
-			);
-			name = SmartMad;
-			path = AdNetworkLibs/SmartMad;
-			sourceTree = "<group>";
-		};
-		3B19255515159EE6005BB556 /* AdsMoGoAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				3B19255615159EE6005BB556 /* AdMoGoAdapterSmartMAD.h */,
-				3B19255715159EE6005BB556 /* AdMoGoAdapterSmartMAD.m */,
 			);
 			path = AdsMoGoAdapter;
 			sourceTree = "<group>";
@@ -1349,6 +1320,30 @@
 				3B1A06AE150B4EA200318A2F /* 1.txt */,
 			);
 			path = text;
+			sourceTree = "<group>";
+		};
+		3B1D3D071518F57D00C8B6A0 /* MobWin */ = {
+			isa = PBXGroup;
+			children = (
+				3B1D3D081518F57D00C8B6A0 /* AdsMoGoAdapter */,
+				3B1D3D0B1518F57D00C8B6A0 /* LBSSDK.framework */,
+				3B1D3D0C1518F57D00C8B6A0 /* MobWin.a */,
+				3B1D3D0D1518F57D00C8B6A0 /* MobWinBannerView.h */,
+				3B1D3D0E1518F57D00C8B6A0 /* MobWinBannerViewDelegate.h */,
+				3B1D3D0F1518F57D00C8B6A0 /* MobWinSpotView.h */,
+				3B1D3D101518F57D00C8B6A0 /* MobWinSpotViewDelegate.h */,
+			);
+			name = MobWin;
+			path = AdNetworkLibs/MobWin;
+			sourceTree = "<group>";
+		};
+		3B1D3D081518F57D00C8B6A0 /* AdsMoGoAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				3B1D3D091518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.h */,
+				3B1D3D0A1518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.m */,
+			);
+			path = AdsMoGoAdapter;
 			sourceTree = "<group>";
 		};
 		3B21B40915178A68007E34A8 /* Adwo */ = {
@@ -1547,13 +1542,12 @@
 		3B28E55A150EA39600784D8C /* AdNetworkLibs */ = {
 			isa = PBXGroup;
 			children = (
+				3B1D3D071518F57D00C8B6A0 /* MobWin */,
 				3B21B40915178A68007E34A8 /* Adwo */,
 				3B19254915159EE6005BB556 /* AdMob */,
-				3B19255415159EE6005BB556 /* SmartMad */,
 				3B19255B15159EE6005BB556 /* YouMi */,
 				3B28E61B150EB84B00784D8C /* DoMob */,
 				3B28E627150EB84B00784D8C /* iAd */,
-				3B28E62A150EB84B00784D8C /* MobWin */,
 			);
 			name = AdNetworkLibs;
 			sourceTree = "<group>";
@@ -1606,30 +1600,6 @@
 			);
 			name = iAd;
 			path = AdNetworkLibs/iAd;
-			sourceTree = "<group>";
-		};
-		3B28E62A150EB84B00784D8C /* MobWin */ = {
-			isa = PBXGroup;
-			children = (
-				3B28E62B150EB84B00784D8C /* AdsMoGoAdapter */,
-				3B28E62E150EB84B00784D8C /* LBSSDK.framework */,
-				3B28E62F150EB84B00784D8C /* MobWin.a */,
-				3B28E630150EB84B00784D8C /* MobWinBannerView.h */,
-				3B28E631150EB84B00784D8C /* MobWinBannerViewDelegate.h */,
-				3B28E632150EB84B00784D8C /* MobWinSpotView.h */,
-				3B28E633150EB84B00784D8C /* MobWinSpotViewDelegate.h */,
-			);
-			name = MobWin;
-			path = AdNetworkLibs/MobWin;
-			sourceTree = "<group>";
-		};
-		3B28E62B150EB84B00784D8C /* AdsMoGoAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				3B28E62C150EB84B00784D8C /* AdMoGoAdapterMobWinAd.h */,
-				3B28E62D150EB84B00784D8C /* AdMoGoAdapterMobWinAd.m */,
-			);
-			path = AdsMoGoAdapter;
 			sourceTree = "<group>";
 		};
 		3B3AAA2614F69D14003BA5B8 = {
@@ -2685,9 +2655,7 @@
 				3B28E64F150EB84B00784D8C /* AdMoGoAdapterDoMob.m in Sources */,
 				3B28E651150EB84B00784D8C /* DoMobViewController.m in Sources */,
 				3B28E653150EB84B00784D8C /* AdMoGoAdapterIAd.m in Sources */,
-				3B28E654150EB84B00784D8C /* AdMoGoAdapterMobWinAd.m in Sources */,
 				3B19256615159EE6005BB556 /* AdMoGoAdapterGoogleAdMobAds.m in Sources */,
-				3B19256815159EE6005BB556 /* AdMoGoAdapterSmartMAD.m in Sources */,
 				3B19256A15159EE6005BB556 /* AdMoGoAdapterYouMi.m in Sources */,
 				3B19256B15159EE6005BB556 /* AdMoGoAdapterYouMiFullAd.m in Sources */,
 				3B19257A1515A485005BB556 /* SVModalWebViewController.m in Sources */,
@@ -2706,6 +2674,7 @@
 				3B21B66B1517CB67007E34A8 /* UIButton+WebCache.m in Sources */,
 				3B21B66C1517CB67007E34A8 /* UIImageView+WebCache.m in Sources */,
 				3B21B6711517CDCD007E34A8 /* SDNetworkActivityIndicator.m in Sources */,
+				3B1D3D111518F57D00C8B6A0 /* AdMoGoAdapterMobWinAd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

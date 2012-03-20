@@ -65,10 +65,15 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestOffersOpenDataSuccess:) name:YOUMI_OFFERS_APP_DATA_RESPONSE_NOTIFICATION object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestOffersOpenDataFail:) name:YOUMI_OFFERS_APP_DATA_RESPONSE_NOTIFICATION_ERROR object:nil];
         
-        // 关于积分查询观察者
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissFullScreen:) name:YOUMI_WALL_VIEW_CLOSED_NOTIFICATION object:nil];
-        
+#if ENABLE_OFFER_WALL == 1
+        // 关于积分查询观察者        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestPointSuccess:) name:YOUMI_EARNED_POINTS_RESPONSE_NOTIFICATION object:nil];
+
+        [wall requestOffersAppData:YES pageCount:15];
+#else
+        [wall requestOffersAppData:NO pageCount:15];
+#endif
+
     } else {
         wall = nil;
         openApps = nil;
@@ -88,8 +93,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Actions
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -99,22 +102,15 @@
 
         if (openApps) {
             [openApps removeAllObjects];
+            [self.tableView reloadData];
         }
 
-        openApps = nil;
-
-        [self.tableView reloadData];
-    } else if (wall && openApps) {// 请求开源数据
-#ifndef APP_FOR_APPSTORE
-        [wall requestOffersAppData:YES pageCount:15];
-#else
-        [wall requestOffersAppData:NO pageCount:15];
-#endif
+        self.openApps = nil;
     }
 }
 
 #pragma mark - YouMiWall delegate
-
+// 请求积分墙数据成功
 - (void)requestOffersOpenDataSuccess:(NSNotification *)note {
     if (openApps) {
         [openApps removeAllObjects];
@@ -131,11 +127,9 @@
     // do nothing
 }
 
+// 请求积分数据成功
 - (void)requestPointSuccess:(NSNotification *)note {
     NSDictionary *info = [note userInfo];
-#ifdef DEBUG
-    NSLog(@"%@", info);
-#endif
 
     NSArray *records = [info valueForKey:YOUMI_WALL_NOTIFICATION_USER_INFO_EARNED_POINTS_KEY];    
     for (NSDictionary *oneRecord in records) {
@@ -161,7 +155,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (wall && openApps && shouldShowAds) {
+    if (shouldShowAds && wall && openApps) {
         return 2;
     } else {
         return 1;
@@ -195,7 +189,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-#ifdef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 0
         return 3;
 #else
         if (shouldShowAds) {
@@ -238,7 +232,7 @@
                 cell.textLabel.text =  @"给我们打分";
                 cell.detailTextLabel.text = @"";
                 break;
-#ifndef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 1
             case 3:
                 cell.textLabel.text = @"消耗200积分去除广告";
                 cell.detailTextLabel.text = [NSString stringWithFormat:@"当前积分:%d", point];
@@ -259,7 +253,7 @@
             cell.imageView.layer.cornerRadius = 10.0;
             cell.imageView.layer.masksToBounds = YES;
 
-#ifndef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 1
             UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(210, 5, 50, 30)];
             label.tag = 100;
             label.textColor = [UIColor orangeColor];
@@ -283,7 +277,7 @@
 //        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:model.smallIconURL]]];
         [cell.imageView setImageWithURL:[NSURL URLWithString:model.smallIconURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
         
-#ifndef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 1
         UILabel* label = (UILabel*)[cell.contentView viewWithTag:100];
         if (label) {
             label.text = [NSString stringWithFormat:@"%d积分", model.points];
@@ -324,7 +318,7 @@
         
         }
             break;
-#ifndef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 1
         case 3:
         {
             if (point < 200) {
@@ -347,7 +341,7 @@
             YouMiWallAppModel *model = [openApps objectAtIndex:indexPath.row];
             [wall userInstallOffersApp:model];
 
-#ifndef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 1
             // 查询积分
             [wall requestEarnedPointsWithTimeInterval:10.0 repeatCount:20];
 #endif
@@ -357,7 +351,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-#ifndef APP_FOR_APPSTORE
+#if ENABLE_OFFER_WALL == 1
     if (alertView.tag == 200) {
         if (buttonIndex == 1) {
             // 杀广告
