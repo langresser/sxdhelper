@@ -8,8 +8,8 @@
 
 #import "GameTutorialViewController.h"
 #import "JSONKit.h"
-#import "AppDelegate.h"
-#import "ViewController.h"
+#import "UIDevice_AMAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* content)
 {
@@ -279,20 +279,4 @@ static NSInteger sortByDate(NSDictionary* data1, NSDictionary* data2, void* cont
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    ViewController* rootVC = appDelegate.viewController;
-    
-    if (rootVC.shouldShowAds && rootVC.adView) {
-        if ([rootVC.adView superview]) {
-            [rootVC.adView removeFromSuperview];
-        }
-        [self.view addSubview:rootVC.adView];
-    }
-}
-
 @end

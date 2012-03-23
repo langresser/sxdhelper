@@ -106,6 +106,13 @@
         }
 
         self.openApps = nil;
+    } else {
+#if ENABLE_OFFER_WALL == 1
+        if (wall) {
+            // 查询积分
+            [wall requestEarnedPoints];
+        }
+#endif
     }
 }
 
@@ -131,6 +138,9 @@
 - (void)requestPointSuccess:(NSNotification *)note {
     NSDictionary *info = [note userInfo];
 
+#ifdef DEBUG
+    NSLog(@"requestPointSuccess: %@", info);
+#endif
     NSArray *records = [info valueForKey:YOUMI_WALL_NOTIFICATION_USER_INFO_EARNED_POINTS_KEY];    
     for (NSDictionary *oneRecord in records) {
         NSString *userID = (NSString *)[oneRecord objectForKey:kOneAccountRecordUserIDOpenKey];
@@ -340,11 +350,6 @@
             
             YouMiWallAppModel *model = [openApps objectAtIndex:indexPath.row];
             [wall userInstallOffersApp:model];
-
-#if ENABLE_OFFER_WALL == 1
-            // 查询积分
-            [wall requestEarnedPointsWithTimeInterval:10.0 repeatCount:20];
-#endif
         }
     }
 }
